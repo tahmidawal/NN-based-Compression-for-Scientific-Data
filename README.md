@@ -6,6 +6,8 @@ A deep learning compression system implementing **Sliced-Wasserstein Autoencoder
 
 This project implements a neural network-based compression system specifically designed for 3D scientific simulation data. We have successfully implemented a **pure SWAE (Sliced-Wasserstein Autoencoder)** architecture for reconstructing 3D mathematical functions of the form `sin(2πk₁x)sin(2πk₂y)sin(2πk₃z)` with high fidelity compression.
 
+**Current Focus**: Adapting the SWAE architecture for **U_CHI variable data** from GR (General Relativity) simulation datasets, with ongoing improvements to address reconstruction quality issues.
+
 ## Current Implementation: SWAE 3D Architecture
 
 We have implemented a complete SWAE system based on the paper *"Exploring Autoencoder-based Error-bounded Compression for Scientific Data"* with the following architecture:
@@ -51,7 +53,7 @@ graph LR
     direction TB
     M["Reconstruction Loss<br/>L_recon = MSE(x, x̂)"]
     N["Sliced Wasserstein Distance<br/>L_SW = SW(z, z_prior)"]
-    O["Total Loss<br/>L = L_recon + λ·L_SW<br/>λ = 10.0"]
+    O["Total Loss<br/>L = L_recon + λ·L_SW<br/>λ = 1.0 (adjusted)"]
     M --> O
     N --> O
   end
@@ -77,11 +79,30 @@ graph LR
 - **Mathematical Function Reconstruction**: Specialized for `sin(2πk₁x)sin(2πk₂y)sin(2πk₃z)` functions
 - **Proven Architecture**: Based on established research with [32, 64, 128] channel configuration
 
+## U_CHI Dataset Implementation
+
+### Dataset Characteristics
+- **Source**: GR simulation HDF5 files containing U_CHI variable data
+- **Block Size**: 7×7×7 (adapted from original 8×8×8)
+- **Data Shape**: (num_samples, 1, 7, 7, 7)
+- **Value Range**: Normalized between 0 and 1
+- **Variability**: High dynamic range with significant spatial variations
+
+### Current Issues Identified
+1. **Poor Reconstruction Quality**: PSNR remains low (~3-6 dB) despite low MSE
+2. **Data Variability**: Unnecessary complexity in the data distribution
+3. **Architectural Mismatch**: 7×7×7 input with 8×8×8 decoder output requiring cropping
+4. **Regularization Impact**: High lambda_reg (10.0) was causing over-regularization
+
+### Recent Improvements
+- **Reduced Regularization**: λ_reg adjusted from 10.0 to 1.0
+- **Enhanced Monitoring**: Added latent space range and correlation tracking
+- **Improved Inference**: VTI file generation and detailed slice comparisons
+- **Batch Size Optimization**: Increased to 64 for better training stability
+
 ## Current Results
 
-We have achieved successful reconstruction of 3D mathematical functions with the following performance metrics:
-
-### Sample Results (128×128×128 Resolution)
+### Mathematical Function Results (128×128×128 Resolution)
 - **Original data range**: [-0.999771, 0.999771]
 - **Reconstructed data range**: [-1.257744, 1.342528]
 - **Mean Squared Error (MSE)**: 0.00684822
@@ -89,36 +110,46 @@ We have achieved successful reconstruction of 3D mathematical functions with the
 - **Peak Signal-to-Noise Ratio (PSNR)**: 21.64 dB
 - **Structural Similarity (correlation)**: 0.972412
 
-### Generated Visualizations
-- `sample_009_128x128x128_comparison_slices.png`: Comprehensive slice comparison
-- `vti_comparison_slices.png`: VTI format visualization
-- Detailed axis-wise comparisons and error analysis
+### U_CHI Dataset Results (Current Training)
+- **Training Status**: Ongoing with 130+ epochs
+- **Validation PSNR**: ~3-6 dB (needs improvement)
+- **MSE**: Low but reconstruction quality poor
+- **Issue**: Model is learning compressed representation but failing at reconstruction
 
-## Data Format
+## Proposed Improvements
 
-The system currently works with:
-- **3D Mathematical Functions**: `sin(2πk₁x)sin(2πk₂y)sin(2πk₃z)` with k ∈ {2,3,4,5,6}
-- **Volume Size**: 40×40×40 → 128×128×128 (validation)
-- **Block Processing**: 8×8×8 blocks (125 blocks per volume)
-- **Output Format**: VTI files for scientific visualization
+### 1. Log-Scale Processing
+**Problem**: High data variability causing reconstruction difficulties
+**Solution**: Apply log-scale transformation to reduce dynamic range
 
-## Next Steps: Thera Integration
+```python
+# Proposed preprocessing
+def log_scale_transform(data, epsilon=1e-8):
+    """Apply log-scale transformation to reduce dynamic range"""
+    return torch.log(data + epsilon)
 
-We are planning to integrate **Thera Neural Heat Fields** for continuous upsampling, eliminating block assembly artifacts and providing anti-aliased reconstruction at arbitrary resolutions.
+def inverse_log_scale_transform(log_data, epsilon=1e-8):
+    """Inverse log-scale transformation"""
+    return torch.exp(log_data) - epsilon
+```
+
+### 2. Thera Integration
+**Problem**: Block-based reconstruction with assembly artifacts
+**Solution**: Integrate Thera Neural Heat Fields for continuous reconstruction
 
 ### Planned SWAE + Thera Architecture
 
 ```mermaid
 graph TD
-    A["Input Block<br/>(B,1,8,8,8)"] --> B["SWAE Encoder<br/>φ(x): (8×8×8) → z₁₆"]
+    A["Input Block<br/>(B,1,7,7,7)"] --> B["SWAE Encoder<br/>φ(x): (7×7×7) → z₁₆"]
     B --> C["Latent Space<br/>(B, 16)"]
     C --> D["Shared Decoder<br/>Backbone"]
     D --> E["Shared Features<br/>(B, 32, 4, 4, 4)"]
     
-    E --> F["Reconstruction Head<br/>→ (B,1,8,8,8)"]
+    E --> F["Reconstruction Head<br/>→ (B,1,7,7,7)"]
     E --> G["Thera Parameters Head<br/>→ b₁, W₂"]
     
-    F --> H["8×8×8 Reconstruction<br/>(for auxiliary loss)"]
+    F --> H["7×7×7 Reconstruction<br/>(for auxiliary loss)"]
     G --> I["3D Neural Heat Field<br/>Φ(x,y,z,t)"]
     I --> J["Continuous Upsampling<br/>→ (40×40×40)"]
     
@@ -148,30 +179,49 @@ graph TD
 - **Multi-scale Capability**: Single model for multiple resolutions
 - **Thermal Activation**: `ξ(z,ν,κ,t) = sin(z)·exp(-|ν|²κt)` for frequency control
 
+### 3. Architectural Refinements
+- **Consistent Block Sizes**: Align encoder/decoder for 7×7×7 throughout
+- **Improved Loss Functions**: Consider perceptual losses or SSIM
+- **Data Augmentation**: Rotation, scaling for better generalization
+
+## Data Format
+
+The system currently works with:
+- **3D Mathematical Functions**: `sin(2πk₁x)sin(2πk₂y)sin(2πk₃z)` with k ∈ {2,3,4,5,6}
+- **U_CHI GR Data**: 7×7×7 blocks from HDF5 simulation files
+- **Volume Size**: 40×40×40 → 128×128×128 (validation)
+- **Block Processing**: 7×7×7 blocks (adapted from 8×8×8)
+- **Output Format**: VTI files for scientific visualization
+
 ## Future Goals
 
-1. **GR Dataset Testing**: Evaluate SWAE architecture on General Relativity simulation data
-2. **Thera Implementation**: Integrate 3D Neural Heat Fields for continuous reconstruction
+1. **Log-Scale Implementation**: Reduce data variability for better reconstruction
+2. **Thera Integration**: Continuous reconstruction without block artifacts
 3. **Multi-scale Evaluation**: Test reconstruction at various resolutions
 4. **Performance Optimization**: Improve compression ratios and reconstruction quality
+5. **GR Dataset Optimization**: Fine-tune for U_CHI variable characteristics
 
 ## Project Structure
 
 ```
 ├── models/
 │   ├── swae_pure_3d.py          # Pure SWAE 3D implementation
+│   ├── swae_pure_3d_7x7x7.py    # 7×7×7 adapted SWAE
 │   ├── swae.py                  # SWAE with LIIF integration
 │   ├── thera_3d.py              # 3D Thera neural heat fields
 │   └── liif_3d.py               # 3D LIIF framework
 ├── datasets/
 │   ├── math_function_3d.py      # 3D mathematical function dataset
+│   ├── u_chi_dataset.py         # U_CHI GR dataset implementation
 │   └── swae_3d_dataset.py       # SWAE-specific dataset wrapper
 ├── configs/
 │   └── train-3d/               # Training configurations
 ├── validation_128_inference_results/  # 128³ validation results
 ├── validation_inference_results/      # 40³ validation results
+├── validation_u_chi_results_*/        # U_CHI validation results
 ├── train_swae_3d_pure.py        # Pure SWAE training script
-└── inference_swae_3d_128_validation.py  # Validation inference
+├── train_swae_u_chi.py          # U_CHI dataset training
+└── inference_swae_u_chi_validation.py  # U_CHI validation inference
 ```
 
 ## Installation
@@ -183,29 +233,37 @@ cd NN-based-Compression-for-Scientific-Data
 
 # Install dependencies
 pip install torch torchvision torchaudio
-pip install vtk matplotlib numpy pyyaml
+pip install vtk matplotlib numpy pyyaml h5py
 ```
 
 ## Usage
 
-### Training SWAE Model
+### Training SWAE Model (Mathematical Functions)
 
 ```bash
 python train_swae_3d_pure.py --config configs/train-3d/train_swae_thera_3d.yaml
+```
+
+### Training SWAE Model (U_CHI Dataset)
+
+```bash
+python train_swae_u_chi.py --config configs/train-3d/train_swae_thera_3d.yaml
 ```
 
 ### Running Inference
 
 ```bash
 python inference_swae_3d_128_validation.py --model_path save/swae_3d_model.pth
+python inference_swae_u_chi_validation.py --model_path save/swae_u_chi_model.pth
 ```
 
-### Generating Comparisons
+## Current Status
 
-```bash
-cd validation_128_inference_results
-python compare_vti_slices.py
-```
+- ✅ **Mathematical Function SWAE**: Fully implemented and working
+- ✅ **U_CHI Dataset**: Implemented and training
+- 🔄 **Reconstruction Quality**: Needs improvement (log-scale + Thera)
+- 🔄 **Thera Integration**: Planned for continuous reconstruction
+- 🔄 **Log-Scale Processing**: Proposed for data variability reduction
 
 ## Technical Specifications
 
