@@ -1,0 +1,409 @@
+Using device: cuda
+Loading U_CHI datasets for UNBIASED testing...
+🔒 Using FIXED test set (5% of data) - NEVER seen during training
+🔒 Creating datasets with FIXED splits: train=80.0%, val=15.0%, test=5.0%
+🎯 Using FIXED seed=42 to ensure test set is always the same samples
+⚠️  Warning: Test ratio is 5.0%, not the intended 5%
+Found 13 HDF5 files in /u/tawal/0620-NN-based-compression-thera/tt_q01/
+Loading bssn_gr_0_extracted.hdf5...
+Available keys: ['centers', 'dx', 'dy', 'dz', 'levels', 'var_data', 'vars', 'vars_use']
+Available variables: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5', 'C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_1200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2224, 7, 7, 7)
+Loading bssn_gr_1600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_2000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2284, 7, 7, 7)
+Loading bssn_gr_2400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_2800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_3200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2206, 7, 7, 7)
+Loading bssn_gr_3600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Loading bssn_gr_4000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_4400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2176, 7, 7, 7)
+Loading bssn_gr_4800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2218, 7, 7, 7)
+Loading bssn_gr_800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Total U_CHI data shape: (28960, 1, 7, 7, 7)
+🔒 Applied deterministic shuffle with seed=42 for reproducible splits
+🔒 FIXED Data Split: 28960 total → 23168 train (80.0%), 4344 val (15.0%), 1448 test (5.0%)
+🎯 TEST SET: 1448 samples (5%) - NEVER seen during training/validation
+Using training data: (23168, 1, 7, 7, 7)
+Applying per-sample positive-shift log normalization...
+Applied per-sample positive-shift log normalization:
+  epsilon=1e-08
+  Per-sample data_min range: [0.000100, 0.996016]
+  Result should have mean~4.5, std~1.1 properties
+U_CHI Dataset initialized:
+  Split: train
+  Data shape: (23168, 1, 7, 7, 7)
+  Split ratios: train=80.0%, val=15.0%, test=5.0%
+  Data range: [-17.727534, -2.386085]
+  Data mean: -4.503266
+  Data std: 1.542684
+Found 13 HDF5 files in /u/tawal/0620-NN-based-compression-thera/tt_q01/
+Loading bssn_gr_0_extracted.hdf5...
+Available keys: ['centers', 'dx', 'dy', 'dz', 'levels', 'var_data', 'vars', 'vars_use']
+Available variables: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5', 'C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_1200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2224, 7, 7, 7)
+Loading bssn_gr_1600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_2000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2284, 7, 7, 7)
+Loading bssn_gr_2400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_2800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_3200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2206, 7, 7, 7)
+Loading bssn_gr_3600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Loading bssn_gr_4000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_4400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2176, 7, 7, 7)
+Loading bssn_gr_4800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2218, 7, 7, 7)
+Loading bssn_gr_800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Total U_CHI data shape: (28960, 1, 7, 7, 7)
+🔒 Applied deterministic shuffle with seed=42 for reproducible splits
+🔒 FIXED Data Split: 28960 total → 23168 train (80.0%), 4344 val (15.0%), 1448 test (5.0%)
+🎯 TEST SET: 1448 samples (5%) - NEVER seen during training/validation
+Using validation data: (4344, 1, 7, 7, 7)
+Applying per-sample positive-shift log normalization...
+Applied per-sample positive-shift log normalization:
+  epsilon=1e-08
+  Per-sample data_min range: [0.000100, 0.996016]
+  Result should have mean~4.5, std~1.1 properties
+U_CHI Dataset initialized:
+  Split: val
+  Data shape: (4344, 1, 7, 7, 7)
+  Split ratios: train=80.0%, val=15.0%, test=5.0%
+  Data range: [-17.727534, -2.417659]
+  Data mean: -4.501234
+  Data std: 1.534708
+Found 13 HDF5 files in /u/tawal/0620-NN-based-compression-thera/tt_q01/
+Loading bssn_gr_0_extracted.hdf5...
+Available keys: ['centers', 'dx', 'dy', 'dz', 'levels', 'var_data', 'vars', 'vars_use']
+Available variables: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5', 'C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_1200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2224, 7, 7, 7)
+Loading bssn_gr_1600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_2000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2284, 7, 7, 7)
+Loading bssn_gr_2400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_2800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_3200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2206, 7, 7, 7)
+Loading bssn_gr_3600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Loading bssn_gr_4000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_4400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2176, 7, 7, 7)
+Loading bssn_gr_4800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2218, 7, 7, 7)
+Loading bssn_gr_800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Total U_CHI data shape: (28960, 1, 7, 7, 7)
+🔒 Applied deterministic shuffle with seed=42 for reproducible splits
+🔒 FIXED Data Split: 28960 total → 23168 train (80.0%), 4344 val (15.0%), 1448 test (5.0%)
+🎯 TEST SET: 1448 samples (5%) - NEVER seen during training/validation
+Using test data: (1448, 1, 7, 7, 7)
+Applying per-sample positive-shift log normalization...
+Applied per-sample positive-shift log normalization:
+  epsilon=1e-08
+  Per-sample data_min range: [0.000100, 0.996016]
+  Result should have mean~4.5, std~1.1 properties
+U_CHI Dataset initialized:
+  Split: test
+  Data shape: (1448, 1, 7, 7, 7)
+  Split ratios: train=80.0%, val=15.0%, test=5.0%
+  Data range: [-17.727534, -2.398501]
+  Data mean: -4.491794
+  Data std: 1.556796
+🎯 Using FIXED TEST dataset (5% of data): 1448 samples
+📊 Data splits: Train=23168 (80%), Val=4344 (15%), Test=1448 (5%)
+⚠️  CRITICAL: Testing on held-out test set - NEVER seen during training or validation
+🔒 Test set is deterministic (seed=42) - same samples across all runs
+Loading model from ./save/swae_u_chi_multi_latent_20250627_191917/latent_dim_8/best_model.pth
+Model loaded successfully (epoch 438)
+Model parameters: latent_dim=8, lambda_reg=0.9
+
+🚀 SPEED BENCHMARKING
+Benchmarking compression/decompression speeds...
+Samples: 100, Batch size: 32
+Created 3 test batches for benchmarking
+  Benchmarking batch 1/3...
+  Benchmarking batch 2/3...
+  Benchmarking batch 3/3...
+Selected samples for VTI output: [8, 1]
+
+Running validation inference...
+Note: Two comparison plots will be generated for each sample:
+      1. Normalized (log pos) scale - as model sees the data
+      2. Denormalized (original) scale - in physical units
+      VTI files will be saved in normalized (log pos) scale
+      Metrics are calculated on denormalized (original physical units) data
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_000_comparison_slices_normalized.png
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_000_comparison_slices_denormalized.png
+Sample 1/10:
+  Normalized (log pos) range: [-17.727533, -4.179914]
+  Denormalized (original) range: [0.961169, 0.976469]
+  MSE (on denormalized): 0.000000
+  PSNR (on denormalized): 26.91 dB
+  MAE (on denormalized): 0.000496
+  Correlation (on denormalized): 0.986307
+  Mean Relative Error: 0.05%
+  Max Relative Error: 0.26%
+  Global Relative Error: 0.07%
+  Error range (normalized): [-0.391253, 0.371428]
+  ✓ Generated comparison plots for both normalized and denormalized scales
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_001_comparison_slices_normalized.png
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_001_comparison_slices_denormalized.png
+Saved VTI file: inference_multi_latent_results_20250628_195703/latent_dim_8/vti_files/sample_001_original_normalized.vti
+Saved VTI file: inference_multi_latent_results_20250628_195703/latent_dim_8/vti_files/sample_001_reconstructed_normalized.vti
+Saved VTI file: inference_multi_latent_results_20250628_195703/latent_dim_8/vti_files/sample_001_error_normalized.vti
+Sample 2/10:
+  Normalized (log pos) range: [-17.727533, -2.952779]
+  Denormalized (original) range: [0.732593, 0.784788]
+  MSE (on denormalized): 0.000001
+  PSNR (on denormalized): 34.07 dB
+  MAE (on denormalized): 0.000750
+  Correlation (on denormalized): 0.997276
+  Mean Relative Error: 0.10%
+  Max Relative Error: 0.47%
+  Global Relative Error: 0.14%
+  Error range (normalized): [-0.119328, 0.117987]
+  ✓ Generated comparison plots for both normalized and denormalized scales
+  ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_002_comparison_slices_normalized.png
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_002_comparison_slices_denormalized.png
+Sample 3/10:
+  Normalized (log pos) range: [-17.727533, -3.659573]
+  Denormalized (original) range: [0.585212, 0.610955]
+  MSE (on denormalized): 0.000000
+  PSNR (on denormalized): 35.56 dB
+  MAE (on denormalized): 0.000305
+  Correlation (on denormalized): 0.998041
+  Mean Relative Error: 0.05%
+  Max Relative Error: 0.28%
+  Global Relative Error: 0.07%
+  Error range (normalized): [-0.275959, 0.091121]
+  ✓ Generated comparison plots for both normalized and denormalized scales
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_003_comparison_slices_normalized.png
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_003_comparison_slices_denormalized.png
+Sample 4/10:
+  Normalized (log pos) range: [-17.727533, -3.384639]
+  Denormalized (original) range: [0.814145, 0.848035]
+  MSE (on denormalized): 0.000000
+  PSNR (on denormalized): 35.86 dB
+  MAE (on denormalized): 0.000403
+  Correlation (on denormalized): 0.997655
+  Mean Relative Error: 0.05%
+  Max Relative Error: 0.21%
+  Global Relative Error: 0.06%
+  Error range (normalized): [-0.324776, 0.085684]
+  ✓ Generated comparison plots for both normalized and denormalized scales
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_004_comparison_slices_normalized.png
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_004_comparison_slices_denormalized.png
+Sample 5/10:
+  Normalized (log pos) range: [-17.727533, -3.370876]
+  Denormalized (original) range: [0.772374, 0.806734]
+  MSE (on denormalized): 0.000003
+  PSNR (on denormalized): 26.08 dB
+  MAE (on denormalized): 0.001151
+  Correlation (on denormalized): 0.986105
+  Mean Relative Error: 0.14%
+  Max Relative Error: 1.18%
+  Global Relative Error: 0.22%
+  Error range (normalized): [-1.088887, 0.354132]
+  ✓ Generated comparison plots for both normalized and denormalized scales
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_005_comparison_slices_normalized.png
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_005_comparison_slices_denormalized.png
+Sample 6/10:
+  Normalized (log pos) range: [-17.727533, -2.993941]
+  Denormalized (original) range: [0.445228, 0.495318]
+  MSE (on denormalized): 0.000001
+  PSNR (on denormalized): 36.74 dB
+  MAE (on denormalized): 0.000492
+  Correlation (on denormalized): 0.998483
+  Mean Relative Error: 0.10%
+  Max Relative Error: 0.89%
+  Global Relative Error: 0.15%
+  Error range (normalized): [-0.120276, 0.096461]
+  ✓ Generated comparison plots for both normalized and denormalized scales
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_006_comparison_slices_normalized.png
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_006_comparison_slices_denormalized.png
+Sample 7/10:
+  Normalized (log pos) range: [-17.727533, -3.493757]
+  Denormalized (original) range: [0.405757, 0.436143]
+  MSE (on denormalized): 0.000005
+  PSNR (on denormalized): 22.93 dB
+  MAE (on denormalized): 0.001407
+  Correlation (on denormalized): 0.977101
+  Mean Relative Error: 0.33%
+  Max Relative Error: 3.29%
+  Global Relative Error: 0.51%
+  Error range (normalized): [-1.991601, 0.892304]
+  ✓ Generated comparison plots for both normalized and denormalized scales
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_007_comparison_slices_normalized.png
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_007_comparison_slices_denormalized.png
+Sample 8/10:
+  Normalized (log pos) range: [-17.727533, -6.999919]
+  Denormalized (original) range: [0.994536, 0.995447]
+  MSE (on denormalized): 0.000000
+  PSNR (on denormalized): 18.25 dB
+  MAE (on denormalized): 0.000043
+  Correlation (on denormalized): 0.996752
+  Mean Relative Error: 0.00%
+  Max Relative Error: 0.01%
+  Global Relative Error: 0.00%
+  Error range (normalized): [-0.281860, 0.002293]
+  ✓ Generated comparison plots for both normalized and denormalized scales
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_008_comparison_slices_normalized.png
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_008_comparison_slices_denormalized.png
+Saved VTI file: inference_multi_latent_results_20250628_195703/latent_dim_8/vti_files/sample_008_original_normalized.vti
+Saved VTI file: inference_multi_latent_results_20250628_195703/latent_dim_8/vti_files/sample_008_reconstructed_normalized.vti
+Saved VTI file: inference_multi_latent_results_20250628_195703/latent_dim_8/vti_files/sample_008_error_normalized.vti
+Sample 9/10:
+  Normalized (log pos) range: [-17.727533, -3.599752]
+  Denormalized (original) range: [0.931360, 0.958690]
+  MSE (on denormalized): 0.000001
+  PSNR (on denormalized): 26.97 dB
+  MAE (on denormalized): 0.000938
+  Correlation (on denormalized): 0.992746
+  Mean Relative Error: 0.10%
+  Max Relative Error: 0.48%
+  Global Relative Error: 0.13%
+  Error range (normalized): [-0.209369, 0.189005]
+  ✓ Generated comparison plots for both normalized and denormalized scales
+  ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_009_comparison_slices_normalized.png
+Saved comparison plot: inference_multi_latent_results_20250628_195703/latent_dim_8/sample_009_comparison_slices_denormalized.png
+Sample 10/10:
+  Normalized (log pos) range: [-17.727533, -3.259431]
+  Denormalized (original) range: [0.360101, 0.398511]
+  MSE (on denormalized): 0.000001
+  PSNR (on denormalized): 34.44 dB
+  MAE (on denormalized): 0.000509
+  Correlation (on denormalized): 0.997442
+  Mean Relative Error: 0.13%
+  Max Relative Error: 1.27%
+  Global Relative Error: 0.19%
+  Error range (normalized): [-0.115260, 0.152524]
+  ✓ Generated comparison plots for both normalized and denormalized scales
+
+==================================================
+🎯 FINAL VALIDATION METRICS (FIXED MODEL):
+==================================================
+Average MSE: 0.000001
+Average PSNR: 29.78 dB
+Average MAE: 0.000649
+Average Correlation: 0.992791
+Average Error Range: [-0.004183, 0.003313]
+
+📊 RELATIVE ERROR ANALYSIS:
+Mean Relative Error: 0.11%
+Max Relative Error: 0.84%
+Median Relative Error: 0.07%
+95th Percentile Relative Error: 0.31%
+99th Percentile Relative Error: 0.46%
+Global Relative Error (norm-based): 0.15%
+RMS Relative Error: 0.15%
+
+🚀 COMPRESSION/DECOMPRESSION SPEED ANALYSIS:
+Device: CUDA
+Batch Size: 32
+Total Batches Tested: 3
+
+💾 Data Sizes:
+  Original sample: 1372 bytes (1.3 KB)
+  Compressed (latent): 64 bytes
+  Compression ratio: 21.4:1
+
+⚡ COMPRESSION (Encoding) Speed:
+  Average: 0.075 ± 0.002 GBps
+  Range: 0.073 - 0.078 GBps
+  Average time: 0.59 ± 0.02 ms
+
+🔓 DECOMPRESSION (Decoding) Speed:
+  Average: 0.079 ± 0.001 GBps
+  Range: 0.078 - 0.080 GBps
+  Average time: 0.56 ± 0.01 ms
+
+🎯 BREAKTHROUGH COMPARISON:
+Expected PSNR: 14+ dB (Previous: 3.6 dB)
+Expected Correlation: 0.85+ (Previous: 0.41)
+PSNR Improvement: 26.2 dB gain
+Correlation Improvement: 0.583 gain
+Target Relative Error: <5% (Actual: 0.11%)
+Compression Ratio: 42.9:1
+
+🎯 TEST RESULTS (5% held-out set) saved in: inference_multi_latent_results_20250628_195703/latent_dim_8
+✅ Unbiased evaluation completed on 10 test samples NEVER seen during training
+📊 Generated dual comparison plots (normalized + denormalized) for all 10 test samples
+🗂️ VTI files and additional plots saved for 2 random test samples
+🚀 Speed benchmarking completed on 3 batches:
+   Compression: 0.075 GBps
+   Decompression: 0.079 GBps
+🔒 Test set is deterministic (seed=42) - same samples across all evaluation runs

@@ -1,0 +1,95 @@
+🎯 FIXED MODEL Validation Metrics:
+========================================
+Model: SWAE 3D with FIXED per-sample pos_log normalization
+Timestamp: ['dim', '32']
+
+Core Quality Metrics:
+--------------------
+mse: 5.372268232368401e-07
+psnr: 32.44591843179025
+mae: 0.00045875271251295216
+correlation: 0.9963638915808994
+
+Relative Error Analysis:
+-------------------------
+mean_relative_error_percent: 0.08%
+max_relative_error_percent: 0.55%
+median_relative_error: 0.06%
+p95_relative_error: 0.21%
+p99_relative_error: 0.30%
+global_relative_error_percent: 0.11%
+rms_relative_error_percent: 0.11%
+
+All Metrics (Complete):
+-------------------------
+mse: 5.372268232368401e-07
+psnr: 32.44591843179025
+mae: 0.00045875271251295216
+correlation: 0.9963638915808994
+min_error: -0.002698297303868458
+max_error: 0.00211561307660304
+mean_error: 1.623959620114156e-05
+std_error: 0.000616774214030422
+mean_relative_error: 0.0007605672623133273
+mean_relative_error_percent: 0.07605672623133272
+max_relative_error: 0.005466197914292353
+max_relative_error_percent: 0.5466197914292353
+std_relative_error: 0.0007275817911552399
+median_relative_error: 0.0005743975580201544
+p95_relative_error: 0.0021360083966561237
+p99_relative_error: 0.003025406899856518
+global_relative_error: 0.0010659504069708745
+global_relative_error_percent: 0.10659504069708745
+rms_relative_error: 0.0010532293322136886
+rms_relative_error_percent: 0.10532293322136885
+
+Model Configuration:
+--------------------
+Compression Ratio: 10.7:1
+Latent Dimension: 32
+Lambda Regularization: 0.9
+
+Speed Performance Analysis:
+------------------------------
+Device: CUDA
+Batch Size: 32
+Total Batches Tested: 3
+
+Data Sizes:
+Original sample: 1372 bytes (1.3 KB)
+Compressed (latent): 64 bytes
+Compression ratio: 21.4:1
+
+Compression (Encoding) Speed:
+Average: 0.079 ± 0.000 GBps
+Range: 0.079 - 0.079 GBps
+Average time: 0.56 ± 0.00 ms
+
+Decompression (Decoding) Speed:
+Average: 0.081 ± 0.000 GBps
+Range: 0.081 - 0.081 GBps
+Average time: 0.54 ± 0.00 ms
+
+Breakthrough Analysis:
+--------------------
+Expected PSNR: 14+ dB (Previous: 3.6 dB)
+Expected Correlation: 0.85+ (Previous: 0.41)
+Actual PSNR Improvement: 28.8 dB gain
+Actual Correlation Improvement: 0.586 gain
+
+Success Criteria Analysis:
+------------------------------
+PSNR ≥ 14 dB: ✅ PASSED (Actual: 32.45 dB)
+Correlation ≥ 0.85: ✅ PASSED (Actual: 0.996)
+Mean Relative Error ≤ 5%: ✅ PASSED (Actual: 0.08%)
+
+Overall Assessment: 🎉 BREAKTHROUGH ACHIEVED
+All breakthrough criteria met! The FIXED per-sample normalization is working perfectly.
+
+Speed Performance Summary:
+-------------------------
+Compression Speed: 0.079 GBps
+Decompression Speed: 0.081 GBps
+Total throughput for round-trip: 0.079 GBps
+Samples/second (compression): 57,596
+Samples/second (decompression): 59,042
