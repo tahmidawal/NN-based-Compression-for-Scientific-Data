@@ -1,5 +1,6 @@
 # Directories to exclude
 load/
+save/
 logs/
 results/
 outputs/
