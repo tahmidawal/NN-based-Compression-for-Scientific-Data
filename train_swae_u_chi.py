@@ -54,7 +54,7 @@ def calculate_compression_ratio():
     Calculate theoretical compression ratio
     Original: 7x7x7 = 343 values
     Compressed: 16 latent dimensions
-    Compression ratio: 343/16 ≈ 21.4:1
+    Compression ratio: 343/16 approximately 21.4 to 1
     """
     original_size = 7 * 7 * 7  # 343
     compressed_size = 16       # latent dimension
@@ -239,6 +239,8 @@ def main():
                         help='Latent dimension (16 as per Table VI)')
     parser.add_argument('--lambda-reg', type=float, default=0.9,
                         help='Regularization weight for SW distance')
+    parser.add_argument('--encoder-channels', type=str, default='32,64,128',
+                        help='Encoder channel configuration (comma-separated, e.g., "32,64,128")')
     
     # Training parameters
     parser.add_argument('--batch-size', type=int, default=64,
@@ -248,7 +250,7 @@ def main():
     parser.add_argument('--lr', type=float, default=2e-4,
                         help='Learning rate')
     parser.add_argument('--train-split', type=float, default=0.8,
-                        help='Training data ratio (val=0.15, test=0.05 - FIXED 5% test set)')
+                        help='Training data ratio (val=0.15, test=0.05 - FIXED 5%% test set)')
     
     # System parameters
     parser.add_argument('--num-workers', type=int, default=4,
@@ -263,8 +265,20 @@ def main():
                         help='Evaluate reconstruction quality every N epochs')
     parser.add_argument('--save-interval', type=int, default=20,
                         help='Save model every N epochs')
+    parser.add_argument('--early-stopping-patience', type=int, default=None,
+                        help='Early stopping patience (epochs without improvement, None to disable)')
     
     args = parser.parse_args()
+    
+    # Parse encoder channels
+    try:
+        encoder_channels = [int(c.strip()) for c in args.encoder_channels.split(',')]
+        if len(encoder_channels) < 2:
+            raise ValueError("Need at least 2 channel values")
+    except ValueError as e:
+        print(f"Error parsing encoder channels '{args.encoder_channels}': {e}")
+        print("Using default channels [32, 64, 128]")
+        encoder_channels = [32, 64, 128]
     
     # Setup device
     if args.device == 'auto':
@@ -274,6 +288,7 @@ def main():
     
     print(f"Using device: {device}")
     print(f"Data folder: {args.data_folder}")
+    print(f"Encoder channels: {encoder_channels}")
     print(f"Theoretical compression ratio: {calculate_compression_ratio():.1f}:1")
     
     # Create save directory
@@ -323,7 +338,8 @@ def main():
     print("Creating SWAE 3D 7x7x7 model...")
     model = create_swae_3d_7x7x7_model(
         latent_dim=args.latent_dim,
-        lambda_reg=args.lambda_reg
+        lambda_reg=args.lambda_reg,
+        channels=encoder_channels
     ).to(device)
     
     # Print model info
@@ -331,8 +347,12 @@ def main():
     trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     print(f"Total parameters: {total_params:,}")
     print(f"Trainable parameters: {trainable_params:,}")
-    print(f"Model settings: latent_dim={args.latent_dim}, lambda_reg={args.lambda_reg}")
+    print(f"Model settings: latent_dim={args.latent_dim}, lambda_reg={args.lambda_reg}, channels={encoder_channels}")
     print(f"Training settings: lr={args.lr}, batch_size={args.batch_size}")
+    if args.early_stopping_patience:
+        print(f"Early stopping: enabled (patience={args.early_stopping_patience})")
+    else:
+        print(f"Early stopping: disabled")
     
     # Create optimizer
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
@@ -343,6 +363,7 @@ def main():
     # Training loop
     print(f"\nStarting training for {args.epochs} epochs...")
     best_val_loss = float('inf')
+    early_stopping_counter = 0
     
     for epoch in range(1, args.epochs + 1):
         epoch_start_time = time.time()
@@ -367,9 +388,10 @@ def main():
             writer.add_scalar('Train/EpochSWLoss', train_losses['sw_loss'], epoch)
             writer.add_scalar('Learning_Rate', scheduler.get_last_lr()[0], epoch)
         
-        # Save best model
+        # Save best model and early stopping
         if val_losses['loss'] < best_val_loss:
             best_val_loss = val_losses['loss']
+            early_stopping_counter = 0  # Reset counter
             torch.save({
                 'epoch': epoch,
                 'model_state_dict': model.state_dict(),
@@ -380,6 +402,12 @@ def main():
                 'args': args
             }, os.path.join(args.save_dir, 'best_model.pth'))
             print(f'New best model saved (val_loss: {best_val_loss:.6f})')
+        else:
+            early_stopping_counter += 1
+            if args.early_stopping_patience and early_stopping_counter >= args.early_stopping_patience:
+                print(f'\nEarly stopping triggered! No improvement for {args.early_stopping_patience} epochs.')
+                print(f'Best validation loss: {best_val_loss:.6f}')
+                break
         
         # Evaluate reconstruction quality
         if epoch % args.eval_interval == 0:

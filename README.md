@@ -357,6 +357,109 @@ This systematic optimization approach will deliver:
 - **Flexible Deployment**: Models suited for different computational constraints
 - **Comprehensive Benchmarks**: Complete performance characterization across use cases
 
+## 🔬 Comprehensive Architecture Search Experiment - IN PROGRESS
+
+### Experiment Overview
+Building on our successful grid search results, we have launched a **comprehensive architecture search experiment** to identify optimal network architectures for each compression scenario. This represents the most extensive systematic optimization effort in the project to date.
+
+### 🎯 Search Strategy: Compression-Specific Architecture Design
+
+#### **Ultra-High Compression (Latent Dims 4, 8)**
+**Target**: Maximize information extraction efficiency for extreme compression ratios (85.8:1, 42.9:1)
+
+**Architecture Variants**:
+- **`baseline`**: Proven [32, 64, 128] channel progression
+- **`deep`**: Extended depth [32, 64, 128, 256] for enhanced feature learning
+- **`wide`**: Increased width [64, 128, 256] for better information capacity
+- **`ultra_deep`**: Maximum depth [32, 64, 128, 256, 512] for complex pattern extraction
+
+#### **Balanced Compression (Latent Dim 16)**
+**Target**: Optimize the proven 21.4:1 compression configuration for maximum quality
+
+**Architecture Variants**:
+- **`baseline`**: Current proven architecture [32, 64, 128]
+- **`wider`**: Enhanced capacity [48, 96, 192] for quality improvement
+- **`deeper`**: Additional layers [32, 64, 128, 192] for refined features
+- **`efficient`**: Streamlined design [32, 48, 96] for speed optimization
+
+#### **High-Quality Compression (Latent Dims 32, 64)**
+**Target**: Maximize reconstruction fidelity for premium applications (10.7:1, 5.4:1)
+
+**Architecture Variants**:
+- **`baseline`**: Standard [32, 64, 128] configuration
+- **`quality`**: Premium capacity [64, 128, 256] for maximum fidelity
+- **`ultra_quality`**: Maximum architecture [64, 128, 256, 512] for scientific precision
+- **`progressive`**: Gradual expansion [32, 64, 96, 128] for balanced learning
+
+### 🔧 Comprehensive Hyperparameter Grid Search
+
+#### **Multi-Dimensional Optimization Space**
+- **Learning Rates**: [5e-5, 1e-4, 2e-4] - Fine-tuned around optimal 1e-4
+- **Batch Sizes**: [32, 64, 128] - Balance between stability and memory efficiency  
+- **Lambda Regularization**: [0.5, 0.9, 1.5] - Sliced Wasserstein loss weighting optimization
+
+#### **Search Scale & Complexity**
+- **Total Configurations**: ~240 unique combinations
+- **Architecture Variants**: 4 per compression level × 5 latent dimensions = 20 base architectures
+- **Hyperparameter Combinations**: 3×3×3 = 27 per architecture
+- **Training Strategy**: Early stopping (patience=50) with 300 epochs maximum
+- **Resource Allocation**: 72-hour SLURM job with comprehensive logging
+
+### 📊 Automated Analysis & Results Tracking
+
+#### **Real-Time Monitoring**
+- **Automated CSV Logging**: All metrics, hyperparameters, and performance data
+- **Configuration Tracking**: Unique IDs for each architecture-hyperparameter combination
+- **Performance Benchmarking**: Speed, memory usage, and training efficiency metrics
+- **Quality Assessment**: PSNR, correlation, MSE, MAE, and relative error tracking
+
+#### **Post-Training Analysis Pipeline**
+```python
+# Automated analysis script included in architecture search
+def analyze_architecture_search_results():
+    """Comprehensive analysis of all trained configurations"""
+    # Load all results from CSV logs
+    # Generate comparative visualizations:
+    # - Architecture performance heatmaps per latent dimension
+    # - Hyperparameter sensitivity analysis
+    # - Speed vs quality trade-off analysis
+    # - Best configuration recommendations per use case
+```
+
+### 🚀 Implementation Status & Technical Details
+
+#### **Training Infrastructure**
+- **Batch Script**: `train_swae_architecture_search.sbatch`
+- **Automated Execution**: Sequential training with error handling and resumption
+- **Resource Management**: Optimized GPU utilization with memory monitoring
+- **Result Organization**: Structured output directory per configuration
+
+#### **Expected Timeline & Deliverables**
+- **Training Duration**: ~72 hours for complete search (with early stopping)
+- **Analysis Phase**: Automated post-processing and visualization generation
+- **Documentation**: Comprehensive results report with architecture recommendations
+
+#### **Key Technical Innovations**
+1. **Dimension-Specific Design Philosophy**: Tailored architectures for each compression scenario
+2. **Systematic Hyperparameter Exploration**: Evidence-based optimization around proven baselines
+3. **Automated Result Synthesis**: CSV-driven analysis for reproducible conclusions
+4. **Production-Ready Selection**: Models optimized for deployment across different use cases
+
+### 🎯 Expected Outcomes & Scientific Impact
+
+#### **Architecture Optimization Goals**
+- **Performance Improvements**: 10-30% quality gains over baseline configurations
+- **Speed Enhancements**: Optimized architectures for faster compression/decompression
+- **Memory Efficiency**: Reduced model complexity without quality compromise
+- **Scientific Validation**: Architectures proven across GR simulation data characteristics
+
+#### **Strategic Value**
+This comprehensive search will establish:
+- **Best Practices**: Proven architecture design principles for scientific data compression
+- **Deployment Guidelines**: Clear recommendations for different compression requirements
+- **Research Foundation**: Systematic methodology for future compression system development
+- **Production Models**: Optimized networks ready for scientific computing workflows
+
 ## Implemented Solutions & Future Improvements
 
 ### 1. ✅ Per-Sample Log-Scale Processing - COMPLETED & EXCEPTIONALLY SUCCESSFUL!

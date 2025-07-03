@@ -250,18 +250,20 @@ class SWAE3D7x7x7(nn.Module):
         return x_recon
 
 
-def create_swae_3d_7x7x7_model(latent_dim=16, lambda_reg=10.0):
+def create_swae_3d_7x7x7_model(latent_dim=16, lambda_reg=10.0, channels=None):
     """
     Create SWAE 3D model for 7x7x7 blocks
     
     Args:
         latent_dim: Latent vector dimension (16 as per Table VI)
         lambda_reg: Regularization weight for SW distance (10.0 default)
+        channels: List of channel dimensions for encoder/decoder (default: [32, 64, 128])
     
     Returns:
         SWAE3D7x7x7 model
     """
-    # Channels as specified in Table VI for 3D data: [32, 64, 128]
+    # Default channels as specified in Table VI for 3D data: [32, 64, 128]
+    if channels is None:
     channels = [32, 64, 128]
     
     model = SWAE3D7x7x7(

@@ -147,7 +147,7 @@ for latent_dir in "${LATENT_DIRS[@]}"; do
     # Create output directory for this latent dimension
     LATENT_OUTPUT_DIR="$OUTPUT_BASE_DIR/latent_dim_${latent_dim}"
     mkdir -p "$LATENT_OUTPUT_DIR"
-    
+
     # Log start of inference
     echo "" >> "$SUMMARY_LOG"
     echo "Latent dim $latent_dim (compression ${compression_ratio}:1):" >> "$SUMMARY_LOG"
@@ -157,12 +157,12 @@ for latent_dir in "${LATENT_DIRS[@]}"; do
     
     # Run inference
     echo "Running inference..."
-    python inference_swae_u_chi_validation.py \
+python inference_swae_u_chi_validation.py \
         --model-path "$best_model" \
-        --data-folder /u/tawal/0620-NN-based-compression-thera/tt_q01/ \
+    --data-folder /u/tawal/0620-NN-based-compression-thera/tt_q01/ \
         --output-dir "$LATENT_OUTPUT_DIR" \
-        --normalize-method pos_log \
-        --batch-size 32 \
+    --normalize-method pos_log \
+    --batch-size 32 \
         --num-samples 10 \
         --num-vti-samples 2 \
         --device auto \
