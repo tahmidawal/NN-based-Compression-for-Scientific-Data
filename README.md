@@ -279,6 +279,7 @@ The **FIXED per-sample log-scale preprocessing** has yielded **exceptional recon
 4. **✅ Fixed denormalization**: Correct per-sample inverse transformation
 
 ## 🔬 First Grid Search Experiment - Compression Ratio Analysis
+*Completed: July 1, 2025*
 
 ### Experiment Overview
 We conducted our **first comprehensive grid search experiment** to systematically evaluate the trade-off between compression ratio and reconstruction quality across different latent dimensions. This experiment provides crucial insights for optimizing our SWAE architecture.
@@ -358,6 +359,7 @@ This systematic optimization approach will deliver:
 - **Comprehensive Benchmarks**: Complete performance characterization across use cases
 
 ## 🔬 Comprehensive Architecture Search Experiment - COMPLETED! 🎉
+*Completed: July 1, 2025*
 
 ### Experiment Overview
 We have successfully completed a **comprehensive architecture search experiment** to identify optimal network architectures for each compression scenario. This represents the most extensive systematic optimization effort in the project to date, with **100% success rate** across all configurations.
