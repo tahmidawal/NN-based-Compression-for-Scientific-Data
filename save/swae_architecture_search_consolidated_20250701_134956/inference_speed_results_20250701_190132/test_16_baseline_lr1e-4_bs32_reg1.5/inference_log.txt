@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/u/tawal/0627-NN-based-compression-AE/inference_swae_u_chi_validation.py", line 29, in <module>
+    from models.swae_pure_3d_7x7x7 import create_swae_3d_7x7x7_model
+  File "/u/tawal/0627-NN-based-compression-AE/models/swae_pure_3d_7x7x7.py", line 267
+    channels = [32, 64, 128]
+    ^
+IndentationError: expected an indented block after 'if' statement on line 266

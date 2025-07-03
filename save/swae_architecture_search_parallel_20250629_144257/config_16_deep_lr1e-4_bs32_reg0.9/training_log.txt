@@ -1,0 +1,1593 @@
+Using device: cuda
+Data folder: /u/tawal/0620-NN-based-compression-thera/tt_q01/
+Encoder channels: [32, 64, 128, 256]
+Theoretical compression ratio: 21.4:1
+Creating U_CHI datasets...
+🔒 Creating datasets with FIXED splits: train=80.0%, val=15.0%, test=5.0%
+🎯 Using FIXED seed=42 to ensure test set is always the same samples
+⚠️  Warning: Test ratio is 5.0%, not the intended 5%
+Found 13 HDF5 files in /u/tawal/0620-NN-based-compression-thera/tt_q01/
+Loading bssn_gr_0_extracted.hdf5...
+Available keys: ['centers', 'dx', 'dy', 'dz', 'levels', 'var_data', 'vars', 'vars_use']
+Available variables: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5', 'C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_1200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2224, 7, 7, 7)
+Loading bssn_gr_1600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_2000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2284, 7, 7, 7)
+Loading bssn_gr_2400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_2800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_3200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2206, 7, 7, 7)
+Loading bssn_gr_3600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Loading bssn_gr_4000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_4400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2176, 7, 7, 7)
+Loading bssn_gr_4800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2218, 7, 7, 7)
+Loading bssn_gr_800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Total U_CHI data shape: (28960, 1, 7, 7, 7)
+🔒 Applied deterministic shuffle with seed=42 for reproducible splits
+🔒 FIXED Data Split: 28960 total → 23168 train (80.0%), 4344 val (15.0%), 1448 test (5.0%)
+🎯 TEST SET: 1448 samples (5%) - NEVER seen during training/validation
+Using training data: (23168, 1, 7, 7, 7)
+Applying per-sample positive-shift log normalization...
+Applied per-sample positive-shift log normalization:
+  epsilon=1e-08
+  Per-sample data_min range: [0.000100, 0.996016]
+  Result should have mean~4.5, std~1.1 properties
+U_CHI Dataset initialized:
+  Split: train
+  Data shape: (23168, 1, 7, 7, 7)
+  Split ratios: train=80.0%, val=15.0%, test=5.0%
+  Data range: [-17.727534, -2.386085]
+  Data mean: -4.503266
+  Data std: 1.542684
+Found 13 HDF5 files in /u/tawal/0620-NN-based-compression-thera/tt_q01/
+Loading bssn_gr_0_extracted.hdf5...
+Available keys: ['centers', 'dx', 'dy', 'dz', 'levels', 'var_data', 'vars', 'vars_use']
+Available variables: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5', 'C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_1200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2224, 7, 7, 7)
+Loading bssn_gr_1600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_2000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2284, 7, 7, 7)
+Loading bssn_gr_2400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_2800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_3200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2206, 7, 7, 7)
+Loading bssn_gr_3600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Loading bssn_gr_4000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_4400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2176, 7, 7, 7)
+Loading bssn_gr_4800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2218, 7, 7, 7)
+Loading bssn_gr_800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Total U_CHI data shape: (28960, 1, 7, 7, 7)
+🔒 Applied deterministic shuffle with seed=42 for reproducible splits
+🔒 FIXED Data Split: 28960 total → 23168 train (80.0%), 4344 val (15.0%), 1448 test (5.0%)
+🎯 TEST SET: 1448 samples (5%) - NEVER seen during training/validation
+Using validation data: (4344, 1, 7, 7, 7)
+Applying per-sample positive-shift log normalization...
+Applied per-sample positive-shift log normalization:
+  epsilon=1e-08
+  Per-sample data_min range: [0.000100, 0.996016]
+  Result should have mean~4.5, std~1.1 properties
+U_CHI Dataset initialized:
+  Split: val
+  Data shape: (4344, 1, 7, 7, 7)
+  Split ratios: train=80.0%, val=15.0%, test=5.0%
+  Data range: [-17.727534, -2.417659]
+  Data mean: -4.501234
+  Data std: 1.534708
+Found 13 HDF5 files in /u/tawal/0620-NN-based-compression-thera/tt_q01/
+Loading bssn_gr_0_extracted.hdf5...
+Available keys: ['centers', 'dx', 'dy', 'dz', 'levels', 'var_data', 'vars', 'vars_use']
+Available variables: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5', 'C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_1200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2224, 7, 7, 7)
+Loading bssn_gr_1600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_2000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2284, 7, 7, 7)
+Loading bssn_gr_2400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_2800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_3200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2206, 7, 7, 7)
+Loading bssn_gr_3600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Loading bssn_gr_4000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_4400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2176, 7, 7, 7)
+Loading bssn_gr_4800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2218, 7, 7, 7)
+Loading bssn_gr_800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Total U_CHI data shape: (28960, 1, 7, 7, 7)
+🔒 Applied deterministic shuffle with seed=42 for reproducible splits
+🔒 FIXED Data Split: 28960 total → 23168 train (80.0%), 4344 val (15.0%), 1448 test (5.0%)
+🎯 TEST SET: 1448 samples (5%) - NEVER seen during training/validation
+Using test data: (1448, 1, 7, 7, 7)
+Applying per-sample positive-shift log normalization...
+Applied per-sample positive-shift log normalization:
+  epsilon=1e-08
+  Per-sample data_min range: [0.000100, 0.996016]
+  Result should have mean~4.5, std~1.1 properties
+U_CHI Dataset initialized:
+  Split: test
+  Data shape: (1448, 1, 7, 7, 7)
+  Split ratios: train=80.0%, val=15.0%, test=5.0%
+  Data range: [-17.727534, -2.398501]
+  Data mean: -4.491794
+  Data std: 1.556796
+🔄 Data splits: Train=23168 (80%), Val=4344 (15%), Test=1448 (5%)
+⚠️  CRITICAL: Test set (5%) is held out for final unbiased evaluation - NEVER seen during training
+🔒 Using deterministic split (seed=42) to ensure consistent test set
+Train batches: 724
+Val batches: 136
+Creating SWAE 3D 7x7x7 model...
+Total parameters: 2,529,009
+Trainable parameters: 2,529,009
+Model settings: latent_dim=16, lambda_reg=0.9, channels=[32, 64, 128, 256]
+Training settings: lr=0.0001, batch_size=32
+Early stopping: enabled (patience=40)
+
+Starting training for 1000 epochs...
+Train Epoch: 1 [0/23168 (0%)]	Loss: 27.591642 (Recon: 27.080770, SW: 0.567636)
+Train Epoch: 1 [3200/23168 (14%)]	Loss: 3.029225 (Recon: 2.836338, SW: 0.214319)
+Train Epoch: 1 [6400/23168 (28%)]	Loss: 0.717988 (Recon: 0.541718, SW: 0.195855)
+Train Epoch: 1 [9600/23168 (41%)]	Loss: 0.434837 (Recon: 0.296230, SW: 0.154008)
+Train Epoch: 1 [12800/23168 (55%)]	Loss: 0.404894 (Recon: 0.228686, SW: 0.195787)
+Train Epoch: 1 [16000/23168 (69%)]	Loss: 0.291376 (Recon: 0.138159, SW: 0.170242)
+Train Epoch: 1 [19200/23168 (83%)]	Loss: 0.292611 (Recon: 0.121563, SW: 0.190053)
+Train Epoch: 1 [22400/23168 (97%)]	Loss: 0.352525 (Recon: 0.145591, SW: 0.229926)
+Validation Epoch: 1	Loss: 0.271573 (Recon: 0.082230, SW: 0.210381)
+Epoch 1 completed in 4.9s
+Train Loss: 1.755772, Val Loss: 0.271573
+New best model saved (val_loss: 0.271573)
+Train Epoch: 2 [0/23168 (0%)]	Loss: 0.260707 (Recon: 0.068828, SW: 0.213199)
+Train Epoch: 2 [3200/23168 (14%)]	Loss: 0.270075 (Recon: 0.118911, SW: 0.167959)
+Train Epoch: 2 [6400/23168 (28%)]	Loss: 0.350776 (Recon: 0.197003, SW: 0.170859)
+Train Epoch: 2 [9600/23168 (41%)]	Loss: 0.244545 (Recon: 0.072358, SW: 0.191320)
+Train Epoch: 2 [12800/23168 (55%)]	Loss: 0.301736 (Recon: 0.124835, SW: 0.196557)
+Train Epoch: 2 [16000/23168 (69%)]	Loss: 0.253604 (Recon: 0.104792, SW: 0.165346)
+Train Epoch: 2 [19200/23168 (83%)]	Loss: 0.200072 (Recon: 0.074844, SW: 0.139142)
+Train Epoch: 2 [22400/23168 (97%)]	Loss: 0.248185 (Recon: 0.118892, SW: 0.143659)
+Validation Epoch: 2	Loss: 0.239445 (Recon: 0.062888, SW: 0.196175)
+Epoch 2 completed in 4.6s
+Train Loss: 0.241782, Val Loss: 0.239445
+New best model saved (val_loss: 0.239445)
+Train Epoch: 3 [0/23168 (0%)]	Loss: 0.222413 (Recon: 0.087849, SW: 0.149516)
+Train Epoch: 3 [3200/23168 (14%)]	Loss: 0.185920 (Recon: 0.057102, SW: 0.143131)
+Train Epoch: 3 [6400/23168 (28%)]	Loss: 0.352324 (Recon: 0.211677, SW: 0.156274)
+Train Epoch: 3 [9600/23168 (41%)]	Loss: 0.191870 (Recon: 0.065728, SW: 0.140157)
+Train Epoch: 3 [12800/23168 (55%)]	Loss: 0.297555 (Recon: 0.179258, SW: 0.131442)
+Train Epoch: 3 [16000/23168 (69%)]	Loss: 0.148360 (Recon: 0.035663, SW: 0.125219)
+Train Epoch: 3 [19200/23168 (83%)]	Loss: 0.216337 (Recon: 0.100720, SW: 0.128464)
+Train Epoch: 3 [22400/23168 (97%)]	Loss: 0.199174 (Recon: 0.047455, SW: 0.168576)
+Validation Epoch: 3	Loss: 0.197875 (Recon: 0.034473, SW: 0.181559)
+Epoch 3 completed in 4.5s
+Train Loss: 0.202378, Val Loss: 0.197875
+New best model saved (val_loss: 0.197875)
+Train Epoch: 4 [0/23168 (0%)]	Loss: 0.144936 (Recon: 0.030853, SW: 0.126760)
+Train Epoch: 4 [3200/23168 (14%)]	Loss: 0.148131 (Recon: 0.032431, SW: 0.128555)
+Train Epoch: 4 [6400/23168 (28%)]	Loss: 0.191070 (Recon: 0.059591, SW: 0.146088)
+Train Epoch: 4 [9600/23168 (41%)]	Loss: 0.292323 (Recon: 0.181907, SW: 0.122685)
+Train Epoch: 4 [12800/23168 (55%)]	Loss: 0.187271 (Recon: 0.050401, SW: 0.152077)
+Train Epoch: 4 [16000/23168 (69%)]	Loss: 0.184502 (Recon: 0.072875, SW: 0.124030)
+Train Epoch: 4 [19200/23168 (83%)]	Loss: 0.194532 (Recon: 0.054353, SW: 0.155754)
+Train Epoch: 4 [22400/23168 (97%)]	Loss: 0.203256 (Recon: 0.070902, SW: 0.147060)
+Validation Epoch: 4	Loss: 0.216609 (Recon: 0.055063, SW: 0.179496)
+Epoch 4 completed in 4.7s
+Train Loss: 0.189740, Val Loss: 0.216609
+Train Epoch: 5 [0/23168 (0%)]	Loss: 0.178689 (Recon: 0.050154, SW: 0.142816)
+Train Epoch: 5 [3200/23168 (14%)]	Loss: 0.177185 (Recon: 0.047884, SW: 0.143668)
+Train Epoch: 5 [6400/23168 (28%)]	Loss: 0.136100 (Recon: 0.032892, SW: 0.114676)
+Train Epoch: 5 [9600/23168 (41%)]	Loss: 0.208564 (Recon: 0.087195, SW: 0.134854)
+Train Epoch: 5 [12800/23168 (55%)]	Loss: 0.234989 (Recon: 0.106334, SW: 0.142950)
+Train Epoch: 5 [16000/23168 (69%)]	Loss: 0.232574 (Recon: 0.077123, SW: 0.172724)
+Train Epoch: 5 [19200/23168 (83%)]	Loss: 0.252714 (Recon: 0.132397, SW: 0.133685)
+Train Epoch: 5 [22400/23168 (97%)]	Loss: 0.166248 (Recon: 0.041710, SW: 0.138376)
+Validation Epoch: 5	Loss: 0.215663 (Recon: 0.054003, SW: 0.179621)
+Epoch 5 completed in 4.6s
+Train Loss: 0.178802, Val Loss: 0.215663
+Train Epoch: 6 [0/23168 (0%)]	Loss: 0.175142 (Recon: 0.058663, SW: 0.129421)
+Train Epoch: 6 [3200/23168 (14%)]	Loss: 0.143324 (Recon: 0.035165, SW: 0.120177)
+Train Epoch: 6 [6400/23168 (28%)]	Loss: 0.162937 (Recon: 0.049326, SW: 0.126235)
+Train Epoch: 6 [9600/23168 (41%)]	Loss: 0.186646 (Recon: 0.041920, SW: 0.160806)
+Train Epoch: 6 [12800/23168 (55%)]	Loss: 0.154197 (Recon: 0.030196, SW: 0.137778)
+Train Epoch: 6 [16000/23168 (69%)]	Loss: 0.158536 (Recon: 0.040743, SW: 0.130881)
+Train Epoch: 6 [19200/23168 (83%)]	Loss: 0.148955 (Recon: 0.054251, SW: 0.105227)
+Train Epoch: 6 [22400/23168 (97%)]	Loss: 0.163400 (Recon: 0.047175, SW: 0.129139)
+Validation Epoch: 6	Loss: 0.192336 (Recon: 0.027882, SW: 0.182726)
+Epoch 6 completed in 4.5s
+Train Loss: 0.170488, Val Loss: 0.192336
+New best model saved (val_loss: 0.192336)
+Train Epoch: 7 [0/23168 (0%)]	Loss: 0.201663 (Recon: 0.043845, SW: 0.175354)
+Train Epoch: 7 [3200/23168 (14%)]	Loss: 0.165411 (Recon: 0.025666, SW: 0.155271)
+Train Epoch: 7 [6400/23168 (28%)]	Loss: 0.199396 (Recon: 0.052654, SW: 0.163047)
+Train Epoch: 7 [9600/23168 (41%)]	Loss: 0.154488 (Recon: 0.031829, SW: 0.136288)
+Train Epoch: 7 [12800/23168 (55%)]	Loss: 0.136943 (Recon: 0.034541, SW: 0.113780)
+Train Epoch: 7 [16000/23168 (69%)]	Loss: 0.135478 (Recon: 0.035760, SW: 0.110798)
+Train Epoch: 7 [19200/23168 (83%)]	Loss: 0.135970 (Recon: 0.031089, SW: 0.116535)
+Train Epoch: 7 [22400/23168 (97%)]	Loss: 0.201020 (Recon: 0.034908, SW: 0.184569)
+Validation Epoch: 7	Loss: 0.182513 (Recon: 0.026820, SW: 0.172992)
+Epoch 7 completed in 4.4s
+Train Loss: 0.164964, Val Loss: 0.182513
+New best model saved (val_loss: 0.182513)
+Train Epoch: 8 [0/23168 (0%)]	Loss: 0.159144 (Recon: 0.049503, SW: 0.121823)
+Train Epoch: 8 [3200/23168 (14%)]	Loss: 0.147767 (Recon: 0.020863, SW: 0.141005)
+Train Epoch: 8 [6400/23168 (28%)]	Loss: 0.146084 (Recon: 0.033199, SW: 0.125428)
+Train Epoch: 8 [9600/23168 (41%)]	Loss: 0.164932 (Recon: 0.042769, SW: 0.135737)
+Train Epoch: 8 [12800/23168 (55%)]	Loss: 0.176926 (Recon: 0.040321, SW: 0.151784)
+Train Epoch: 8 [16000/23168 (69%)]	Loss: 0.145182 (Recon: 0.039798, SW: 0.117094)
+Train Epoch: 8 [19200/23168 (83%)]	Loss: 0.188961 (Recon: 0.032951, SW: 0.173344)
+Train Epoch: 8 [22400/23168 (97%)]	Loss: 0.149992 (Recon: 0.029734, SW: 0.133621)
+Validation Epoch: 8	Loss: 0.181302 (Recon: 0.024887, SW: 0.173794)
+Epoch 8 completed in 4.4s
+Train Loss: 0.159521, Val Loss: 0.181302
+New best model saved (val_loss: 0.181302)
+Train Epoch: 9 [0/23168 (0%)]	Loss: 0.179394 (Recon: 0.071294, SW: 0.120111)
+Train Epoch: 9 [3200/23168 (14%)]	Loss: 0.145284 (Recon: 0.037480, SW: 0.119782)
+Train Epoch: 9 [6400/23168 (28%)]	Loss: 0.152757 (Recon: 0.025628, SW: 0.141255)
+Train Epoch: 9 [9600/23168 (41%)]	Loss: 0.153743 (Recon: 0.027808, SW: 0.139928)
+Train Epoch: 9 [12800/23168 (55%)]	Loss: 0.181912 (Recon: 0.036836, SW: 0.161196)
+Train Epoch: 9 [16000/23168 (69%)]	Loss: 0.170099 (Recon: 0.049024, SW: 0.134528)
+Train Epoch: 9 [19200/23168 (83%)]	Loss: 0.121269 (Recon: 0.017494, SW: 0.115306)
+Train Epoch: 9 [22400/23168 (97%)]	Loss: 0.171644 (Recon: 0.032172, SW: 0.154970)
+Validation Epoch: 9	Loss: 0.188576 (Recon: 0.029203, SW: 0.177080)
+Epoch 9 completed in 4.3s
+Train Loss: 0.157909, Val Loss: 0.188576
+Train Epoch: 10 [0/23168 (0%)]	Loss: 0.226184 (Recon: 0.036740, SW: 0.210493)
+Train Epoch: 10 [3200/23168 (14%)]	Loss: 0.165409 (Recon: 0.029899, SW: 0.150568)
+Train Epoch: 10 [6400/23168 (28%)]	Loss: 0.129823 (Recon: 0.021111, SW: 0.120791)
+Train Epoch: 10 [9600/23168 (41%)]	Loss: 0.186390 (Recon: 0.050367, SW: 0.151137)
+Train Epoch: 10 [12800/23168 (55%)]	Loss: 0.150221 (Recon: 0.027142, SW: 0.136754)
+Train Epoch: 10 [16000/23168 (69%)]	Loss: 0.164080 (Recon: 0.028789, SW: 0.150323)
+Train Epoch: 10 [19200/23168 (83%)]	Loss: 0.117499 (Recon: 0.024695, SW: 0.103115)
+Train Epoch: 10 [22400/23168 (97%)]	Loss: 0.143251 (Recon: 0.027202, SW: 0.128943)
+Validation Epoch: 10	Loss: 0.174120 (Recon: 0.020775, SW: 0.170384)
+Epoch 10 completed in 4.3s
+Train Loss: 0.153696, Val Loss: 0.174120
+New best model saved (val_loss: 0.174120)
+  Debug Sample 0:
+    Original range: [0.987587, 0.991417]
+    Reconstructed range: [0.987587, 0.992447]
+    Error range: [-0.001241, 0.000386]
+    Latent range: [-1.609507, 0.887752]
+
+Reconstruction Quality Evaluation (10 samples):
+Average PSNR: 26.37 dB
+Average MSE: 0.000005
+Average Correlation: 0.990146
+Compression Ratio: 21.4:1
+Train Epoch: 11 [0/23168 (0%)]	Loss: 0.158773 (Recon: 0.023137, SW: 0.150707)
+Train Epoch: 11 [3200/23168 (14%)]	Loss: 0.143074 (Recon: 0.018674, SW: 0.138222)
+Train Epoch: 11 [6400/23168 (28%)]	Loss: 0.151115 (Recon: 0.019180, SW: 0.146595)
+Train Epoch: 11 [9600/23168 (41%)]	Loss: 0.142645 (Recon: 0.013196, SW: 0.143833)
+Train Epoch: 11 [12800/23168 (55%)]	Loss: 0.153820 (Recon: 0.025166, SW: 0.142949)
+Train Epoch: 11 [16000/23168 (69%)]	Loss: 0.163907 (Recon: 0.035900, SW: 0.142230)
+Train Epoch: 11 [19200/23168 (83%)]	Loss: 0.132162 (Recon: 0.029910, SW: 0.113613)
+Train Epoch: 11 [22400/23168 (97%)]	Loss: 0.128532 (Recon: 0.026263, SW: 0.113632)
+Validation Epoch: 11	Loss: 0.169929 (Recon: 0.018067, SW: 0.168736)
+Epoch 11 completed in 4.8s
+Train Loss: 0.149979, Val Loss: 0.169929
+New best model saved (val_loss: 0.169929)
+Train Epoch: 12 [0/23168 (0%)]	Loss: 0.149045 (Recon: 0.034630, SW: 0.127128)
+Train Epoch: 12 [3200/23168 (14%)]	Loss: 0.126163 (Recon: 0.028095, SW: 0.108964)
+Train Epoch: 12 [6400/23168 (28%)]	Loss: 0.186417 (Recon: 0.091771, SW: 0.105162)
+Train Epoch: 12 [9600/23168 (41%)]	Loss: 0.150693 (Recon: 0.025413, SW: 0.139200)
+Train Epoch: 12 [12800/23168 (55%)]	Loss: 0.154003 (Recon: 0.033768, SW: 0.133595)
+Train Epoch: 12 [16000/23168 (69%)]	Loss: 0.129236 (Recon: 0.032277, SW: 0.107733)
+Train Epoch: 12 [19200/23168 (83%)]	Loss: 0.137943 (Recon: 0.017464, SW: 0.133865)
+Train Epoch: 12 [22400/23168 (97%)]	Loss: 0.123013 (Recon: 0.012659, SW: 0.122615)
+Validation Epoch: 12	Loss: 0.180037 (Recon: 0.022745, SW: 0.174769)
+Epoch 12 completed in 4.5s
+Train Loss: 0.148217, Val Loss: 0.180037
+Train Epoch: 13 [0/23168 (0%)]	Loss: 0.160393 (Recon: 0.042481, SW: 0.131013)
+Train Epoch: 13 [3200/23168 (14%)]	Loss: 0.143747 (Recon: 0.032491, SW: 0.123618)
+Train Epoch: 13 [6400/23168 (28%)]	Loss: 0.138565 (Recon: 0.014388, SW: 0.137975)
+Train Epoch: 13 [9600/23168 (41%)]	Loss: 0.174077 (Recon: 0.078092, SW: 0.106651)
+Train Epoch: 13 [12800/23168 (55%)]	Loss: 0.148990 (Recon: 0.031277, SW: 0.130791)
+Train Epoch: 13 [16000/23168 (69%)]	Loss: 0.143779 (Recon: 0.027745, SW: 0.128926)
+Train Epoch: 13 [19200/23168 (83%)]	Loss: 0.145843 (Recon: 0.024707, SW: 0.134595)
+Train Epoch: 13 [22400/23168 (97%)]	Loss: 0.140944 (Recon: 0.024655, SW: 0.129209)
+Validation Epoch: 13	Loss: 0.180626 (Recon: 0.034073, SW: 0.162836)
+Epoch 13 completed in 4.5s
+Train Loss: 0.147534, Val Loss: 0.180626
+Train Epoch: 14 [0/23168 (0%)]	Loss: 0.120010 (Recon: 0.013111, SW: 0.118777)
+Train Epoch: 14 [3200/23168 (14%)]	Loss: 0.131201 (Recon: 0.022176, SW: 0.121138)
+Train Epoch: 14 [6400/23168 (28%)]	Loss: 0.149741 (Recon: 0.015737, SW: 0.148893)
+Train Epoch: 14 [9600/23168 (41%)]	Loss: 0.115219 (Recon: 0.012541, SW: 0.114087)
+Train Epoch: 14 [12800/23168 (55%)]	Loss: 0.141287 (Recon: 0.022783, SW: 0.131671)
+Train Epoch: 14 [16000/23168 (69%)]	Loss: 0.142677 (Recon: 0.019834, SW: 0.136493)
+Train Epoch: 14 [19200/23168 (83%)]	Loss: 0.128467 (Recon: 0.028237, SW: 0.111367)
+Train Epoch: 14 [22400/23168 (97%)]	Loss: 0.161362 (Recon: 0.012960, SW: 0.164891)
+Validation Epoch: 14	Loss: 0.167343 (Recon: 0.022851, SW: 0.160547)
+Epoch 14 completed in 4.7s
+Train Loss: 0.145214, Val Loss: 0.167343
+New best model saved (val_loss: 0.167343)
+Train Epoch: 15 [0/23168 (0%)]	Loss: 0.139028 (Recon: 0.018835, SW: 0.133547)
+Train Epoch: 15 [3200/23168 (14%)]	Loss: 0.192359 (Recon: 0.043566, SW: 0.165325)
+Train Epoch: 15 [6400/23168 (28%)]	Loss: 0.162812 (Recon: 0.047861, SW: 0.127724)
+Train Epoch: 15 [9600/23168 (41%)]	Loss: 0.136092 (Recon: 0.014350, SW: 0.135268)
+Train Epoch: 15 [12800/23168 (55%)]	Loss: 0.185963 (Recon: 0.031360, SW: 0.171781)
+Train Epoch: 15 [16000/23168 (69%)]	Loss: 0.128590 (Recon: 0.016370, SW: 0.124689)
+Train Epoch: 15 [19200/23168 (83%)]	Loss: 0.108624 (Recon: 0.020599, SW: 0.097806)
+Train Epoch: 15 [22400/23168 (97%)]	Loss: 0.126719 (Recon: 0.013104, SW: 0.126238)
+Validation Epoch: 15	Loss: 0.170666 (Recon: 0.014535, SW: 0.173478)
+Epoch 15 completed in 4.4s
+Train Loss: 0.143510, Val Loss: 0.170666
+Train Epoch: 16 [0/23168 (0%)]	Loss: 0.124815 (Recon: 0.010875, SW: 0.126600)
+Train Epoch: 16 [3200/23168 (14%)]	Loss: 0.140253 (Recon: 0.026411, SW: 0.126492)
+Train Epoch: 16 [6400/23168 (28%)]	Loss: 0.177262 (Recon: 0.020337, SW: 0.174361)
+Train Epoch: 16 [9600/23168 (41%)]	Loss: 0.111557 (Recon: 0.010086, SW: 0.112745)
+Train Epoch: 16 [12800/23168 (55%)]	Loss: 0.141064 (Recon: 0.038011, SW: 0.114503)
+Train Epoch: 16 [16000/23168 (69%)]	Loss: 0.108866 (Recon: 0.017473, SW: 0.101548)
+Train Epoch: 16 [19200/23168 (83%)]	Loss: 0.214907 (Recon: 0.065990, SW: 0.165464)
+Train Epoch: 16 [22400/23168 (97%)]	Loss: 0.185667 (Recon: 0.061337, SW: 0.138145)
+Validation Epoch: 16	Loss: 0.159740 (Recon: 0.013699, SW: 0.162269)
+Epoch 16 completed in 4.3s
+Train Loss: 0.142728, Val Loss: 0.159740
+New best model saved (val_loss: 0.159740)
+Train Epoch: 17 [0/23168 (0%)]	Loss: 0.183050 (Recon: 0.019255, SW: 0.181994)
+Train Epoch: 17 [3200/23168 (14%)]	Loss: 0.133145 (Recon: 0.016931, SW: 0.129127)
+Train Epoch: 17 [6400/23168 (28%)]	Loss: 0.141116 (Recon: 0.023785, SW: 0.130368)
+Train Epoch: 17 [9600/23168 (41%)]	Loss: 0.139604 (Recon: 0.025168, SW: 0.127151)
+Train Epoch: 17 [12800/23168 (55%)]	Loss: 0.123930 (Recon: 0.033058, SW: 0.100968)
+Train Epoch: 17 [16000/23168 (69%)]	Loss: 0.119609 (Recon: 0.019522, SW: 0.111207)
+Train Epoch: 17 [19200/23168 (83%)]	Loss: 0.123330 (Recon: 0.027917, SW: 0.106014)
+Train Epoch: 17 [22400/23168 (97%)]	Loss: 0.152377 (Recon: 0.047929, SW: 0.116054)
+Validation Epoch: 17	Loss: 0.167267 (Recon: 0.016891, SW: 0.167084)
+Epoch 17 completed in 4.5s
+Train Loss: 0.139433, Val Loss: 0.167267
+Train Epoch: 18 [0/23168 (0%)]	Loss: 0.126514 (Recon: 0.021720, SW: 0.116438)
+Train Epoch: 18 [3200/23168 (14%)]	Loss: 0.127690 (Recon: 0.030973, SW: 0.107464)
+Train Epoch: 18 [6400/23168 (28%)]	Loss: 0.116640 (Recon: 0.016739, SW: 0.111000)
+Train Epoch: 18 [9600/23168 (41%)]	Loss: 0.173011 (Recon: 0.019628, SW: 0.170426)
+Train Epoch: 18 [12800/23168 (55%)]	Loss: 0.137738 (Recon: 0.017626, SW: 0.133458)
+Train Epoch: 18 [16000/23168 (69%)]	Loss: 0.111718 (Recon: 0.016419, SW: 0.105888)
+Train Epoch: 18 [19200/23168 (83%)]	Loss: 0.161657 (Recon: 0.034401, SW: 0.141395)
+Train Epoch: 18 [22400/23168 (97%)]	Loss: 0.135613 (Recon: 0.018417, SW: 0.130218)
+Validation Epoch: 18	Loss: 0.158506 (Recon: 0.012503, SW: 0.162226)
+Epoch 18 completed in 4.6s
+Train Loss: 0.138932, Val Loss: 0.158506
+New best model saved (val_loss: 0.158506)
+Train Epoch: 19 [0/23168 (0%)]	Loss: 0.125286 (Recon: 0.010913, SW: 0.127082)
+Train Epoch: 19 [3200/23168 (14%)]	Loss: 0.152441 (Recon: 0.024439, SW: 0.142225)
+Train Epoch: 19 [6400/23168 (28%)]	Loss: 0.157127 (Recon: 0.033491, SW: 0.137374)
+Train Epoch: 19 [9600/23168 (41%)]	Loss: 0.108391 (Recon: 0.025118, SW: 0.092525)
+Train Epoch: 19 [12800/23168 (55%)]	Loss: 0.141247 (Recon: 0.019518, SW: 0.135254)
+Train Epoch: 19 [16000/23168 (69%)]	Loss: 0.129424 (Recon: 0.009615, SW: 0.133121)
+Train Epoch: 19 [19200/23168 (83%)]	Loss: 0.135943 (Recon: 0.046865, SW: 0.098975)
+Train Epoch: 19 [22400/23168 (97%)]	Loss: 0.126976 (Recon: 0.024353, SW: 0.114026)
+Validation Epoch: 19	Loss: 0.181082 (Recon: 0.034264, SW: 0.163131)
+Epoch 19 completed in 4.6s
+Train Loss: 0.140710, Val Loss: 0.181082
+Train Epoch: 20 [0/23168 (0%)]	Loss: 0.159817 (Recon: 0.047538, SW: 0.124754)
+Train Epoch: 20 [3200/23168 (14%)]	Loss: 0.184662 (Recon: 0.070826, SW: 0.126485)
+Train Epoch: 20 [6400/23168 (28%)]	Loss: 0.133556 (Recon: 0.029896, SW: 0.115178)
+Train Epoch: 20 [9600/23168 (41%)]	Loss: 0.154871 (Recon: 0.026302, SW: 0.142855)
+Train Epoch: 20 [12800/23168 (55%)]	Loss: 0.115426 (Recon: 0.020391, SW: 0.105594)
+Train Epoch: 20 [16000/23168 (69%)]	Loss: 0.128111 (Recon: 0.019331, SW: 0.120866)
+Train Epoch: 20 [19200/23168 (83%)]	Loss: 0.132715 (Recon: 0.017424, SW: 0.128102)
+Train Epoch: 20 [22400/23168 (97%)]	Loss: 0.114894 (Recon: 0.022604, SW: 0.102544)
+Validation Epoch: 20	Loss: 0.162404 (Recon: 0.015377, SW: 0.163364)
+Epoch 20 completed in 4.6s
+Train Loss: 0.138276, Val Loss: 0.162404
+  Debug Sample 0:
+    Original range: [0.987587, 0.991417]
+    Reconstructed range: [0.987587, 0.991815]
+    Error range: [-0.000639, 0.000286]
+    Latent range: [-1.899765, 0.901664]
+
+Reconstruction Quality Evaluation (10 samples):
+Average PSNR: 28.31 dB
+Average MSE: 0.000004
+Average Correlation: 0.992458
+Compression Ratio: 21.4:1
+Train Epoch: 21 [0/23168 (0%)]	Loss: 0.170442 (Recon: 0.034060, SW: 0.151536)
+Train Epoch: 21 [3200/23168 (14%)]	Loss: 0.130488 (Recon: 0.013978, SW: 0.129455)
+Train Epoch: 21 [6400/23168 (28%)]	Loss: 0.152294 (Recon: 0.017215, SW: 0.150087)
+Train Epoch: 21 [9600/23168 (41%)]	Loss: 0.112682 (Recon: 0.013684, SW: 0.109997)
+Train Epoch: 21 [12800/23168 (55%)]	Loss: 0.122984 (Recon: 0.019595, SW: 0.114876)
+Train Epoch: 21 [16000/23168 (69%)]	Loss: 0.157628 (Recon: 0.048060, SW: 0.121742)
+Train Epoch: 21 [19200/23168 (83%)]	Loss: 0.136893 (Recon: 0.030258, SW: 0.118483)
+Train Epoch: 21 [22400/23168 (97%)]	Loss: 0.120584 (Recon: 0.020115, SW: 0.111633)
+Validation Epoch: 21	Loss: 0.162670 (Recon: 0.017872, SW: 0.160887)
+Epoch 21 completed in 4.4s
+Train Loss: 0.137689, Val Loss: 0.162670
+Train Epoch: 22 [0/23168 (0%)]	Loss: 0.128561 (Recon: 0.018806, SW: 0.121951)
+Train Epoch: 22 [3200/23168 (14%)]	Loss: 0.129215 (Recon: 0.009658, SW: 0.132842)
+Train Epoch: 22 [6400/23168 (28%)]	Loss: 0.127148 (Recon: 0.029356, SW: 0.108658)
+Train Epoch: 22 [9600/23168 (41%)]	Loss: 0.124161 (Recon: 0.018304, SW: 0.117619)
+Train Epoch: 22 [12800/23168 (55%)]	Loss: 0.149812 (Recon: 0.011096, SW: 0.154129)
+Train Epoch: 22 [16000/23168 (69%)]	Loss: 0.149417 (Recon: 0.030211, SW: 0.132452)
+Train Epoch: 22 [19200/23168 (83%)]	Loss: 0.162630 (Recon: 0.033587, SW: 0.143380)
+Train Epoch: 22 [22400/23168 (97%)]	Loss: 0.104489 (Recon: 0.010445, SW: 0.104493)
+Validation Epoch: 22	Loss: 0.156796 (Recon: 0.014141, SW: 0.158505)
+Epoch 22 completed in 4.7s
+Train Loss: 0.134715, Val Loss: 0.156796
+New best model saved (val_loss: 0.156796)
+Train Epoch: 23 [0/23168 (0%)]	Loss: 0.144015 (Recon: 0.009613, SW: 0.149335)
+Train Epoch: 23 [3200/23168 (14%)]	Loss: 0.132557 (Recon: 0.033400, SW: 0.110174)
+Train Epoch: 23 [6400/23168 (28%)]	Loss: 0.128470 (Recon: 0.024707, SW: 0.115292)
+Train Epoch: 23 [9600/23168 (41%)]	Loss: 0.180640 (Recon: 0.057929, SW: 0.136346)
+Train Epoch: 23 [12800/23168 (55%)]	Loss: 0.168761 (Recon: 0.029963, SW: 0.154221)
+Train Epoch: 23 [16000/23168 (69%)]	Loss: 0.135048 (Recon: 0.025443, SW: 0.121784)
+Train Epoch: 23 [19200/23168 (83%)]	Loss: 0.179837 (Recon: 0.065451, SW: 0.127096)
+Train Epoch: 23 [22400/23168 (97%)]	Loss: 0.123259 (Recon: 0.016866, SW: 0.118214)
+Validation Epoch: 23	Loss: 0.184399 (Recon: 0.025034, SW: 0.177073)
+Epoch 23 completed in 4.5s
+Train Loss: 0.134502, Val Loss: 0.184399
+Train Epoch: 24 [0/23168 (0%)]	Loss: 0.130579 (Recon: 0.009874, SW: 0.134117)
+Train Epoch: 24 [3200/23168 (14%)]	Loss: 0.128311 (Recon: 0.010825, SW: 0.130540)
+Train Epoch: 24 [6400/23168 (28%)]	Loss: 0.159235 (Recon: 0.041081, SW: 0.131283)
+Train Epoch: 24 [9600/23168 (41%)]	Loss: 0.125985 (Recon: 0.023343, SW: 0.114048)
+Train Epoch: 24 [12800/23168 (55%)]	Loss: 0.152293 (Recon: 0.010892, SW: 0.157113)
+Train Epoch: 24 [16000/23168 (69%)]	Loss: 0.140344 (Recon: 0.040128, SW: 0.111351)
+Train Epoch: 24 [19200/23168 (83%)]	Loss: 0.128835 (Recon: 0.024151, SW: 0.116315)
+Train Epoch: 24 [22400/23168 (97%)]	Loss: 0.103420 (Recon: 0.022213, SW: 0.090230)
+Validation Epoch: 24	Loss: 0.153421 (Recon: 0.011850, SW: 0.157301)
+Epoch 24 completed in 4.4s
+Train Loss: 0.135574, Val Loss: 0.153421
+New best model saved (val_loss: 0.153421)
+Train Epoch: 25 [0/23168 (0%)]	Loss: 0.168007 (Recon: 0.037366, SW: 0.145156)
+Train Epoch: 25 [3200/23168 (14%)]	Loss: 0.154359 (Recon: 0.028027, SW: 0.140370)
+Train Epoch: 25 [6400/23168 (28%)]	Loss: 0.140492 (Recon: 0.011737, SW: 0.143062)
+Train Epoch: 25 [9600/23168 (41%)]	Loss: 0.137066 (Recon: 0.009520, SW: 0.141717)
+Train Epoch: 25 [12800/23168 (55%)]	Loss: 0.118558 (Recon: 0.011238, SW: 0.119244)
+Train Epoch: 25 [16000/23168 (69%)]	Loss: 0.121386 (Recon: 0.011209, SW: 0.122420)
+Train Epoch: 25 [19200/23168 (83%)]	Loss: 0.152676 (Recon: 0.029124, SW: 0.137280)
+Train Epoch: 25 [22400/23168 (97%)]	Loss: 0.142037 (Recon: 0.012378, SW: 0.144066)
+Validation Epoch: 25	Loss: 0.168088 (Recon: 0.015336, SW: 0.169724)
+Epoch 25 completed in 4.6s
+Train Loss: 0.132192, Val Loss: 0.168088
+Train Epoch: 26 [0/23168 (0%)]	Loss: 0.134155 (Recon: 0.015070, SW: 0.132316)
+Train Epoch: 26 [3200/23168 (14%)]	Loss: 0.131038 (Recon: 0.018576, SW: 0.124958)
+Train Epoch: 26 [6400/23168 (28%)]	Loss: 0.142902 (Recon: 0.015813, SW: 0.141210)
+Train Epoch: 26 [9600/23168 (41%)]	Loss: 0.139713 (Recon: 0.014884, SW: 0.138699)
+Train Epoch: 26 [12800/23168 (55%)]	Loss: 0.167996 (Recon: 0.026107, SW: 0.157655)
+Train Epoch: 26 [16000/23168 (69%)]	Loss: 0.147483 (Recon: 0.032184, SW: 0.128110)
+Train Epoch: 26 [19200/23168 (83%)]	Loss: 0.210037 (Recon: 0.009531, SW: 0.222783)
+Train Epoch: 26 [22400/23168 (97%)]	Loss: 0.128804 (Recon: 0.007665, SW: 0.134599)
+Validation Epoch: 26	Loss: 0.161104 (Recon: 0.014551, SW: 0.162836)
+Epoch 26 completed in 4.3s
+Train Loss: 0.132531, Val Loss: 0.161104
+Train Epoch: 27 [0/23168 (0%)]	Loss: 0.156021 (Recon: 0.030333, SW: 0.139653)
+Train Epoch: 27 [3200/23168 (14%)]	Loss: 0.150174 (Recon: 0.018230, SW: 0.146604)
+Train Epoch: 27 [6400/23168 (28%)]	Loss: 0.157339 (Recon: 0.026028, SW: 0.145901)
+Train Epoch: 27 [9600/23168 (41%)]	Loss: 0.134663 (Recon: 0.010908, SW: 0.137506)
+Train Epoch: 27 [12800/23168 (55%)]	Loss: 0.147238 (Recon: 0.021008, SW: 0.140255)
+Train Epoch: 27 [16000/23168 (69%)]	Loss: 0.101741 (Recon: 0.014569, SW: 0.096858)
+Train Epoch: 27 [19200/23168 (83%)]	Loss: 0.112475 (Recon: 0.013692, SW: 0.109759)
+Train Epoch: 27 [22400/23168 (97%)]	Loss: 0.121843 (Recon: 0.019950, SW: 0.113215)
+Validation Epoch: 27	Loss: 0.172511 (Recon: 0.012376, SW: 0.177927)
+Epoch 27 completed in 4.3s
+Train Loss: 0.130779, Val Loss: 0.172511
+Train Epoch: 28 [0/23168 (0%)]	Loss: 0.100471 (Recon: 0.007765, SW: 0.103007)
+Train Epoch: 28 [3200/23168 (14%)]	Loss: 0.154545 (Recon: 0.010716, SW: 0.159810)
+Train Epoch: 28 [6400/23168 (28%)]	Loss: 0.178662 (Recon: 0.021532, SW: 0.174589)
+Train Epoch: 28 [9600/23168 (41%)]	Loss: 0.158670 (Recon: 0.022649, SW: 0.151135)
+Train Epoch: 28 [12800/23168 (55%)]	Loss: 0.126535 (Recon: 0.011124, SW: 0.128235)
+Train Epoch: 28 [16000/23168 (69%)]	Loss: 0.111914 (Recon: 0.009361, SW: 0.113948)
+Train Epoch: 28 [19200/23168 (83%)]	Loss: 0.118189 (Recon: 0.008403, SW: 0.121984)
+Train Epoch: 28 [22400/23168 (97%)]	Loss: 0.100518 (Recon: 0.015458, SW: 0.094511)
+Validation Epoch: 28	Loss: 0.155690 (Recon: 0.011021, SW: 0.160744)
+Epoch 28 completed in 4.3s
+Train Loss: 0.130835, Val Loss: 0.155690
+Train Epoch: 29 [0/23168 (0%)]	Loss: 0.183282 (Recon: 0.012234, SW: 0.190053)
+Train Epoch: 29 [3200/23168 (14%)]	Loss: 0.133109 (Recon: 0.007385, SW: 0.139693)
+Train Epoch: 29 [6400/23168 (28%)]	Loss: 0.120484 (Recon: 0.011084, SW: 0.121555)
+Train Epoch: 29 [9600/23168 (41%)]	Loss: 0.140302 (Recon: 0.029249, SW: 0.123392)
+Train Epoch: 29 [12800/23168 (55%)]	Loss: 0.129957 (Recon: 0.020311, SW: 0.121829)
+Train Epoch: 29 [16000/23168 (69%)]	Loss: 0.109405 (Recon: 0.011627, SW: 0.108641)
+Train Epoch: 29 [19200/23168 (83%)]	Loss: 0.103920 (Recon: 0.010444, SW: 0.103863)
+Train Epoch: 29 [22400/23168 (97%)]	Loss: 0.125205 (Recon: 0.017831, SW: 0.119304)
+Validation Epoch: 29	Loss: 0.163071 (Recon: 0.012020, SW: 0.167835)
+Epoch 29 completed in 4.5s
+Train Loss: 0.130614, Val Loss: 0.163071
+Train Epoch: 30 [0/23168 (0%)]	Loss: 0.119405 (Recon: 0.016400, SW: 0.114450)
+Train Epoch: 30 [3200/23168 (14%)]	Loss: 0.112474 (Recon: 0.011144, SW: 0.112589)
+Train Epoch: 30 [6400/23168 (28%)]	Loss: 0.116637 (Recon: 0.013852, SW: 0.114205)
+Train Epoch: 30 [9600/23168 (41%)]	Loss: 0.113423 (Recon: 0.011832, SW: 0.112879)
+Train Epoch: 30 [12800/23168 (55%)]	Loss: 0.142385 (Recon: 0.015281, SW: 0.141226)
+Train Epoch: 30 [16000/23168 (69%)]	Loss: 0.139567 (Recon: 0.012592, SW: 0.141083)
+Train Epoch: 30 [19200/23168 (83%)]	Loss: 0.122171 (Recon: 0.025446, SW: 0.107472)
+Train Epoch: 30 [22400/23168 (97%)]	Loss: 0.140181 (Recon: 0.026166, SW: 0.126683)
+Validation Epoch: 30	Loss: 0.151280 (Recon: 0.008463, SW: 0.158686)
+Epoch 30 completed in 4.4s
+Train Loss: 0.128579, Val Loss: 0.151280
+New best model saved (val_loss: 0.151280)
+  Debug Sample 0:
+    Original range: [0.987587, 0.991417]
+    Reconstructed range: [0.987587, 0.991749]
+    Error range: [-0.000332, 0.000523]
+    Latent range: [-2.153704, 0.931590]
+
+Reconstruction Quality Evaluation (10 samples):
+Average PSNR: 31.14 dB
+Average MSE: 0.000002
+Average Correlation: 0.994228
+Compression Ratio: 21.4:1
+Train Epoch: 31 [0/23168 (0%)]	Loss: 0.111456 (Recon: 0.022409, SW: 0.098942)
+Train Epoch: 31 [3200/23168 (14%)]	Loss: 0.133473 (Recon: 0.012085, SW: 0.134876)
+Train Epoch: 31 [6400/23168 (28%)]	Loss: 0.117416 (Recon: 0.010246, SW: 0.119078)
+Train Epoch: 31 [9600/23168 (41%)]	Loss: 0.129088 (Recon: 0.010423, SW: 0.131850)
+Train Epoch: 31 [12800/23168 (55%)]	Loss: 0.118470 (Recon: 0.006799, SW: 0.124080)
+Train Epoch: 31 [16000/23168 (69%)]	Loss: 0.133497 (Recon: 0.017472, SW: 0.128917)
+Train Epoch: 31 [19200/23168 (83%)]	Loss: 0.123751 (Recon: 0.009401, SW: 0.127056)
+Train Epoch: 31 [22400/23168 (97%)]	Loss: 0.104536 (Recon: 0.019634, SW: 0.094336)
+Validation Epoch: 31	Loss: 0.152226 (Recon: 0.008617, SW: 0.159567)
+Epoch 31 completed in 4.7s
+Train Loss: 0.123090, Val Loss: 0.152226
+Train Epoch: 32 [0/23168 (0%)]	Loss: 0.115348 (Recon: 0.008992, SW: 0.118173)
+Train Epoch: 32 [3200/23168 (14%)]	Loss: 0.085681 (Recon: 0.014634, SW: 0.078941)
+Train Epoch: 32 [6400/23168 (28%)]	Loss: 0.173999 (Recon: 0.032101, SW: 0.157664)
+Train Epoch: 32 [9600/23168 (41%)]	Loss: 0.128961 (Recon: 0.004888, SW: 0.137859)
+Train Epoch: 32 [12800/23168 (55%)]	Loss: 0.120112 (Recon: 0.005398, SW: 0.127460)
+Train Epoch: 32 [16000/23168 (69%)]	Loss: 0.100395 (Recon: 0.007293, SW: 0.103447)
+Train Epoch: 32 [19200/23168 (83%)]	Loss: 0.109339 (Recon: 0.013915, SW: 0.106026)
+Train Epoch: 32 [22400/23168 (97%)]	Loss: 0.116131 (Recon: 0.008262, SW: 0.119855)
+Validation Epoch: 32	Loss: 0.148959 (Recon: 0.009556, SW: 0.154892)
+Epoch 32 completed in 4.5s
+Train Loss: 0.122465, Val Loss: 0.148959
+New best model saved (val_loss: 0.148959)
+Train Epoch: 33 [0/23168 (0%)]	Loss: 0.143781 (Recon: 0.018945, SW: 0.138706)
+Train Epoch: 33 [3200/23168 (14%)]	Loss: 0.129862 (Recon: 0.010376, SW: 0.132762)
+Train Epoch: 33 [6400/23168 (28%)]	Loss: 0.132089 (Recon: 0.010625, SW: 0.134960)
+Train Epoch: 33 [9600/23168 (41%)]	Loss: 0.116502 (Recon: 0.007862, SW: 0.120711)
+Train Epoch: 33 [12800/23168 (55%)]	Loss: 0.107993 (Recon: 0.012307, SW: 0.106318)
+Train Epoch: 33 [16000/23168 (69%)]	Loss: 0.111751 (Recon: 0.013590, SW: 0.109067)
+Train Epoch: 33 [19200/23168 (83%)]	Loss: 0.107076 (Recon: 0.010288, SW: 0.107541)
+Train Epoch: 33 [22400/23168 (97%)]	Loss: 0.103633 (Recon: 0.010171, SW: 0.103846)
+Validation Epoch: 33	Loss: 0.146347 (Recon: 0.008294, SW: 0.153392)
+Epoch 33 completed in 4.7s
+Train Loss: 0.122982, Val Loss: 0.146347
+New best model saved (val_loss: 0.146347)
+Train Epoch: 34 [0/23168 (0%)]	Loss: 0.115583 (Recon: 0.011976, SW: 0.115118)
+Train Epoch: 34 [3200/23168 (14%)]	Loss: 0.138310 (Recon: 0.015472, SW: 0.136487)
+Train Epoch: 34 [6400/23168 (28%)]	Loss: 0.135542 (Recon: 0.007435, SW: 0.142341)
+Train Epoch: 34 [9600/23168 (41%)]	Loss: 0.116488 (Recon: 0.011635, SW: 0.116503)
+Train Epoch: 34 [12800/23168 (55%)]	Loss: 0.130490 (Recon: 0.012130, SW: 0.131512)
+Train Epoch: 34 [16000/23168 (69%)]	Loss: 0.129581 (Recon: 0.007325, SW: 0.135840)
+Train Epoch: 34 [19200/23168 (83%)]	Loss: 0.122080 (Recon: 0.007547, SW: 0.127258)
+Train Epoch: 34 [22400/23168 (97%)]	Loss: 0.107049 (Recon: 0.010369, SW: 0.107422)
+Validation Epoch: 34	Loss: 0.150055 (Recon: 0.008951, SW: 0.156782)
+Epoch 34 completed in 4.5s
+Train Loss: 0.122702, Val Loss: 0.150055
+Train Epoch: 35 [0/23168 (0%)]	Loss: 0.101043 (Recon: 0.014958, SW: 0.095650)
+Train Epoch: 35 [3200/23168 (14%)]	Loss: 0.102238 (Recon: 0.005970, SW: 0.106965)
+Train Epoch: 35 [6400/23168 (28%)]	Loss: 0.123764 (Recon: 0.008171, SW: 0.128437)
+Train Epoch: 35 [9600/23168 (41%)]	Loss: 0.123162 (Recon: 0.005803, SW: 0.130399)
+Train Epoch: 35 [12800/23168 (55%)]	Loss: 0.128802 (Recon: 0.015042, SW: 0.126400)
+Train Epoch: 35 [16000/23168 (69%)]	Loss: 0.129298 (Recon: 0.010353, SW: 0.132162)
+Train Epoch: 35 [19200/23168 (83%)]	Loss: 0.138407 (Recon: 0.013819, SW: 0.138431)
+Train Epoch: 35 [22400/23168 (97%)]	Loss: 0.109368 (Recon: 0.014895, SW: 0.104971)
+Validation Epoch: 35	Loss: 0.150357 (Recon: 0.008359, SW: 0.157776)
+Epoch 35 completed in 4.5s
+Train Loss: 0.122818, Val Loss: 0.150357
+Train Epoch: 36 [0/23168 (0%)]	Loss: 0.104013 (Recon: 0.005814, SW: 0.109110)
+Train Epoch: 36 [3200/23168 (14%)]	Loss: 0.137442 (Recon: 0.007441, SW: 0.144445)
+Train Epoch: 36 [6400/23168 (28%)]	Loss: 0.121980 (Recon: 0.007219, SW: 0.127512)
+Train Epoch: 36 [9600/23168 (41%)]	Loss: 0.120591 (Recon: 0.014303, SW: 0.118097)
+Train Epoch: 36 [12800/23168 (55%)]	Loss: 0.124196 (Recon: 0.005704, SW: 0.131658)
+Train Epoch: 36 [16000/23168 (69%)]	Loss: 0.131145 (Recon: 0.018312, SW: 0.125369)
+Train Epoch: 36 [19200/23168 (83%)]	Loss: 0.109009 (Recon: 0.012849, SW: 0.106844)
+Train Epoch: 36 [22400/23168 (97%)]	Loss: 0.119904 (Recon: 0.007205, SW: 0.125220)
+Validation Epoch: 36	Loss: 0.152547 (Recon: 0.007900, SW: 0.160718)
+Epoch 36 completed in 4.6s
+Train Loss: 0.122092, Val Loss: 0.152547
+Train Epoch: 37 [0/23168 (0%)]	Loss: 0.148035 (Recon: 0.012212, SW: 0.150914)
+Train Epoch: 37 [3200/23168 (14%)]	Loss: 0.110663 (Recon: 0.009490, SW: 0.112414)
+Train Epoch: 37 [6400/23168 (28%)]	Loss: 0.120591 (Recon: 0.011901, SW: 0.120767)
+Train Epoch: 37 [9600/23168 (41%)]	Loss: 0.124397 (Recon: 0.010050, SW: 0.127052)
+Train Epoch: 37 [12800/23168 (55%)]	Loss: 0.107764 (Recon: 0.013229, SW: 0.105040)
+Train Epoch: 37 [16000/23168 (69%)]	Loss: 0.116420 (Recon: 0.010885, SW: 0.117261)
+Train Epoch: 37 [19200/23168 (83%)]	Loss: 0.153269 (Recon: 0.037912, SW: 0.128175)
+Train Epoch: 37 [22400/23168 (97%)]	Loss: 0.119309 (Recon: 0.022653, SW: 0.107395)
+Validation Epoch: 37	Loss: 0.153554 (Recon: 0.007803, SW: 0.161946)
+Epoch 37 completed in 4.6s
+Train Loss: 0.121227, Val Loss: 0.153554
+Train Epoch: 38 [0/23168 (0%)]	Loss: 0.134307 (Recon: 0.006183, SW: 0.142360)
+Train Epoch: 38 [3200/23168 (14%)]	Loss: 0.135396 (Recon: 0.006393, SW: 0.143337)
+Train Epoch: 38 [6400/23168 (28%)]	Loss: 0.119099 (Recon: 0.018392, SW: 0.111897)
+Train Epoch: 38 [9600/23168 (41%)]	Loss: 0.107339 (Recon: 0.009190, SW: 0.109055)
+Train Epoch: 38 [12800/23168 (55%)]	Loss: 0.152042 (Recon: 0.005901, SW: 0.162379)
+Train Epoch: 38 [16000/23168 (69%)]	Loss: 0.119215 (Recon: 0.005811, SW: 0.126005)
+Train Epoch: 38 [19200/23168 (83%)]	Loss: 0.125423 (Recon: 0.008835, SW: 0.129543)
+Train Epoch: 38 [22400/23168 (97%)]	Loss: 0.148641 (Recon: 0.039803, SW: 0.120932)
+Validation Epoch: 38	Loss: 0.160918 (Recon: 0.016610, SW: 0.160342)
+Epoch 38 completed in 4.6s
+Train Loss: 0.120803, Val Loss: 0.160918
+Train Epoch: 39 [0/23168 (0%)]	Loss: 0.108673 (Recon: 0.013853, SW: 0.105356)
+Train Epoch: 39 [3200/23168 (14%)]	Loss: 0.134038 (Recon: 0.015373, SW: 0.131850)
+Train Epoch: 39 [6400/23168 (28%)]	Loss: 0.108503 (Recon: 0.010027, SW: 0.109417)
+Train Epoch: 39 [9600/23168 (41%)]	Loss: 0.119899 (Recon: 0.006651, SW: 0.125832)
+Train Epoch: 39 [12800/23168 (55%)]	Loss: 0.118984 (Recon: 0.023099, SW: 0.106539)
+Train Epoch: 39 [16000/23168 (69%)]	Loss: 0.113313 (Recon: 0.006803, SW: 0.118344)
+Train Epoch: 39 [19200/23168 (83%)]	Loss: 0.123630 (Recon: 0.009781, SW: 0.126499)
+Train Epoch: 39 [22400/23168 (97%)]	Loss: 0.115378 (Recon: 0.022147, SW: 0.103590)
+Validation Epoch: 39	Loss: 0.149591 (Recon: 0.006254, SW: 0.159264)
+Epoch 39 completed in 4.5s
+Train Loss: 0.121200, Val Loss: 0.149591
+Train Epoch: 40 [0/23168 (0%)]	Loss: 0.129070 (Recon: 0.019778, SW: 0.121435)
+Train Epoch: 40 [3200/23168 (14%)]	Loss: 0.128413 (Recon: 0.009254, SW: 0.132399)
+Train Epoch: 40 [6400/23168 (28%)]	Loss: 0.120434 (Recon: 0.005313, SW: 0.127912)
+Train Epoch: 40 [9600/23168 (41%)]	Loss: 0.098523 (Recon: 0.007258, SW: 0.101406)
+Train Epoch: 40 [12800/23168 (55%)]	Loss: 0.104426 (Recon: 0.009966, SW: 0.104956)
+Train Epoch: 40 [16000/23168 (69%)]	Loss: 0.123028 (Recon: 0.010578, SW: 0.124944)
+Train Epoch: 40 [19200/23168 (83%)]	Loss: 0.155838 (Recon: 0.037076, SW: 0.131958)
+Train Epoch: 40 [22400/23168 (97%)]	Loss: 0.111001 (Recon: 0.005397, SW: 0.117338)
+Validation Epoch: 40	Loss: 0.148697 (Recon: 0.010054, SW: 0.154048)
+Epoch 40 completed in 4.6s
+Train Loss: 0.120485, Val Loss: 0.148697
+  Debug Sample 0:
+    Original range: [0.987587, 0.991417]
+    Reconstructed range: [0.987587, 0.992605]
+    Error range: [-0.001208, -0.000000]
+    Latent range: [-2.053217, 0.976339]
+
+Reconstruction Quality Evaluation (10 samples):
+Average PSNR: 31.94 dB
+Average MSE: 0.000001
+Average Correlation: 0.996118
+Compression Ratio: 21.4:1
+Train Epoch: 41 [0/23168 (0%)]	Loss: 0.109617 (Recon: 0.012679, SW: 0.107709)
+Train Epoch: 41 [3200/23168 (14%)]	Loss: 0.100446 (Recon: 0.006683, SW: 0.104181)
+Train Epoch: 41 [6400/23168 (28%)]	Loss: 0.097947 (Recon: 0.010751, SW: 0.096884)
+Train Epoch: 41 [9600/23168 (41%)]	Loss: 0.124881 (Recon: 0.012194, SW: 0.125208)
+Train Epoch: 41 [12800/23168 (55%)]	Loss: 0.114106 (Recon: 0.011265, SW: 0.114267)
+Train Epoch: 41 [16000/23168 (69%)]	Loss: 0.153897 (Recon: 0.008292, SW: 0.161784)
+Train Epoch: 41 [19200/23168 (83%)]	Loss: 0.109433 (Recon: 0.007343, SW: 0.113434)
+Train Epoch: 41 [22400/23168 (97%)]	Loss: 0.119389 (Recon: 0.005242, SW: 0.126830)
+Validation Epoch: 41	Loss: 0.148987 (Recon: 0.007472, SW: 0.157238)
+Epoch 41 completed in 4.4s
+Train Loss: 0.120192, Val Loss: 0.148987
+Train Epoch: 42 [0/23168 (0%)]	Loss: 0.119920 (Recon: 0.011956, SW: 0.119960)
+Train Epoch: 42 [3200/23168 (14%)]	Loss: 0.173089 (Recon: 0.006072, SW: 0.185575)
+Train Epoch: 42 [6400/23168 (28%)]	Loss: 0.115530 (Recon: 0.005523, SW: 0.122230)
+Train Epoch: 42 [9600/23168 (41%)]	Loss: 0.141952 (Recon: 0.012940, SW: 0.143346)
+Train Epoch: 42 [12800/23168 (55%)]	Loss: 0.092632 (Recon: 0.005476, SW: 0.096840)
+Train Epoch: 42 [16000/23168 (69%)]	Loss: 0.112871 (Recon: 0.008590, SW: 0.115868)
+Train Epoch: 42 [19200/23168 (83%)]	Loss: 0.123396 (Recon: 0.012687, SW: 0.123010)
+Train Epoch: 42 [22400/23168 (97%)]	Loss: 0.121507 (Recon: 0.012099, SW: 0.121564)
+Validation Epoch: 42	Loss: 0.153585 (Recon: 0.008582, SW: 0.161115)
+Epoch 42 completed in 4.5s
+Train Loss: 0.120682, Val Loss: 0.153585
+Train Epoch: 43 [0/23168 (0%)]	Loss: 0.106120 (Recon: 0.004483, SW: 0.112930)
+Train Epoch: 43 [3200/23168 (14%)]	Loss: 0.119645 (Recon: 0.005332, SW: 0.127015)
+Train Epoch: 43 [6400/23168 (28%)]	Loss: 0.117531 (Recon: 0.006148, SW: 0.123758)
+Train Epoch: 43 [9600/23168 (41%)]	Loss: 0.143022 (Recon: 0.016974, SW: 0.140052)
+Train Epoch: 43 [12800/23168 (55%)]	Loss: 0.097023 (Recon: 0.012222, SW: 0.094223)
+Train Epoch: 43 [16000/23168 (69%)]	Loss: 0.102164 (Recon: 0.005007, SW: 0.107952)
+Train Epoch: 43 [19200/23168 (83%)]	Loss: 0.110953 (Recon: 0.008916, SW: 0.113374)
+Train Epoch: 43 [22400/23168 (97%)]	Loss: 0.108612 (Recon: 0.004931, SW: 0.115201)
+Validation Epoch: 43	Loss: 0.158333 (Recon: 0.014850, SW: 0.159426)
+Epoch 43 completed in 4.5s
+Train Loss: 0.118927, Val Loss: 0.158333
+Train Epoch: 44 [0/23168 (0%)]	Loss: 0.094449 (Recon: 0.008410, SW: 0.095599)
+Train Epoch: 44 [3200/23168 (14%)]	Loss: 0.133138 (Recon: 0.009422, SW: 0.137462)
+Train Epoch: 44 [6400/23168 (28%)]	Loss: 0.130076 (Recon: 0.006669, SW: 0.137118)
+Train Epoch: 44 [9600/23168 (41%)]	Loss: 0.127630 (Recon: 0.009529, SW: 0.131223)
+Train Epoch: 44 [12800/23168 (55%)]	Loss: 0.100500 (Recon: 0.007582, SW: 0.103243)
+Train Epoch: 44 [16000/23168 (69%)]	Loss: 0.154933 (Recon: 0.006496, SW: 0.164930)
+Train Epoch: 44 [19200/23168 (83%)]	Loss: 0.121802 (Recon: 0.006187, SW: 0.128461)
+Train Epoch: 44 [22400/23168 (97%)]	Loss: 0.107392 (Recon: 0.008141, SW: 0.110279)
+Validation Epoch: 44	Loss: 0.156372 (Recon: 0.013796, SW: 0.158417)
+Epoch 44 completed in 4.6s
+Train Loss: 0.119254, Val Loss: 0.156372
+Train Epoch: 45 [0/23168 (0%)]	Loss: 0.098250 (Recon: 0.007049, SW: 0.101335)
+Train Epoch: 45 [3200/23168 (14%)]	Loss: 0.184326 (Recon: 0.006778, SW: 0.197275)
+Train Epoch: 45 [6400/23168 (28%)]	Loss: 0.108623 (Recon: 0.009245, SW: 0.110420)
+Train Epoch: 45 [9600/23168 (41%)]	Loss: 0.126684 (Recon: 0.015599, SW: 0.123427)
+Train Epoch: 45 [12800/23168 (55%)]	Loss: 0.116359 (Recon: 0.011557, SW: 0.116446)
+Train Epoch: 45 [16000/23168 (69%)]	Loss: 0.126542 (Recon: 0.006525, SW: 0.133352)
+Train Epoch: 45 [19200/23168 (83%)]	Loss: 0.116423 (Recon: 0.016734, SW: 0.110766)
+Train Epoch: 45 [22400/23168 (97%)]	Loss: 0.140949 (Recon: 0.010076, SW: 0.145414)
+Validation Epoch: 45	Loss: 0.157450 (Recon: 0.017504, SW: 0.155496)
+Epoch 45 completed in 4.6s
+Train Loss: 0.119444, Val Loss: 0.157450
+Train Epoch: 46 [0/23168 (0%)]	Loss: 0.121626 (Recon: 0.009858, SW: 0.124187)
+Train Epoch: 46 [3200/23168 (14%)]	Loss: 0.131789 (Recon: 0.008799, SW: 0.136656)
+Train Epoch: 46 [6400/23168 (28%)]	Loss: 0.155993 (Recon: 0.008980, SW: 0.163348)
+Train Epoch: 46 [9600/23168 (41%)]	Loss: 0.116386 (Recon: 0.006395, SW: 0.122213)
+Train Epoch: 46 [12800/23168 (55%)]	Loss: 0.146176 (Recon: 0.006846, SW: 0.154810)
+Train Epoch: 46 [16000/23168 (69%)]	Loss: 0.108282 (Recon: 0.005306, SW: 0.114418)
+Train Epoch: 46 [19200/23168 (83%)]	Loss: 0.113171 (Recon: 0.011765, SW: 0.112673)
+Train Epoch: 46 [22400/23168 (97%)]	Loss: 0.146526 (Recon: 0.015138, SW: 0.145986)
+Validation Epoch: 46	Loss: 0.153085 (Recon: 0.006839, SW: 0.162496)
+Epoch 46 completed in 4.6s
+Train Loss: 0.119615, Val Loss: 0.153085
+Train Epoch: 47 [0/23168 (0%)]	Loss: 0.105289 (Recon: 0.006875, SW: 0.109348)
+Train Epoch: 47 [3200/23168 (14%)]	Loss: 0.128011 (Recon: 0.011377, SW: 0.129594)
+Train Epoch: 47 [6400/23168 (28%)]	Loss: 0.117785 (Recon: 0.011027, SW: 0.118621)
+Train Epoch: 47 [9600/23168 (41%)]	Loss: 0.103242 (Recon: 0.006029, SW: 0.108014)
+Train Epoch: 47 [12800/23168 (55%)]	Loss: 0.100063 (Recon: 0.013244, SW: 0.096466)
+Train Epoch: 47 [16000/23168 (69%)]	Loss: 0.101980 (Recon: 0.010739, SW: 0.101378)
+Train Epoch: 47 [19200/23168 (83%)]	Loss: 0.108948 (Recon: 0.007218, SW: 0.113034)
+Train Epoch: 47 [22400/23168 (97%)]	Loss: 0.147413 (Recon: 0.028652, SW: 0.131957)
+Validation Epoch: 47	Loss: 0.148327 (Recon: 0.009348, SW: 0.154422)
+Epoch 47 completed in 4.5s
+Train Loss: 0.118289, Val Loss: 0.148327
+Train Epoch: 48 [0/23168 (0%)]	Loss: 0.138232 (Recon: 0.006137, SW: 0.146772)
+Train Epoch: 48 [3200/23168 (14%)]	Loss: 0.137636 (Recon: 0.008825, SW: 0.143123)
+Train Epoch: 48 [6400/23168 (28%)]	Loss: 0.149100 (Recon: 0.009681, SW: 0.154911)
+Train Epoch: 48 [9600/23168 (41%)]	Loss: 0.104702 (Recon: 0.007318, SW: 0.108204)
+Train Epoch: 48 [12800/23168 (55%)]	Loss: 0.086860 (Recon: 0.005276, SW: 0.090649)
+Train Epoch: 48 [16000/23168 (69%)]	Loss: 0.116063 (Recon: 0.007856, SW: 0.120231)
+Train Epoch: 48 [19200/23168 (83%)]	Loss: 0.115590 (Recon: 0.009244, SW: 0.118162)
+Train Epoch: 48 [22400/23168 (97%)]	Loss: 0.100908 (Recon: 0.005453, SW: 0.106061)
+Validation Epoch: 48	Loss: 0.148010 (Recon: 0.007866, SW: 0.155715)
+Epoch 48 completed in 4.6s
+Train Loss: 0.118629, Val Loss: 0.148010
+Train Epoch: 49 [0/23168 (0%)]	Loss: 0.115312 (Recon: 0.007113, SW: 0.120221)
+Train Epoch: 49 [3200/23168 (14%)]	Loss: 0.140654 (Recon: 0.018189, SW: 0.136072)
+Train Epoch: 49 [6400/23168 (28%)]	Loss: 0.123619 (Recon: 0.012530, SW: 0.123432)
+Train Epoch: 49 [9600/23168 (41%)]	Loss: 0.140457 (Recon: 0.008638, SW: 0.146465)
+Train Epoch: 49 [12800/23168 (55%)]	Loss: 0.148867 (Recon: 0.009266, SW: 0.155112)
+Train Epoch: 49 [16000/23168 (69%)]	Loss: 0.120784 (Recon: 0.014496, SW: 0.118098)
+Train Epoch: 49 [19200/23168 (83%)]	Loss: 0.135383 (Recon: 0.005950, SW: 0.143814)
+Train Epoch: 49 [22400/23168 (97%)]	Loss: 0.143787 (Recon: 0.019835, SW: 0.137724)
+Validation Epoch: 49	Loss: 0.148078 (Recon: 0.006770, SW: 0.157009)
+Epoch 49 completed in 4.6s
+Train Loss: 0.118817, Val Loss: 0.148078
+Train Epoch: 50 [0/23168 (0%)]	Loss: 0.123228 (Recon: 0.006729, SW: 0.129444)
+Train Epoch: 50 [3200/23168 (14%)]	Loss: 0.118033 (Recon: 0.014567, SW: 0.114962)
+Train Epoch: 50 [6400/23168 (28%)]	Loss: 0.123444 (Recon: 0.007361, SW: 0.128981)
+Train Epoch: 50 [9600/23168 (41%)]	Loss: 0.106126 (Recon: 0.005941, SW: 0.111317)
+Train Epoch: 50 [12800/23168 (55%)]	Loss: 0.094911 (Recon: 0.010089, SW: 0.094246)
+Train Epoch: 50 [16000/23168 (69%)]	Loss: 0.133280 (Recon: 0.019877, SW: 0.126003)
+Train Epoch: 50 [19200/23168 (83%)]	Loss: 0.129075 (Recon: 0.010294, SW: 0.131979)
+Train Epoch: 50 [22400/23168 (97%)]	Loss: 0.112924 (Recon: 0.008124, SW: 0.116445)
+Validation Epoch: 50	Loss: 0.146776 (Recon: 0.004648, SW: 0.157921)
+Epoch 50 completed in 4.6s
+Train Loss: 0.118701, Val Loss: 0.146776
+  Debug Sample 0:
+    Original range: [0.987587, 0.991417]
+    Reconstructed range: [0.987587, 0.991735]
+    Error range: [-0.000382, 0.000204]
+    Latent range: [-2.164901, 0.924998]
+
+Reconstruction Quality Evaluation (10 samples):
+Average PSNR: 33.00 dB
+Average MSE: 0.000001
+Average Correlation: 0.996914
+Compression Ratio: 21.4:1
+Train Epoch: 51 [0/23168 (0%)]	Loss: 0.108681 (Recon: 0.004184, SW: 0.116107)
+Train Epoch: 51 [3200/23168 (14%)]	Loss: 0.119872 (Recon: 0.006265, SW: 0.126230)
+Train Epoch: 51 [6400/23168 (28%)]	Loss: 0.106822 (Recon: 0.010406, SW: 0.107128)
+Train Epoch: 51 [9600/23168 (41%)]	Loss: 0.121469 (Recon: 0.023074, SW: 0.109329)
+Train Epoch: 51 [12800/23168 (55%)]	Loss: 0.123880 (Recon: 0.004453, SW: 0.132697)
+Train Epoch: 51 [16000/23168 (69%)]	Loss: 0.125261 (Recon: 0.009872, SW: 0.128210)
+Train Epoch: 51 [19200/23168 (83%)]	Loss: 0.112430 (Recon: 0.011763, SW: 0.111853)
+Train Epoch: 51 [22400/23168 (97%)]	Loss: 0.121275 (Recon: 0.006662, SW: 0.127347)
+Validation Epoch: 51	Loss: 0.143481 (Recon: 0.005128, SW: 0.153726)
+Epoch 51 completed in 4.4s
+Train Loss: 0.118169, Val Loss: 0.143481
+New best model saved (val_loss: 0.143481)
+Train Epoch: 52 [0/23168 (0%)]	Loss: 0.119097 (Recon: 0.005397, SW: 0.126333)
+Train Epoch: 52 [3200/23168 (14%)]	Loss: 0.117038 (Recon: 0.007910, SW: 0.121253)
+Train Epoch: 52 [6400/23168 (28%)]	Loss: 0.146885 (Recon: 0.012772, SW: 0.149014)
+Train Epoch: 52 [9600/23168 (41%)]	Loss: 0.108363 (Recon: 0.018153, SW: 0.100233)
+Train Epoch: 52 [12800/23168 (55%)]	Loss: 0.113219 (Recon: 0.010828, SW: 0.113767)
+Train Epoch: 52 [16000/23168 (69%)]	Loss: 0.104794 (Recon: 0.004283, SW: 0.111680)
+Train Epoch: 52 [19200/23168 (83%)]	Loss: 0.127157 (Recon: 0.011141, SW: 0.128907)
+Train Epoch: 52 [22400/23168 (97%)]	Loss: 0.088944 (Recon: 0.009058, SW: 0.088762)
+Validation Epoch: 52	Loss: 0.147411 (Recon: 0.008231, SW: 0.154643)
+Epoch 52 completed in 4.3s
+Train Loss: 0.118216, Val Loss: 0.147411
+Train Epoch: 53 [0/23168 (0%)]	Loss: 0.102081 (Recon: 0.006594, SW: 0.106096)
+Train Epoch: 53 [3200/23168 (14%)]	Loss: 0.122871 (Recon: 0.012085, SW: 0.123096)
+Train Epoch: 53 [6400/23168 (28%)]	Loss: 0.120976 (Recon: 0.009685, SW: 0.123657)
+Train Epoch: 53 [9600/23168 (41%)]	Loss: 0.103006 (Recon: 0.005675, SW: 0.108145)
+Train Epoch: 53 [12800/23168 (55%)]	Loss: 0.129722 (Recon: 0.005023, SW: 0.138554)
+Train Epoch: 53 [16000/23168 (69%)]	Loss: 0.124599 (Recon: 0.005429, SW: 0.132411)
+Train Epoch: 53 [19200/23168 (83%)]	Loss: 0.102177 (Recon: 0.011492, SW: 0.100762)
+Train Epoch: 53 [22400/23168 (97%)]	Loss: 0.147498 (Recon: 0.005864, SW: 0.157371)
+Validation Epoch: 53	Loss: 0.146310 (Recon: 0.006396, SW: 0.155460)
+Epoch 53 completed in 4.6s
+Train Loss: 0.118225, Val Loss: 0.146310
+Train Epoch: 54 [0/23168 (0%)]	Loss: 0.145763 (Recon: 0.019039, SW: 0.140804)
+Train Epoch: 54 [3200/23168 (14%)]	Loss: 0.113850 (Recon: 0.003807, SW: 0.122269)
+Train Epoch: 54 [6400/23168 (28%)]	Loss: 0.139961 (Recon: 0.022192, SW: 0.130854)
+Train Epoch: 54 [9600/23168 (41%)]	Loss: 0.118159 (Recon: 0.008098, SW: 0.122291)
+Train Epoch: 54 [12800/23168 (55%)]	Loss: 0.110560 (Recon: 0.006829, SW: 0.115257)
+Train Epoch: 54 [16000/23168 (69%)]	Loss: 0.094314 (Recon: 0.004462, SW: 0.099835)
+Train Epoch: 54 [19200/23168 (83%)]	Loss: 0.100903 (Recon: 0.003991, SW: 0.107679)
+Train Epoch: 54 [22400/23168 (97%)]	Loss: 0.111763 (Recon: 0.006913, SW: 0.116500)
+Validation Epoch: 54	Loss: 0.146485 (Recon: 0.006265, SW: 0.155799)
+Epoch 54 completed in 4.3s
+Train Loss: 0.118605, Val Loss: 0.146485
+Train Epoch: 55 [0/23168 (0%)]	Loss: 0.113290 (Recon: 0.003673, SW: 0.121797)
+Train Epoch: 55 [3200/23168 (14%)]	Loss: 0.115703 (Recon: 0.007431, SW: 0.120302)
+Train Epoch: 55 [6400/23168 (28%)]	Loss: 0.113100 (Recon: 0.017576, SW: 0.106138)
+Train Epoch: 55 [9600/23168 (41%)]	Loss: 0.120968 (Recon: 0.011605, SW: 0.121515)
+Train Epoch: 55 [12800/23168 (55%)]	Loss: 0.117781 (Recon: 0.008919, SW: 0.120958)
+Train Epoch: 55 [16000/23168 (69%)]	Loss: 0.125228 (Recon: 0.006200, SW: 0.132253)
+Train Epoch: 55 [19200/23168 (83%)]	Loss: 0.113560 (Recon: 0.017295, SW: 0.106961)
+Train Epoch: 55 [22400/23168 (97%)]	Loss: 0.139884 (Recon: 0.012649, SW: 0.141372)
+Validation Epoch: 55	Loss: 0.146613 (Recon: 0.006546, SW: 0.155630)
+Epoch 55 completed in 4.3s
+Train Loss: 0.118397, Val Loss: 0.146613
+Train Epoch: 56 [0/23168 (0%)]	Loss: 0.143545 (Recon: 0.016647, SW: 0.140999)
+Train Epoch: 56 [3200/23168 (14%)]	Loss: 0.092904 (Recon: 0.006052, SW: 0.096502)
+Train Epoch: 56 [6400/23168 (28%)]	Loss: 0.130662 (Recon: 0.007878, SW: 0.136427)
+Train Epoch: 56 [9600/23168 (41%)]	Loss: 0.110203 (Recon: 0.005476, SW: 0.116364)
+Train Epoch: 56 [12800/23168 (55%)]	Loss: 0.119703 (Recon: 0.005003, SW: 0.127444)
+Train Epoch: 56 [16000/23168 (69%)]	Loss: 0.111357 (Recon: 0.006212, SW: 0.116827)
+Train Epoch: 56 [19200/23168 (83%)]	Loss: 0.097860 (Recon: 0.008876, SW: 0.098872)
+Train Epoch: 56 [22400/23168 (97%)]	Loss: 0.114112 (Recon: 0.016503, SW: 0.108455)
+Validation Epoch: 56	Loss: 0.146609 (Recon: 0.006492, SW: 0.155685)
+Epoch 56 completed in 4.3s
+Train Loss: 0.118089, Val Loss: 0.146609
+Train Epoch: 57 [0/23168 (0%)]	Loss: 0.109918 (Recon: 0.010303, SW: 0.110683)
+Train Epoch: 57 [3200/23168 (14%)]	Loss: 0.121195 (Recon: 0.007466, SW: 0.126366)
+Train Epoch: 57 [6400/23168 (28%)]	Loss: 0.120133 (Recon: 0.004595, SW: 0.128376)
+Train Epoch: 57 [9600/23168 (41%)]	Loss: 0.101226 (Recon: 0.006327, SW: 0.105443)
+Train Epoch: 57 [12800/23168 (55%)]	Loss: 0.128253 (Recon: 0.007307, SW: 0.134384)
+Train Epoch: 57 [16000/23168 (69%)]	Loss: 0.128025 (Recon: 0.015556, SW: 0.124965)
+Train Epoch: 57 [19200/23168 (83%)]	Loss: 0.119915 (Recon: 0.016183, SW: 0.115258)
+Train Epoch: 57 [22400/23168 (97%)]	Loss: 0.119356 (Recon: 0.009120, SW: 0.122485)
+Validation Epoch: 57	Loss: 0.152469 (Recon: 0.008473, SW: 0.159996)
+Epoch 57 completed in 4.8s
+Train Loss: 0.116260, Val Loss: 0.152469
+Train Epoch: 58 [0/23168 (0%)]	Loss: 0.100808 (Recon: 0.006003, SW: 0.105338)
+Train Epoch: 58 [3200/23168 (14%)]	Loss: 0.127461 (Recon: 0.007613, SW: 0.133164)
+Train Epoch: 58 [6400/23168 (28%)]	Loss: 0.112958 (Recon: 0.008658, SW: 0.115890)
+Train Epoch: 58 [9600/23168 (41%)]	Loss: 0.122969 (Recon: 0.011404, SW: 0.123962)
+Train Epoch: 58 [12800/23168 (55%)]	Loss: 0.112658 (Recon: 0.005911, SW: 0.118608)
+Train Epoch: 58 [16000/23168 (69%)]	Loss: 0.133013 (Recon: 0.003582, SW: 0.143812)
+Train Epoch: 58 [19200/23168 (83%)]	Loss: 0.111397 (Recon: 0.003175, SW: 0.120247)
+Train Epoch: 58 [22400/23168 (97%)]	Loss: 0.135527 (Recon: 0.017030, SW: 0.131664)
+Validation Epoch: 58	Loss: 0.149512 (Recon: 0.008498, SW: 0.156683)
+Epoch 58 completed in 4.3s
+Train Loss: 0.118667, Val Loss: 0.149512
+Train Epoch: 59 [0/23168 (0%)]	Loss: 0.122168 (Recon: 0.004909, SW: 0.130288)
+Train Epoch: 59 [3200/23168 (14%)]	Loss: 0.151998 (Recon: 0.007340, SW: 0.160731)
+Train Epoch: 59 [6400/23168 (28%)]	Loss: 0.095145 (Recon: 0.010654, SW: 0.093878)
+Train Epoch: 59 [9600/23168 (41%)]	Loss: 0.150956 (Recon: 0.008393, SW: 0.158404)
+Train Epoch: 59 [12800/23168 (55%)]	Loss: 0.128575 (Recon: 0.005917, SW: 0.136286)
+Train Epoch: 59 [16000/23168 (69%)]	Loss: 0.106531 (Recon: 0.005978, SW: 0.111726)
+Train Epoch: 59 [19200/23168 (83%)]	Loss: 0.125838 (Recon: 0.003688, SW: 0.135723)
+Train Epoch: 59 [22400/23168 (97%)]	Loss: 0.105406 (Recon: 0.005025, SW: 0.111534)
+Validation Epoch: 59	Loss: 0.148750 (Recon: 0.005316, SW: 0.159371)
+Epoch 59 completed in 4.6s
+Train Loss: 0.118169, Val Loss: 0.148750
+Train Epoch: 60 [0/23168 (0%)]	Loss: 0.116119 (Recon: 0.013501, SW: 0.114021)
+Train Epoch: 60 [3200/23168 (14%)]	Loss: 0.135743 (Recon: 0.006334, SW: 0.143788)
+Train Epoch: 60 [6400/23168 (28%)]	Loss: 0.123182 (Recon: 0.005672, SW: 0.130567)
+Train Epoch: 60 [9600/23168 (41%)]	Loss: 0.121062 (Recon: 0.007342, SW: 0.126356)
+Train Epoch: 60 [12800/23168 (55%)]	Loss: 0.120546 (Recon: 0.007950, SW: 0.125107)
+Train Epoch: 60 [16000/23168 (69%)]	Loss: 0.101878 (Recon: 0.014503, SW: 0.097084)
+Train Epoch: 60 [19200/23168 (83%)]	Loss: 0.096093 (Recon: 0.011351, SW: 0.094158)
+Train Epoch: 60 [22400/23168 (97%)]	Loss: 0.116579 (Recon: 0.007220, SW: 0.121510)
+Validation Epoch: 60	Loss: 0.153287 (Recon: 0.009494, SW: 0.159770)
+Epoch 60 completed in 4.3s
+Train Loss: 0.116130, Val Loss: 0.153287
+  Debug Sample 0:
+    Original range: [0.987587, 0.991417]
+    Reconstructed range: [0.987587, 0.992129]
+    Error range: [-0.001187, -0.000000]
+    Latent range: [-2.025862, 1.073116]
+
+Reconstruction Quality Evaluation (10 samples):
+Average PSNR: 31.43 dB
+Average MSE: 0.000001
+Average Correlation: 0.995913
+Compression Ratio: 21.4:1
+Train Epoch: 61 [0/23168 (0%)]	Loss: 0.107904 (Recon: 0.004142, SW: 0.115290)
+Train Epoch: 61 [3200/23168 (14%)]	Loss: 0.116362 (Recon: 0.024436, SW: 0.102140)
+Train Epoch: 61 [6400/23168 (28%)]	Loss: 0.120654 (Recon: 0.002507, SW: 0.131275)
+Train Epoch: 61 [9600/23168 (41%)]	Loss: 0.126653 (Recon: 0.009346, SW: 0.130342)
+Train Epoch: 61 [12800/23168 (55%)]	Loss: 0.136040 (Recon: 0.005094, SW: 0.145495)
+Train Epoch: 61 [16000/23168 (69%)]	Loss: 0.108667 (Recon: 0.003920, SW: 0.116385)
+Train Epoch: 61 [19200/23168 (83%)]	Loss: 0.093628 (Recon: 0.005770, SW: 0.097619)
+Train Epoch: 61 [22400/23168 (97%)]	Loss: 0.093409 (Recon: 0.006622, SW: 0.096430)
+Validation Epoch: 61	Loss: 0.144555 (Recon: 0.008023, SW: 0.151701)
+Epoch 61 completed in 4.5s
+Train Loss: 0.114356, Val Loss: 0.144555
+Train Epoch: 62 [0/23168 (0%)]	Loss: 0.115009 (Recon: 0.003543, SW: 0.123852)
+Train Epoch: 62 [3200/23168 (14%)]	Loss: 0.119902 (Recon: 0.006535, SW: 0.125963)
+Train Epoch: 62 [6400/23168 (28%)]	Loss: 0.107281 (Recon: 0.004563, SW: 0.114131)
+Train Epoch: 62 [9600/23168 (41%)]	Loss: 0.103136 (Recon: 0.007885, SW: 0.105835)
+Train Epoch: 62 [12800/23168 (55%)]	Loss: 0.125882 (Recon: 0.007313, SW: 0.131743)
+Train Epoch: 62 [16000/23168 (69%)]	Loss: 0.134656 (Recon: 0.006785, SW: 0.142078)
+Train Epoch: 62 [19200/23168 (83%)]	Loss: 0.139877 (Recon: 0.002945, SW: 0.152147)
+Train Epoch: 62 [22400/23168 (97%)]	Loss: 0.101058 (Recon: 0.009707, SW: 0.101501)
+Validation Epoch: 62	Loss: 0.146502 (Recon: 0.006894, SW: 0.155121)
+Epoch 62 completed in 4.3s
+Train Loss: 0.114713, Val Loss: 0.146502
+Train Epoch: 63 [0/23168 (0%)]	Loss: 0.116223 (Recon: 0.004003, SW: 0.124689)
+Train Epoch: 63 [3200/23168 (14%)]	Loss: 0.132001 (Recon: 0.008649, SW: 0.137058)
+Train Epoch: 63 [6400/23168 (28%)]	Loss: 0.121624 (Recon: 0.013125, SW: 0.120554)
+Train Epoch: 63 [9600/23168 (41%)]	Loss: 0.120635 (Recon: 0.003327, SW: 0.130343)
+Train Epoch: 63 [12800/23168 (55%)]	Loss: 0.108069 (Recon: 0.004674, SW: 0.114883)
+Train Epoch: 63 [16000/23168 (69%)]	Loss: 0.090501 (Recon: 0.009582, SW: 0.089910)
+Train Epoch: 63 [19200/23168 (83%)]	Loss: 0.114316 (Recon: 0.006827, SW: 0.119431)
+Train Epoch: 63 [22400/23168 (97%)]	Loss: 0.147929 (Recon: 0.012109, SW: 0.150911)
+Validation Epoch: 63	Loss: 0.142513 (Recon: 0.006208, SW: 0.151450)
+Epoch 63 completed in 4.5s
+Train Loss: 0.115043, Val Loss: 0.142513
+New best model saved (val_loss: 0.142513)
+Train Epoch: 64 [0/23168 (0%)]	Loss: 0.118403 (Recon: 0.005566, SW: 0.125375)
+Train Epoch: 64 [3200/23168 (14%)]	Loss: 0.128053 (Recon: 0.005217, SW: 0.136485)
+Train Epoch: 64 [6400/23168 (28%)]	Loss: 0.095667 (Recon: 0.005562, SW: 0.100116)
+Train Epoch: 64 [9600/23168 (41%)]	Loss: 0.109798 (Recon: 0.005429, SW: 0.115965)
+Train Epoch: 64 [12800/23168 (55%)]	Loss: 0.091171 (Recon: 0.004728, SW: 0.096048)
+Train Epoch: 64 [16000/23168 (69%)]	Loss: 0.073489 (Recon: 0.005652, SW: 0.075374)
+Train Epoch: 64 [19200/23168 (83%)]	Loss: 0.118029 (Recon: 0.005903, SW: 0.124584)
+Train Epoch: 64 [22400/23168 (97%)]	Loss: 0.089186 (Recon: 0.003377, SW: 0.095344)
+Validation Epoch: 64	Loss: 0.150286 (Recon: 0.007564, SW: 0.158581)
+Epoch 64 completed in 4.4s
+Train Loss: 0.114329, Val Loss: 0.150286
+Train Epoch: 65 [0/23168 (0%)]	Loss: 0.121423 (Recon: 0.006148, SW: 0.128083)
+Train Epoch: 65 [3200/23168 (14%)]	Loss: 0.096115 (Recon: 0.005828, SW: 0.100319)
+Train Epoch: 65 [6400/23168 (28%)]	Loss: 0.147318 (Recon: 0.004552, SW: 0.158630)
+Train Epoch: 65 [9600/23168 (41%)]	Loss: 0.109000 (Recon: 0.004195, SW: 0.116450)
+Train Epoch: 65 [12800/23168 (55%)]	Loss: 0.128759 (Recon: 0.005708, SW: 0.136723)
+Train Epoch: 65 [16000/23168 (69%)]	Loss: 0.111533 (Recon: 0.005812, SW: 0.117468)
+Train Epoch: 65 [19200/23168 (83%)]	Loss: 0.142522 (Recon: 0.004565, SW: 0.153286)
+Train Epoch: 65 [22400/23168 (97%)]	Loss: 0.111528 (Recon: 0.004855, SW: 0.118526)
+Validation Epoch: 65	Loss: 0.144930 (Recon: 0.007743, SW: 0.152430)
+Epoch 65 completed in 4.3s
+Train Loss: 0.114941, Val Loss: 0.144930
+Train Epoch: 66 [0/23168 (0%)]	Loss: 0.103798 (Recon: 0.003114, SW: 0.111871)
+Train Epoch: 66 [3200/23168 (14%)]	Loss: 0.096973 (Recon: 0.005594, SW: 0.101532)
+Train Epoch: 66 [6400/23168 (28%)]	Loss: 0.122263 (Recon: 0.005899, SW: 0.129294)
+Train Epoch: 66 [9600/23168 (41%)]	Loss: 0.106152 (Recon: 0.005288, SW: 0.112072)
+Train Epoch: 66 [12800/23168 (55%)]	Loss: 0.105588 (Recon: 0.007233, SW: 0.109283)
+Train Epoch: 66 [16000/23168 (69%)]	Loss: 0.110849 (Recon: 0.004371, SW: 0.118310)
+Train Epoch: 66 [19200/23168 (83%)]	Loss: 0.148216 (Recon: 0.018608, SW: 0.144008)
+Train Epoch: 66 [22400/23168 (97%)]	Loss: 0.155796 (Recon: 0.053475, SW: 0.113691)
+Validation Epoch: 66	Loss: 0.150488 (Recon: 0.005839, SW: 0.160721)
+Epoch 66 completed in 4.5s
+Train Loss: 0.114476, Val Loss: 0.150488
+Train Epoch: 67 [0/23168 (0%)]	Loss: 0.103115 (Recon: 0.007949, SW: 0.105740)
+Train Epoch: 67 [3200/23168 (14%)]	Loss: 0.115613 (Recon: 0.003280, SW: 0.124814)
+Train Epoch: 67 [6400/23168 (28%)]	Loss: 0.135669 (Recon: 0.006646, SW: 0.143359)
+Train Epoch: 67 [9600/23168 (41%)]	Loss: 0.114851 (Recon: 0.008586, SW: 0.118072)
+Train Epoch: 67 [12800/23168 (55%)]	Loss: 0.144337 (Recon: 0.004297, SW: 0.155600)
+Train Epoch: 67 [16000/23168 (69%)]	Loss: 0.093015 (Recon: 0.002562, SW: 0.100504)
+Train Epoch: 67 [19200/23168 (83%)]	Loss: 0.144849 (Recon: 0.005076, SW: 0.155304)
+Train Epoch: 67 [22400/23168 (97%)]	Loss: 0.125154 (Recon: 0.005816, SW: 0.132598)
+Validation Epoch: 67	Loss: 0.146180 (Recon: 0.006068, SW: 0.155679)
+Epoch 67 completed in 4.3s
+Train Loss: 0.113748, Val Loss: 0.146180
+Train Epoch: 68 [0/23168 (0%)]	Loss: 0.109050 (Recon: 0.004843, SW: 0.115786)
+Train Epoch: 68 [3200/23168 (14%)]	Loss: 0.111595 (Recon: 0.004434, SW: 0.119068)
+Train Epoch: 68 [6400/23168 (28%)]	Loss: 0.092149 (Recon: 0.005075, SW: 0.096749)
+Train Epoch: 68 [9600/23168 (41%)]	Loss: 0.131386 (Recon: 0.005396, SW: 0.139989)
+Train Epoch: 68 [12800/23168 (55%)]	Loss: 0.096733 (Recon: 0.003453, SW: 0.103645)
+Train Epoch: 68 [16000/23168 (69%)]	Loss: 0.133495 (Recon: 0.006223, SW: 0.141413)
+Train Epoch: 68 [19200/23168 (83%)]	Loss: 0.106266 (Recon: 0.004495, SW: 0.113079)
+Train Epoch: 68 [22400/23168 (97%)]	Loss: 0.109060 (Recon: 0.003493, SW: 0.117296)
+Validation Epoch: 68	Loss: 0.142201 (Recon: 0.005304, SW: 0.152108)
+Epoch 68 completed in 4.4s
+Train Loss: 0.113078, Val Loss: 0.142201
+New best model saved (val_loss: 0.142201)
+Train Epoch: 69 [0/23168 (0%)]	Loss: 0.147533 (Recon: 0.005542, SW: 0.157768)
+Train Epoch: 69 [3200/23168 (14%)]	Loss: 0.098232 (Recon: 0.007569, SW: 0.100736)
+Train Epoch: 69 [6400/23168 (28%)]	Loss: 0.100356 (Recon: 0.004473, SW: 0.106536)
+Train Epoch: 69 [9600/23168 (41%)]	Loss: 0.099401 (Recon: 0.004486, SW: 0.105462)
+Train Epoch: 69 [12800/23168 (55%)]	Loss: 0.094698 (Recon: 0.003557, SW: 0.101268)
+Train Epoch: 69 [16000/23168 (69%)]	Loss: 0.140037 (Recon: 0.004204, SW: 0.150926)
+Train Epoch: 69 [19200/23168 (83%)]	Loss: 0.118304 (Recon: 0.004541, SW: 0.126403)
+Train Epoch: 69 [22400/23168 (97%)]	Loss: 0.124612 (Recon: 0.003732, SW: 0.134310)
+Validation Epoch: 69	Loss: 0.143957 (Recon: 0.003752, SW: 0.155783)
+Epoch 69 completed in 4.3s
+Train Loss: 0.113505, Val Loss: 0.143957
+Train Epoch: 70 [0/23168 (0%)]	Loss: 0.118801 (Recon: 0.006861, SW: 0.124378)
+Train Epoch: 70 [3200/23168 (14%)]	Loss: 0.106174 (Recon: 0.005129, SW: 0.112273)
+Train Epoch: 70 [6400/23168 (28%)]	Loss: 0.097233 (Recon: 0.004110, SW: 0.103470)
+Train Epoch: 70 [9600/23168 (41%)]	Loss: 0.119888 (Recon: 0.004932, SW: 0.127730)
+Train Epoch: 70 [12800/23168 (55%)]	Loss: 0.110979 (Recon: 0.003621, SW: 0.119287)
+Train Epoch: 70 [16000/23168 (69%)]	Loss: 0.112864 (Recon: 0.003883, SW: 0.121091)
+Train Epoch: 70 [19200/23168 (83%)]	Loss: 0.110023 (Recon: 0.003534, SW: 0.118321)
+Train Epoch: 70 [22400/23168 (97%)]	Loss: 0.130606 (Recon: 0.005377, SW: 0.139143)
+Validation Epoch: 70	Loss: 0.147888 (Recon: 0.008668, SW: 0.154690)
+Epoch 70 completed in 4.6s
+Train Loss: 0.114485, Val Loss: 0.147888
+  Debug Sample 0:
+    Original range: [0.987587, 0.991417]
+    Reconstructed range: [0.987587, 0.992292]
+    Error range: [-0.001087, 0.000000]
+    Latent range: [-2.133833, 1.110603]
+
+Reconstruction Quality Evaluation (10 samples):
+Average PSNR: 32.76 dB
+Average MSE: 0.000001
+Average Correlation: 0.997729
+Compression Ratio: 21.4:1
+Train Epoch: 71 [0/23168 (0%)]	Loss: 0.115661 (Recon: 0.005728, SW: 0.122148)
+Train Epoch: 71 [3200/23168 (14%)]	Loss: 0.100515 (Recon: 0.003659, SW: 0.107618)
+Train Epoch: 71 [6400/23168 (28%)]	Loss: 0.123089 (Recon: 0.016683, SW: 0.118228)
+Train Epoch: 71 [9600/23168 (41%)]	Loss: 0.132631 (Recon: 0.005029, SW: 0.141781)
+Train Epoch: 71 [12800/23168 (55%)]	Loss: 0.122505 (Recon: 0.005831, SW: 0.129638)
+Train Epoch: 71 [16000/23168 (69%)]	Loss: 0.111317 (Recon: 0.006385, SW: 0.116592)
+Train Epoch: 71 [19200/23168 (83%)]	Loss: 0.148605 (Recon: 0.003816, SW: 0.160877)
+Train Epoch: 71 [22400/23168 (97%)]	Loss: 0.104107 (Recon: 0.008973, SW: 0.105706)
+Validation Epoch: 71	Loss: 0.142492 (Recon: 0.004024, SW: 0.153853)
+Epoch 71 completed in 4.4s
+Train Loss: 0.115003, Val Loss: 0.142492
+Train Epoch: 72 [0/23168 (0%)]	Loss: 0.171201 (Recon: 0.005504, SW: 0.184107)
+Train Epoch: 72 [3200/23168 (14%)]	Loss: 0.109759 (Recon: 0.002852, SW: 0.118786)
+Train Epoch: 72 [6400/23168 (28%)]	Loss: 0.112007 (Recon: 0.008743, SW: 0.114738)
+Train Epoch: 72 [9600/23168 (41%)]	Loss: 0.100101 (Recon: 0.004313, SW: 0.106431)
+Train Epoch: 72 [12800/23168 (55%)]	Loss: 0.114426 (Recon: 0.010809, SW: 0.115130)
+Train Epoch: 72 [16000/23168 (69%)]	Loss: 0.130206 (Recon: 0.003781, SW: 0.140472)
+Train Epoch: 72 [19200/23168 (83%)]	Loss: 0.093080 (Recon: 0.003064, SW: 0.100017)
+Train Epoch: 72 [22400/23168 (97%)]	Loss: 0.101016 (Recon: 0.009054, SW: 0.102180)
+Validation Epoch: 72	Loss: 0.140015 (Recon: 0.004739, SW: 0.150306)
+Epoch 72 completed in 4.5s
+Train Loss: 0.113703, Val Loss: 0.140015
+New best model saved (val_loss: 0.140015)
+Train Epoch: 73 [0/23168 (0%)]	Loss: 0.103028 (Recon: 0.002598, SW: 0.111589)
+Train Epoch: 73 [3200/23168 (14%)]	Loss: 0.107368 (Recon: 0.003284, SW: 0.115649)
+Train Epoch: 73 [6400/23168 (28%)]	Loss: 0.136114 (Recon: 0.005867, SW: 0.144720)
+Train Epoch: 73 [9600/23168 (41%)]	Loss: 0.113507 (Recon: 0.005850, SW: 0.119619)
+Train Epoch: 73 [12800/23168 (55%)]	Loss: 0.121787 (Recon: 0.007413, SW: 0.127082)
+Train Epoch: 73 [16000/23168 (69%)]	Loss: 0.131287 (Recon: 0.006179, SW: 0.139009)
+Train Epoch: 73 [19200/23168 (83%)]	Loss: 0.107192 (Recon: 0.006163, SW: 0.112254)
+Train Epoch: 73 [22400/23168 (97%)]	Loss: 0.122705 (Recon: 0.006712, SW: 0.128882)
+Validation Epoch: 73	Loss: 0.152345 (Recon: 0.007626, SW: 0.160798)
+Epoch 73 completed in 4.7s
+Train Loss: 0.113396, Val Loss: 0.152345
+Train Epoch: 74 [0/23168 (0%)]	Loss: 0.122533 (Recon: 0.008661, SW: 0.126524)
+Train Epoch: 74 [3200/23168 (14%)]	Loss: 0.140271 (Recon: 0.009905, SW: 0.144851)
+Train Epoch: 74 [6400/23168 (28%)]	Loss: 0.107321 (Recon: 0.003808, SW: 0.115015)
+Train Epoch: 74 [9600/23168 (41%)]	Loss: 0.110500 (Recon: 0.003175, SW: 0.119249)
+Train Epoch: 74 [12800/23168 (55%)]	Loss: 0.109277 (Recon: 0.004957, SW: 0.115911)
+Train Epoch: 74 [16000/23168 (69%)]	Loss: 0.141863 (Recon: 0.025329, SW: 0.129482)
+Train Epoch: 74 [19200/23168 (83%)]	Loss: 0.097938 (Recon: 0.003372, SW: 0.105074)
+Train Epoch: 74 [22400/23168 (97%)]	Loss: 0.090744 (Recon: 0.004195, SW: 0.096166)
+Validation Epoch: 74	Loss: 0.151320 (Recon: 0.008886, SW: 0.158260)
+Epoch 74 completed in 4.6s
+Train Loss: 0.112555, Val Loss: 0.151320
+Train Epoch: 75 [0/23168 (0%)]	Loss: 0.091317 (Recon: 0.003777, SW: 0.097267)
+Train Epoch: 75 [3200/23168 (14%)]	Loss: 0.112872 (Recon: 0.010217, SW: 0.114061)
+Train Epoch: 75 [6400/23168 (28%)]	Loss: 0.102627 (Recon: 0.003436, SW: 0.110211)
+Train Epoch: 75 [9600/23168 (41%)]	Loss: 0.165810 (Recon: 0.006103, SW: 0.177453)
+Train Epoch: 75 [12800/23168 (55%)]	Loss: 0.112803 (Recon: 0.005989, SW: 0.118683)
+Train Epoch: 75 [16000/23168 (69%)]	Loss: 0.118749 (Recon: 0.003565, SW: 0.127983)
+Train Epoch: 75 [19200/23168 (83%)]	Loss: 0.089731 (Recon: 0.003396, SW: 0.095927)
+Train Epoch: 75 [22400/23168 (97%)]	Loss: 0.094664 (Recon: 0.004013, SW: 0.100723)
+Validation Epoch: 75	Loss: 0.143792 (Recon: 0.007192, SW: 0.151777)
+Epoch 75 completed in 4.3s
+Train Loss: 0.113712, Val Loss: 0.143792
+Train Epoch: 76 [0/23168 (0%)]	Loss: 0.144877 (Recon: 0.004099, SW: 0.156419)
+Train Epoch: 76 [3200/23168 (14%)]	Loss: 0.105812 (Recon: 0.006738, SW: 0.110083)
+Train Epoch: 76 [6400/23168 (28%)]	Loss: 0.156372 (Recon: 0.003060, SW: 0.170347)
+Train Epoch: 76 [9600/23168 (41%)]	Loss: 0.114665 (Recon: 0.006260, SW: 0.120449)
+Train Epoch: 76 [12800/23168 (55%)]	Loss: 0.113852 (Recon: 0.002969, SW: 0.123204)
+Train Epoch: 76 [16000/23168 (69%)]	Loss: 0.098286 (Recon: 0.005467, SW: 0.103132)
+Train Epoch: 76 [19200/23168 (83%)]	Loss: 0.117662 (Recon: 0.002957, SW: 0.127449)
+Train Epoch: 76 [22400/23168 (97%)]	Loss: 0.098136 (Recon: 0.003605, SW: 0.105034)
+Validation Epoch: 76	Loss: 0.149705 (Recon: 0.008326, SW: 0.157088)
+Epoch 76 completed in 4.4s
+Train Loss: 0.113577, Val Loss: 0.149705
+Train Epoch: 77 [0/23168 (0%)]	Loss: 0.119370 (Recon: 0.014799, SW: 0.116190)
+Train Epoch: 77 [3200/23168 (14%)]	Loss: 0.103058 (Recon: 0.006361, SW: 0.107441)
+Train Epoch: 77 [6400/23168 (28%)]	Loss: 0.136935 (Recon: 0.005891, SW: 0.145604)
+Train Epoch: 77 [9600/23168 (41%)]	Loss: 0.163553 (Recon: 0.003637, SW: 0.177684)
+Train Epoch: 77 [12800/23168 (55%)]	Loss: 0.146008 (Recon: 0.010882, SW: 0.150140)
+Train Epoch: 77 [16000/23168 (69%)]	Loss: 0.107958 (Recon: 0.013758, SW: 0.104666)
+Train Epoch: 77 [19200/23168 (83%)]	Loss: 0.138957 (Recon: 0.006217, SW: 0.147488)
+Train Epoch: 77 [22400/23168 (97%)]	Loss: 0.102882 (Recon: 0.002049, SW: 0.112036)
+Validation Epoch: 77	Loss: 0.144438 (Recon: 0.004944, SW: 0.154993)
+Epoch 77 completed in 4.3s
+Train Loss: 0.114762, Val Loss: 0.144438
+Train Epoch: 78 [0/23168 (0%)]	Loss: 0.146088 (Recon: 0.015577, SW: 0.145012)
+Train Epoch: 78 [3200/23168 (14%)]	Loss: 0.113905 (Recon: 0.002251, SW: 0.124060)
+Train Epoch: 78 [6400/23168 (28%)]	Loss: 0.121128 (Recon: 0.002839, SW: 0.131433)
+Train Epoch: 78 [9600/23168 (41%)]	Loss: 0.111538 (Recon: 0.006903, SW: 0.116261)
+Train Epoch: 78 [12800/23168 (55%)]	Loss: 0.109487 (Recon: 0.003459, SW: 0.117808)
+Train Epoch: 78 [16000/23168 (69%)]	Loss: 0.124189 (Recon: 0.005236, SW: 0.132170)
+Train Epoch: 78 [19200/23168 (83%)]	Loss: 0.120806 (Recon: 0.003552, SW: 0.130282)
+Train Epoch: 78 [22400/23168 (97%)]	Loss: 0.096769 (Recon: 0.007364, SW: 0.099338)
+Validation Epoch: 78	Loss: 0.143830 (Recon: 0.006672, SW: 0.152397)
+Epoch 78 completed in 4.5s
+Train Loss: 0.113272, Val Loss: 0.143830
+Train Epoch: 79 [0/23168 (0%)]	Loss: 0.134310 (Recon: 0.011828, SW: 0.136092)
+Train Epoch: 79 [3200/23168 (14%)]	Loss: 0.125194 (Recon: 0.004968, SW: 0.133584)
+Train Epoch: 79 [6400/23168 (28%)]	Loss: 0.128184 (Recon: 0.004475, SW: 0.137455)
+Train Epoch: 79 [9600/23168 (41%)]	Loss: 0.100050 (Recon: 0.004184, SW: 0.106518)
+Train Epoch: 79 [12800/23168 (55%)]	Loss: 0.169581 (Recon: 0.005803, SW: 0.181975)
+Train Epoch: 79 [16000/23168 (69%)]	Loss: 0.101760 (Recon: 0.004606, SW: 0.107949)
+Train Epoch: 79 [19200/23168 (83%)]	Loss: 0.112000 (Recon: 0.005820, SW: 0.117978)
+Train Epoch: 79 [22400/23168 (97%)]	Loss: 0.105179 (Recon: 0.006275, SW: 0.109894)
+Validation Epoch: 79	Loss: 0.140952 (Recon: 0.005676, SW: 0.150307)
+Epoch 79 completed in 4.3s
+Train Loss: 0.113770, Val Loss: 0.140952
+Train Epoch: 80 [0/23168 (0%)]	Loss: 0.126304 (Recon: 0.006158, SW: 0.133496)
+Train Epoch: 80 [3200/23168 (14%)]	Loss: 0.103371 (Recon: 0.003934, SW: 0.110486)
+Train Epoch: 80 [6400/23168 (28%)]	Loss: 0.125445 (Recon: 0.004258, SW: 0.134652)
+Train Epoch: 80 [9600/23168 (41%)]	Loss: 0.106077 (Recon: 0.003315, SW: 0.114180)
+Train Epoch: 80 [12800/23168 (55%)]	Loss: 0.128944 (Recon: 0.004273, SW: 0.138523)
+Train Epoch: 80 [16000/23168 (69%)]	Loss: 0.118671 (Recon: 0.005499, SW: 0.125747)
+Train Epoch: 80 [19200/23168 (83%)]	Loss: 0.116319 (Recon: 0.004501, SW: 0.124243)
+Train Epoch: 80 [22400/23168 (97%)]	Loss: 0.104536 (Recon: 0.005303, SW: 0.110258)
+Validation Epoch: 80	Loss: 0.146219 (Recon: 0.006967, SW: 0.154724)
+Epoch 80 completed in 4.5s
+Train Loss: 0.113499, Val Loss: 0.146219
+  Debug Sample 0:
+    Original range: [0.987587, 0.991417]
+    Reconstructed range: [0.987587, 0.992046]
+    Error range: [-0.000681, 0.000030]
+    Latent range: [-2.396139, 1.020575]
+
+Reconstruction Quality Evaluation (10 samples):
+Average PSNR: 33.30 dB
+Average MSE: 0.000001
+Average Correlation: 0.997468
+Compression Ratio: 21.4:1
+Train Epoch: 81 [0/23168 (0%)]	Loss: 0.110939 (Recon: 0.006797, SW: 0.115714)
+Train Epoch: 81 [3200/23168 (14%)]	Loss: 0.126698 (Recon: 0.006152, SW: 0.133939)
+Train Epoch: 81 [6400/23168 (28%)]	Loss: 0.149639 (Recon: 0.004586, SW: 0.161170)
+Train Epoch: 81 [9600/23168 (41%)]	Loss: 0.125051 (Recon: 0.005077, SW: 0.133304)
+Train Epoch: 81 [12800/23168 (55%)]	Loss: 0.126028 (Recon: 0.004783, SW: 0.134717)
+Train Epoch: 81 [16000/23168 (69%)]	Loss: 0.097785 (Recon: 0.007276, SW: 0.100565)
+Train Epoch: 81 [19200/23168 (83%)]	Loss: 0.117229 (Recon: 0.007149, SW: 0.122311)
+Train Epoch: 81 [22400/23168 (97%)]	Loss: 0.108956 (Recon: 0.011840, SW: 0.107907)
+Validation Epoch: 81	Loss: 0.145365 (Recon: 0.006348, SW: 0.154464)
+Epoch 81 completed in 4.5s
+Train Loss: 0.113362, Val Loss: 0.145365
+Train Epoch: 82 [0/23168 (0%)]	Loss: 0.096955 (Recon: 0.003389, SW: 0.103962)
+Train Epoch: 82 [3200/23168 (14%)]	Loss: 0.123233 (Recon: 0.004132, SW: 0.132335)
+Train Epoch: 82 [6400/23168 (28%)]	Loss: 0.113692 (Recon: 0.004268, SW: 0.121583)
+Train Epoch: 82 [9600/23168 (41%)]	Loss: 0.100894 (Recon: 0.008205, SW: 0.102988)
+Train Epoch: 82 [12800/23168 (55%)]	Loss: 0.099705 (Recon: 0.006900, SW: 0.103117)
+Train Epoch: 82 [16000/23168 (69%)]	Loss: 0.111452 (Recon: 0.004090, SW: 0.119291)
+Train Epoch: 82 [19200/23168 (83%)]	Loss: 0.111393 (Recon: 0.004828, SW: 0.118405)
+Train Epoch: 82 [22400/23168 (97%)]	Loss: 0.136067 (Recon: 0.024807, SW: 0.123622)
+Validation Epoch: 82	Loss: 0.146992 (Recon: 0.004893, SW: 0.157887)
+Epoch 82 completed in 4.4s
+Train Loss: 0.112933, Val Loss: 0.146992
+Train Epoch: 83 [0/23168 (0%)]	Loss: 0.092338 (Recon: 0.003056, SW: 0.099202)
+Train Epoch: 83 [3200/23168 (14%)]	Loss: 0.159026 (Recon: 0.004467, SW: 0.171732)
+Train Epoch: 83 [6400/23168 (28%)]	Loss: 0.103089 (Recon: 0.007478, SW: 0.106235)
+Train Epoch: 83 [9600/23168 (41%)]	Loss: 0.148039 (Recon: 0.003852, SW: 0.160208)
+Train Epoch: 83 [12800/23168 (55%)]	Loss: 0.127727 (Recon: 0.008084, SW: 0.132937)
+Train Epoch: 83 [16000/23168 (69%)]	Loss: 0.095840 (Recon: 0.005425, SW: 0.100461)
+Train Epoch: 83 [19200/23168 (83%)]	Loss: 0.112660 (Recon: 0.008612, SW: 0.115608)
+Train Epoch: 83 [22400/23168 (97%)]	Loss: 0.119405 (Recon: 0.005444, SW: 0.126624)
+Validation Epoch: 83	Loss: 0.144015 (Recon: 0.005627, SW: 0.153765)
+Epoch 83 completed in 4.6s
+Train Loss: 0.113302, Val Loss: 0.144015
+Train Epoch: 84 [0/23168 (0%)]	Loss: 0.137392 (Recon: 0.006002, SW: 0.145989)
+Train Epoch: 84 [3200/23168 (14%)]	Loss: 0.120709 (Recon: 0.005210, SW: 0.128332)
+Train Epoch: 84 [6400/23168 (28%)]	Loss: 0.122740 (Recon: 0.003806, SW: 0.132149)
+Train Epoch: 84 [9600/23168 (41%)]	Loss: 0.086560 (Recon: 0.003049, SW: 0.092790)
+Train Epoch: 84 [12800/23168 (55%)]	Loss: 0.124464 (Recon: 0.004160, SW: 0.133670)
+Train Epoch: 84 [16000/23168 (69%)]	Loss: 0.076531 (Recon: 0.004227, SW: 0.080337)
+Train Epoch: 84 [19200/23168 (83%)]	Loss: 0.142459 (Recon: 0.002502, SW: 0.155507)
+Train Epoch: 84 [22400/23168 (97%)]	Loss: 0.124917 (Recon: 0.003292, SW: 0.135139)
+Validation Epoch: 84	Loss: 0.144302 (Recon: 0.004629, SW: 0.155192)
+Epoch 84 completed in 4.3s
+Train Loss: 0.113438, Val Loss: 0.144302
+Train Epoch: 85 [0/23168 (0%)]	Loss: 0.103299 (Recon: 0.009319, SW: 0.104423)
+Train Epoch: 85 [3200/23168 (14%)]	Loss: 0.094557 (Recon: 0.003102, SW: 0.101616)
+Train Epoch: 85 [6400/23168 (28%)]	Loss: 0.143171 (Recon: 0.005281, SW: 0.153211)
+Train Epoch: 85 [9600/23168 (41%)]	Loss: 0.103229 (Recon: 0.005183, SW: 0.108941)
+Train Epoch: 85 [12800/23168 (55%)]	Loss: 0.098344 (Recon: 0.007182, SW: 0.101291)
+Train Epoch: 85 [16000/23168 (69%)]	Loss: 0.093462 (Recon: 0.003327, SW: 0.100151)
+Train Epoch: 85 [19200/23168 (83%)]	Loss: 0.097106 (Recon: 0.004827, SW: 0.102531)
+Train Epoch: 85 [22400/23168 (97%)]	Loss: 0.107651 (Recon: 0.005214, SW: 0.113819)
+Validation Epoch: 85	Loss: 0.142941 (Recon: 0.003968, SW: 0.154414)
+Epoch 85 completed in 4.6s
+Train Loss: 0.113100, Val Loss: 0.142941
+Train Epoch: 86 [0/23168 (0%)]	Loss: 0.148083 (Recon: 0.007658, SW: 0.156028)
+Train Epoch: 86 [3200/23168 (14%)]	Loss: 0.122056 (Recon: 0.004904, SW: 0.130170)
+Train Epoch: 86 [6400/23168 (28%)]	Loss: 0.096159 (Recon: 0.002984, SW: 0.103528)
+Train Epoch: 86 [9600/23168 (41%)]	Loss: 0.106903 (Recon: 0.005485, SW: 0.112687)
+Train Epoch: 86 [12800/23168 (55%)]	Loss: 0.111975 (Recon: 0.005509, SW: 0.118295)
+Train Epoch: 86 [16000/23168 (69%)]	Loss: 0.094174 (Recon: 0.003311, SW: 0.100959)
+Train Epoch: 86 [19200/23168 (83%)]	Loss: 0.124164 (Recon: 0.007888, SW: 0.129195)
+Train Epoch: 86 [22400/23168 (97%)]	Loss: 0.099868 (Recon: 0.003078, SW: 0.107544)
+Validation Epoch: 86	Loss: 0.150810 (Recon: 0.009179, SW: 0.157368)
+Epoch 86 completed in 4.3s
+Train Loss: 0.112686, Val Loss: 0.150810
+Train Epoch: 87 [0/23168 (0%)]	Loss: 0.114725 (Recon: 0.005172, SW: 0.121726)
+Train Epoch: 87 [3200/23168 (14%)]	Loss: 0.126509 (Recon: 0.006407, SW: 0.133447)
+Train Epoch: 87 [6400/23168 (28%)]	Loss: 0.096241 (Recon: 0.002974, SW: 0.103630)
+Train Epoch: 87 [9600/23168 (41%)]	Loss: 0.115027 (Recon: 0.004986, SW: 0.122268)
+Train Epoch: 87 [12800/23168 (55%)]	Loss: 0.098282 (Recon: 0.003815, SW: 0.104963)
+Train Epoch: 87 [16000/23168 (69%)]	Loss: 0.105480 (Recon: 0.004660, SW: 0.112023)
+Train Epoch: 87 [19200/23168 (83%)]	Loss: 0.136922 (Recon: 0.003968, SW: 0.147727)
+Train Epoch: 87 [22400/23168 (97%)]	Loss: 0.103308 (Recon: 0.003946, SW: 0.110402)
+Validation Epoch: 87	Loss: 0.144085 (Recon: 0.004586, SW: 0.155000)
+Epoch 87 completed in 4.3s
+Train Loss: 0.112675, Val Loss: 0.144085
+Train Epoch: 88 [0/23168 (0%)]	Loss: 0.111276 (Recon: 0.005651, SW: 0.117362)
+Train Epoch: 88 [3200/23168 (14%)]	Loss: 0.096393 (Recon: 0.002925, SW: 0.103853)
+Train Epoch: 88 [6400/23168 (28%)]	Loss: 0.116280 (Recon: 0.004415, SW: 0.124294)
+Train Epoch: 88 [9600/23168 (41%)]	Loss: 0.107588 (Recon: 0.005324, SW: 0.113627)
+Train Epoch: 88 [12800/23168 (55%)]	Loss: 0.102258 (Recon: 0.005122, SW: 0.107929)
+Train Epoch: 88 [16000/23168 (69%)]	Loss: 0.120077 (Recon: 0.007450, SW: 0.125141)
+Train Epoch: 88 [19200/23168 (83%)]	Loss: 0.097088 (Recon: 0.002485, SW: 0.105115)
+Train Epoch: 88 [22400/23168 (97%)]	Loss: 0.107637 (Recon: 0.004805, SW: 0.114257)
+Validation Epoch: 88	Loss: 0.146278 (Recon: 0.006034, SW: 0.155827)
+Epoch 88 completed in 4.6s
+Train Loss: 0.112523, Val Loss: 0.146278
+Train Epoch: 89 [0/23168 (0%)]	Loss: 0.120723 (Recon: 0.003524, SW: 0.130221)
+Train Epoch: 89 [3200/23168 (14%)]	Loss: 0.086886 (Recon: 0.005292, SW: 0.090661)
+Train Epoch: 89 [6400/23168 (28%)]	Loss: 0.103547 (Recon: 0.005095, SW: 0.109391)
+Train Epoch: 89 [9600/23168 (41%)]	Loss: 0.115292 (Recon: 0.002788, SW: 0.125004)
+Train Epoch: 89 [12800/23168 (55%)]	Loss: 0.115181 (Recon: 0.007825, SW: 0.119284)
+Train Epoch: 89 [16000/23168 (69%)]	Loss: 0.113834 (Recon: 0.005040, SW: 0.120882)
+Train Epoch: 89 [19200/23168 (83%)]	Loss: 0.102233 (Recon: 0.005485, SW: 0.107498)
+Train Epoch: 89 [22400/23168 (97%)]	Loss: 0.128128 (Recon: 0.005514, SW: 0.136238)
+Validation Epoch: 89	Loss: 0.140168 (Recon: 0.005078, SW: 0.150101)
+Epoch 89 completed in 4.4s
+Train Loss: 0.113341, Val Loss: 0.140168
+Train Epoch: 90 [0/23168 (0%)]	Loss: 0.124449 (Recon: 0.011649, SW: 0.125333)
+Train Epoch: 90 [3200/23168 (14%)]	Loss: 0.116094 (Recon: 0.006220, SW: 0.122082)
+Train Epoch: 90 [6400/23168 (28%)]	Loss: 0.091062 (Recon: 0.007853, SW: 0.092454)
+Train Epoch: 90 [9600/23168 (41%)]	Loss: 0.102813 (Recon: 0.002959, SW: 0.110949)
+Train Epoch: 90 [12800/23168 (55%)]	Loss: 0.113775 (Recon: 0.004235, SW: 0.121712)
+Train Epoch: 90 [16000/23168 (69%)]	Loss: 0.113553 (Recon: 0.003336, SW: 0.122463)
+Train Epoch: 90 [19200/23168 (83%)]	Loss: 0.095994 (Recon: 0.002998, SW: 0.103329)
+Train Epoch: 90 [22400/23168 (97%)]	Loss: 0.116247 (Recon: 0.004486, SW: 0.124179)
+Validation Epoch: 90	Loss: 0.143802 (Recon: 0.005019, SW: 0.154204)
+Epoch 90 completed in 4.4s
+Train Loss: 0.112901, Val Loss: 0.143802
+  Debug Sample 0:
+    Original range: [0.987587, 0.991417]
+    Reconstructed range: [0.987587, 0.991640]
+    Error range: [-0.000481, 0.000074]
+    Latent range: [-2.215086, 1.027081]
+
+Reconstruction Quality Evaluation (10 samples):
+Average PSNR: 34.07 dB
+Average MSE: 0.000001
+Average Correlation: 0.997840
+Compression Ratio: 21.4:1
+Train Epoch: 91 [0/23168 (0%)]	Loss: 0.115344 (Recon: 0.002764, SW: 0.125088)
+Train Epoch: 91 [3200/23168 (14%)]	Loss: 0.127774 (Recon: 0.004937, SW: 0.136485)
+Train Epoch: 91 [6400/23168 (28%)]	Loss: 0.118847 (Recon: 0.003121, SW: 0.128584)
+Train Epoch: 91 [9600/23168 (41%)]	Loss: 0.081894 (Recon: 0.003045, SW: 0.087609)
+Train Epoch: 91 [12800/23168 (55%)]	Loss: 0.125940 (Recon: 0.003184, SW: 0.136396)
+Train Epoch: 91 [16000/23168 (69%)]	Loss: 0.117106 (Recon: 0.004366, SW: 0.125267)
+Train Epoch: 91 [19200/23168 (83%)]	Loss: 0.154333 (Recon: 0.002846, SW: 0.168319)
+Train Epoch: 91 [22400/23168 (97%)]	Loss: 0.131631 (Recon: 0.007317, SW: 0.138127)
+Validation Epoch: 91	Loss: 0.142740 (Recon: 0.005053, SW: 0.152986)
+Epoch 91 completed in 4.5s
+Train Loss: 0.111988, Val Loss: 0.142740
+Train Epoch: 92 [0/23168 (0%)]	Loss: 0.105844 (Recon: 0.004393, SW: 0.112724)
+Train Epoch: 92 [3200/23168 (14%)]	Loss: 0.088570 (Recon: 0.002842, SW: 0.095254)
+Train Epoch: 92 [6400/23168 (28%)]	Loss: 0.105129 (Recon: 0.003536, SW: 0.112882)
+Train Epoch: 92 [9600/23168 (41%)]	Loss: 0.123761 (Recon: 0.013225, SW: 0.122817)
+Train Epoch: 92 [12800/23168 (55%)]	Loss: 0.112370 (Recon: 0.006319, SW: 0.117835)
+Train Epoch: 92 [16000/23168 (69%)]	Loss: 0.089272 (Recon: 0.004230, SW: 0.094491)
+Train Epoch: 92 [19200/23168 (83%)]	Loss: 0.112737 (Recon: 0.004101, SW: 0.120707)
+Train Epoch: 92 [22400/23168 (97%)]	Loss: 0.108592 (Recon: 0.005841, SW: 0.114167)
+Validation Epoch: 92	Loss: 0.141266 (Recon: 0.006280, SW: 0.149985)
+Epoch 92 completed in 4.3s
+Train Loss: 0.111795, Val Loss: 0.141266
+Train Epoch: 93 [0/23168 (0%)]	Loss: 0.124160 (Recon: 0.004439, SW: 0.133023)
+Train Epoch: 93 [3200/23168 (14%)]	Loss: 0.124187 (Recon: 0.006559, SW: 0.130698)
+Train Epoch: 93 [6400/23168 (28%)]	Loss: 0.110361 (Recon: 0.014053, SW: 0.107009)
+Train Epoch: 93 [9600/23168 (41%)]	Loss: 0.124695 (Recon: 0.002818, SW: 0.135420)
+Train Epoch: 93 [12800/23168 (55%)]	Loss: 0.105192 (Recon: 0.005360, SW: 0.110924)
+Train Epoch: 93 [16000/23168 (69%)]	Loss: 0.105848 (Recon: 0.006257, SW: 0.110656)
+Train Epoch: 93 [19200/23168 (83%)]	Loss: 0.123390 (Recon: 0.008285, SW: 0.127895)
+Train Epoch: 93 [22400/23168 (97%)]	Loss: 0.111183 (Recon: 0.003492, SW: 0.119657)
+Validation Epoch: 93	Loss: 0.145409 (Recon: 0.005938, SW: 0.154968)
+Epoch 93 completed in 4.3s
+Train Loss: 0.111987, Val Loss: 0.145409
+Train Epoch: 94 [0/23168 (0%)]	Loss: 0.123504 (Recon: 0.002426, SW: 0.134531)
+Train Epoch: 94 [3200/23168 (14%)]	Loss: 0.110733 (Recon: 0.003560, SW: 0.119081)
+Train Epoch: 94 [6400/23168 (28%)]	Loss: 0.138016 (Recon: 0.003255, SW: 0.149734)
+Train Epoch: 94 [9600/23168 (41%)]	Loss: 0.131858 (Recon: 0.004506, SW: 0.141502)
+Train Epoch: 94 [12800/23168 (55%)]	Loss: 0.101078 (Recon: 0.004149, SW: 0.107699)
+Train Epoch: 94 [16000/23168 (69%)]	Loss: 0.120829 (Recon: 0.003774, SW: 0.130061)
+Train Epoch: 94 [19200/23168 (83%)]	Loss: 0.095345 (Recon: 0.003152, SW: 0.102436)
+Train Epoch: 94 [22400/23168 (97%)]	Loss: 0.109372 (Recon: 0.004780, SW: 0.116213)
+Validation Epoch: 94	Loss: 0.148497 (Recon: 0.006328, SW: 0.157966)
+Epoch 94 completed in 4.5s
+Train Loss: 0.111947, Val Loss: 0.148497
+Train Epoch: 95 [0/23168 (0%)]	Loss: 0.107742 (Recon: 0.002903, SW: 0.116488)
+Train Epoch: 95 [3200/23168 (14%)]	Loss: 0.097860 (Recon: 0.002491, SW: 0.105966)
+Train Epoch: 95 [6400/23168 (28%)]	Loss: 0.113664 (Recon: 0.002326, SW: 0.123709)
+Train Epoch: 95 [9600/23168 (41%)]	Loss: 0.140019 (Recon: 0.003411, SW: 0.151787)
+Train Epoch: 95 [12800/23168 (55%)]	Loss: 0.137533 (Recon: 0.014635, SW: 0.136553)
+Train Epoch: 95 [16000/23168 (69%)]	Loss: 0.124380 (Recon: 0.005492, SW: 0.132098)
+Train Epoch: 95 [19200/23168 (83%)]	Loss: 0.127842 (Recon: 0.003349, SW: 0.138326)
+Train Epoch: 95 [22400/23168 (97%)]	Loss: 0.102198 (Recon: 0.002986, SW: 0.110235)
+Validation Epoch: 95	Loss: 0.145714 (Recon: 0.007969, SW: 0.153049)
+Epoch 95 completed in 4.4s
+Train Loss: 0.111866, Val Loss: 0.145714
+Train Epoch: 96 [0/23168 (0%)]	Loss: 0.129384 (Recon: 0.003644, SW: 0.139711)
+Train Epoch: 96 [3200/23168 (14%)]	Loss: 0.133389 (Recon: 0.005364, SW: 0.142250)
+Train Epoch: 96 [6400/23168 (28%)]	Loss: 0.133863 (Recon: 0.003037, SW: 0.145363)
+Train Epoch: 96 [9600/23168 (41%)]	Loss: 0.127788 (Recon: 0.004053, SW: 0.137483)
+Train Epoch: 96 [12800/23168 (55%)]	Loss: 0.106750 (Recon: 0.002863, SW: 0.115429)
+Train Epoch: 96 [16000/23168 (69%)]	Loss: 0.115729 (Recon: 0.002259, SW: 0.126077)
+Train Epoch: 96 [19200/23168 (83%)]	Loss: 0.125060 (Recon: 0.003435, SW: 0.135139)
+Train Epoch: 96 [22400/23168 (97%)]	Loss: 0.121194 (Recon: 0.004071, SW: 0.130137)
+Validation Epoch: 96	Loss: 0.144048 (Recon: 0.005267, SW: 0.154201)
+Epoch 96 completed in 4.4s
+Train Loss: 0.112040, Val Loss: 0.144048
+Train Epoch: 97 [0/23168 (0%)]	Loss: 0.079826 (Recon: 0.003704, SW: 0.084580)
+Train Epoch: 97 [3200/23168 (14%)]	Loss: 0.111093 (Recon: 0.003082, SW: 0.120012)
+Train Epoch: 97 [6400/23168 (28%)]	Loss: 0.134165 (Recon: 0.003506, SW: 0.145176)
+Train Epoch: 97 [9600/23168 (41%)]	Loss: 0.095108 (Recon: 0.006048, SW: 0.098955)
+Train Epoch: 97 [12800/23168 (55%)]	Loss: 0.114155 (Recon: 0.004618, SW: 0.121708)
+Train Epoch: 97 [16000/23168 (69%)]	Loss: 0.115053 (Recon: 0.002810, SW: 0.124715)
+Train Epoch: 97 [19200/23168 (83%)]	Loss: 0.100706 (Recon: 0.006280, SW: 0.104918)
+Train Epoch: 97 [22400/23168 (97%)]	Loss: 0.110890 (Recon: 0.005221, SW: 0.117410)
+Validation Epoch: 97	Loss: 0.145037 (Recon: 0.004425, SW: 0.156236)
+Epoch 97 completed in 4.3s
+Train Loss: 0.112002, Val Loss: 0.145037
+Train Epoch: 98 [0/23168 (0%)]	Loss: 0.098094 (Recon: 0.002424, SW: 0.106300)
+Train Epoch: 98 [3200/23168 (14%)]	Loss: 0.105292 (Recon: 0.008786, SW: 0.107229)
+Train Epoch: 98 [6400/23168 (28%)]	Loss: 0.096592 (Recon: 0.004556, SW: 0.102262)
+Train Epoch: 98 [9600/23168 (41%)]	Loss: 0.113048 (Recon: 0.002993, SW: 0.122283)
+Train Epoch: 98 [12800/23168 (55%)]	Loss: 0.136598 (Recon: 0.003875, SW: 0.147469)
+Train Epoch: 98 [16000/23168 (69%)]	Loss: 0.112473 (Recon: 0.002592, SW: 0.122090)
+Train Epoch: 98 [19200/23168 (83%)]	Loss: 0.118885 (Recon: 0.003348, SW: 0.128375)
+Train Epoch: 98 [22400/23168 (97%)]	Loss: 0.123751 (Recon: 0.002761, SW: 0.134434)
+Validation Epoch: 98	Loss: 0.143278 (Recon: 0.005289, SW: 0.153320)
+Epoch 98 completed in 4.6s
+Train Loss: 0.111427, Val Loss: 0.143278
+Train Epoch: 99 [0/23168 (0%)]	Loss: 0.096050 (Recon: 0.005301, SW: 0.100832)
+Train Epoch: 99 [3200/23168 (14%)]	Loss: 0.110434 (Recon: 0.002269, SW: 0.120183)
+Train Epoch: 99 [6400/23168 (28%)]	Loss: 0.113964 (Recon: 0.003422, SW: 0.122824)
+Train Epoch: 99 [9600/23168 (41%)]	Loss: 0.103466 (Recon: 0.003962, SW: 0.110559)
+Train Epoch: 99 [12800/23168 (55%)]	Loss: 0.096739 (Recon: 0.003889, SW: 0.103166)
+Train Epoch: 99 [16000/23168 (69%)]	Loss: 0.078272 (Recon: 0.002659, SW: 0.084015)
+Train Epoch: 99 [19200/23168 (83%)]	Loss: 0.095068 (Recon: 0.004372, SW: 0.100773)
+Train Epoch: 99 [22400/23168 (97%)]	Loss: 0.109815 (Recon: 0.004931, SW: 0.116538)
+Validation Epoch: 99	Loss: 0.143202 (Recon: 0.005634, SW: 0.152853)
+Epoch 99 completed in 4.3s
+Train Loss: 0.112389, Val Loss: 0.143202
+Train Epoch: 100 [0/23168 (0%)]	Loss: 0.134950 (Recon: 0.005230, SW: 0.144134)
+Train Epoch: 100 [3200/23168 (14%)]	Loss: 0.104600 (Recon: 0.015277, SW: 0.099248)
+Train Epoch: 100 [6400/23168 (28%)]	Loss: 0.143739 (Recon: 0.002714, SW: 0.156694)
+Train Epoch: 100 [9600/23168 (41%)]	Loss: 0.113682 (Recon: 0.002813, SW: 0.123188)
+Train Epoch: 100 [12800/23168 (55%)]	Loss: 0.102760 (Recon: 0.004336, SW: 0.109361)
+Train Epoch: 100 [16000/23168 (69%)]	Loss: 0.102273 (Recon: 0.014685, SW: 0.097320)
+Train Epoch: 100 [19200/23168 (83%)]	Loss: 0.126684 (Recon: 0.003460, SW: 0.136915)
+Train Epoch: 100 [22400/23168 (97%)]	Loss: 0.136464 (Recon: 0.009649, SW: 0.140906)
+Validation Epoch: 100	Loss: 0.147233 (Recon: 0.006339, SW: 0.156548)
+Epoch 100 completed in 4.4s
+Train Loss: 0.111966, Val Loss: 0.147233
+  Debug Sample 0:
+    Original range: [0.987587, 0.991417]
+    Reconstructed range: [0.987587, 0.991936]
+    Error range: [-0.000647, 0.000003]
+    Latent range: [-2.310822, 1.047990]
+
+Reconstruction Quality Evaluation (10 samples):
+Average PSNR: 34.55 dB
+Average MSE: 0.000001
+Average Correlation: 0.998517
+Compression Ratio: 21.4:1
+Train Epoch: 101 [0/23168 (0%)]	Loss: 0.134957 (Recon: 0.007447, SW: 0.141678)
+Train Epoch: 101 [3200/23168 (14%)]	Loss: 0.108696 (Recon: 0.005230, SW: 0.114962)
+Train Epoch: 101 [6400/23168 (28%)]	Loss: 0.173149 (Recon: 0.008098, SW: 0.183389)
+Train Epoch: 101 [9600/23168 (41%)]	Loss: 0.122531 (Recon: 0.003056, SW: 0.132750)
+Train Epoch: 101 [12800/23168 (55%)]	Loss: 0.106532 (Recon: 0.005150, SW: 0.112647)
+Train Epoch: 101 [16000/23168 (69%)]	Loss: 0.110570 (Recon: 0.002793, SW: 0.119752)
+Train Epoch: 101 [19200/23168 (83%)]	Loss: 0.114001 (Recon: 0.003735, SW: 0.122518)
+Train Epoch: 101 [22400/23168 (97%)]	Loss: 0.098004 (Recon: 0.007564, SW: 0.100489)
+Validation Epoch: 101	Loss: 0.142805 (Recon: 0.005482, SW: 0.152582)
+Epoch 101 completed in 4.3s
+Train Loss: 0.112175, Val Loss: 0.142805
+Train Epoch: 102 [0/23168 (0%)]	Loss: 0.093098 (Recon: 0.005555, SW: 0.097270)
+Train Epoch: 102 [3200/23168 (14%)]	Loss: 0.103752 (Recon: 0.003661, SW: 0.111213)
+Train Epoch: 102 [6400/23168 (28%)]	Loss: 0.131770 (Recon: 0.006997, SW: 0.138637)
+Train Epoch: 102 [9600/23168 (41%)]	Loss: 0.115729 (Recon: 0.002316, SW: 0.126014)
+Train Epoch: 102 [12800/23168 (55%)]	Loss: 0.123295 (Recon: 0.006897, SW: 0.129331)
+Train Epoch: 102 [16000/23168 (69%)]	Loss: 0.119047 (Recon: 0.006492, SW: 0.125061)
+Train Epoch: 102 [19200/23168 (83%)]	Loss: 0.112224 (Recon: 0.002502, SW: 0.121914)
+Train Epoch: 102 [22400/23168 (97%)]	Loss: 0.169804 (Recon: 0.028256, SW: 0.157276)
+Validation Epoch: 102	Loss: 0.142087 (Recon: 0.006727, SW: 0.150401)
+Epoch 102 completed in 4.4s
+Train Loss: 0.112126, Val Loss: 0.142087
+Train Epoch: 103 [0/23168 (0%)]	Loss: 0.107258 (Recon: 0.004321, SW: 0.114375)
+Train Epoch: 103 [3200/23168 (14%)]	Loss: 0.099913 (Recon: 0.005032, SW: 0.105423)
+Train Epoch: 103 [6400/23168 (28%)]	Loss: 0.108453 (Recon: 0.003643, SW: 0.116455)
+Train Epoch: 103 [9600/23168 (41%)]	Loss: 0.110358 (Recon: 0.002769, SW: 0.119543)
+Train Epoch: 103 [12800/23168 (55%)]	Loss: 0.094742 (Recon: 0.002726, SW: 0.102241)
+Train Epoch: 103 [16000/23168 (69%)]	Loss: 0.098244 (Recon: 0.002306, SW: 0.106598)
+Train Epoch: 103 [19200/23168 (83%)]	Loss: 0.105371 (Recon: 0.004115, SW: 0.112507)
+Train Epoch: 103 [22400/23168 (97%)]	Loss: 0.131958 (Recon: 0.003653, SW: 0.142561)
+Validation Epoch: 103	Loss: 0.143427 (Recon: 0.005626, SW: 0.153113)
+Epoch 103 completed in 4.4s
+Train Loss: 0.111657, Val Loss: 0.143427
+Train Epoch: 104 [0/23168 (0%)]	Loss: 0.112863 (Recon: 0.002263, SW: 0.122888)
+Train Epoch: 104 [3200/23168 (14%)]	Loss: 0.115116 (Recon: 0.004983, SW: 0.122370)
+Train Epoch: 104 [6400/23168 (28%)]	Loss: 0.100550 (Recon: 0.002137, SW: 0.109347)
+Train Epoch: 104 [9600/23168 (41%)]	Loss: 0.097535 (Recon: 0.006974, SW: 0.100623)
+Train Epoch: 104 [12800/23168 (55%)]	Loss: 0.140000 (Recon: 0.003852, SW: 0.151276)
+Train Epoch: 104 [16000/23168 (69%)]	Loss: 0.104640 (Recon: 0.005255, SW: 0.110427)
+Train Epoch: 104 [19200/23168 (83%)]	Loss: 0.095953 (Recon: 0.004997, SW: 0.101062)
+Train Epoch: 104 [22400/23168 (97%)]	Loss: 0.105195 (Recon: 0.003441, SW: 0.113060)
+Validation Epoch: 104	Loss: 0.145730 (Recon: 0.006784, SW: 0.154385)
+Epoch 104 completed in 4.5s
+Train Loss: 0.112180, Val Loss: 0.145730
+Train Epoch: 105 [0/23168 (0%)]	Loss: 0.084196 (Recon: 0.002541, SW: 0.090727)
+Train Epoch: 105 [3200/23168 (14%)]	Loss: 0.126394 (Recon: 0.002560, SW: 0.137593)
+Train Epoch: 105 [6400/23168 (28%)]	Loss: 0.124123 (Recon: 0.002921, SW: 0.134669)
+Train Epoch: 105 [9600/23168 (41%)]	Loss: 0.085359 (Recon: 0.002892, SW: 0.091630)
+Train Epoch: 105 [12800/23168 (55%)]	Loss: 0.088078 (Recon: 0.003167, SW: 0.094345)
+Train Epoch: 105 [16000/23168 (69%)]	Loss: 0.135215 (Recon: 0.004270, SW: 0.145495)
+Train Epoch: 105 [19200/23168 (83%)]	Loss: 0.103215 (Recon: 0.004873, SW: 0.109269)
+Train Epoch: 105 [22400/23168 (97%)]	Loss: 0.140949 (Recon: 0.010285, SW: 0.145182)
+Validation Epoch: 105	Loss: 0.142555 (Recon: 0.005735, SW: 0.152022)
+Epoch 105 completed in 4.3s
+Train Loss: 0.112153, Val Loss: 0.142555
+Train Epoch: 106 [0/23168 (0%)]	Loss: 0.119294 (Recon: 0.003110, SW: 0.129094)
+Train Epoch: 106 [3200/23168 (14%)]	Loss: 0.129402 (Recon: 0.003229, SW: 0.140192)
+Train Epoch: 106 [6400/23168 (28%)]	Loss: 0.107724 (Recon: 0.002656, SW: 0.116742)
+Train Epoch: 106 [9600/23168 (41%)]	Loss: 0.126050 (Recon: 0.002250, SW: 0.137556)
+Train Epoch: 106 [12800/23168 (55%)]	Loss: 0.111604 (Recon: 0.002387, SW: 0.121353)
+Train Epoch: 106 [16000/23168 (69%)]	Loss: 0.109451 (Recon: 0.003670, SW: 0.117534)
+Train Epoch: 106 [19200/23168 (83%)]	Loss: 0.103406 (Recon: 0.005125, SW: 0.109201)
+Train Epoch: 106 [22400/23168 (97%)]	Loss: 0.109842 (Recon: 0.002807, SW: 0.118927)
+Validation Epoch: 106	Loss: 0.146101 (Recon: 0.006304, SW: 0.155330)
+Epoch 106 completed in 4.5s
+Train Loss: 0.111895, Val Loss: 0.146101
+Train Epoch: 107 [0/23168 (0%)]	Loss: 0.123675 (Recon: 0.002476, SW: 0.134665)
+Train Epoch: 107 [3200/23168 (14%)]	Loss: 0.127715 (Recon: 0.003250, SW: 0.138295)
+Train Epoch: 107 [6400/23168 (28%)]	Loss: 0.136180 (Recon: 0.004128, SW: 0.146725)
+Train Epoch: 107 [9600/23168 (41%)]	Loss: 0.117022 (Recon: 0.004045, SW: 0.125530)
+Train Epoch: 107 [12800/23168 (55%)]	Loss: 0.125191 (Recon: 0.005485, SW: 0.133006)
+Train Epoch: 107 [16000/23168 (69%)]	Loss: 0.125775 (Recon: 0.003763, SW: 0.135569)
+Train Epoch: 107 [19200/23168 (83%)]	Loss: 0.115510 (Recon: 0.004051, SW: 0.123843)
+Train Epoch: 107 [22400/23168 (97%)]	Loss: 0.112160 (Recon: 0.004099, SW: 0.120068)
+Validation Epoch: 107	Loss: 0.141141 (Recon: 0.004237, SW: 0.152115)
+Epoch 107 completed in 4.3s
+Train Loss: 0.111479, Val Loss: 0.141141
+Train Epoch: 108 [0/23168 (0%)]	Loss: 0.114456 (Recon: 0.002463, SW: 0.124436)
+Train Epoch: 108 [3200/23168 (14%)]	Loss: 0.083784 (Recon: 0.003085, SW: 0.089666)
+Train Epoch: 108 [6400/23168 (28%)]	Loss: 0.094026 (Recon: 0.003958, SW: 0.100075)
+Train Epoch: 108 [9600/23168 (41%)]	Loss: 0.136029 (Recon: 0.003461, SW: 0.147298)
+Train Epoch: 108 [12800/23168 (55%)]	Loss: 0.107746 (Recon: 0.002518, SW: 0.116921)
+Train Epoch: 108 [16000/23168 (69%)]	Loss: 0.114548 (Recon: 0.002206, SW: 0.124824)
+Train Epoch: 108 [19200/23168 (83%)]	Loss: 0.094509 (Recon: 0.003503, SW: 0.101117)
+Train Epoch: 108 [22400/23168 (97%)]	Loss: 0.109518 (Recon: 0.003815, SW: 0.117448)
+Validation Epoch: 108	Loss: 0.146047 (Recon: 0.005742, SW: 0.155895)
+Epoch 108 completed in 4.5s
+Train Loss: 0.112044, Val Loss: 0.146047
+Train Epoch: 109 [0/23168 (0%)]	Loss: 0.100087 (Recon: 0.004990, SW: 0.105663)
+Train Epoch: 109 [3200/23168 (14%)]	Loss: 0.110810 (Recon: 0.002499, SW: 0.120346)
+Train Epoch: 109 [6400/23168 (28%)]	Loss: 0.098629 (Recon: 0.002305, SW: 0.107027)
+Train Epoch: 109 [9600/23168 (41%)]	Loss: 0.104253 (Recon: 0.004327, SW: 0.111029)
+Train Epoch: 109 [12800/23168 (55%)]	Loss: 0.101625 (Recon: 0.005823, SW: 0.106446)
+Train Epoch: 109 [16000/23168 (69%)]	Loss: 0.108309 (Recon: 0.002893, SW: 0.117129)
+Train Epoch: 109 [19200/23168 (83%)]	Loss: 0.125260 (Recon: 0.002297, SW: 0.136625)
+Train Epoch: 109 [22400/23168 (97%)]	Loss: 0.105282 (Recon: 0.005768, SW: 0.110571)
+Validation Epoch: 109	Loss: 0.141857 (Recon: 0.005560, SW: 0.151441)
+Epoch 109 completed in 4.3s
+Train Loss: 0.110711, Val Loss: 0.141857
+Train Epoch: 110 [0/23168 (0%)]	Loss: 0.106091 (Recon: 0.003190, SW: 0.114334)
+Train Epoch: 110 [3200/23168 (14%)]	Loss: 0.100720 (Recon: 0.003474, SW: 0.108051)
+Train Epoch: 110 [6400/23168 (28%)]	Loss: 0.135574 (Recon: 0.002890, SW: 0.147426)
+Train Epoch: 110 [9600/23168 (41%)]	Loss: 0.104616 (Recon: 0.003221, SW: 0.112661)
+Train Epoch: 110 [12800/23168 (55%)]	Loss: 0.107131 (Recon: 0.003149, SW: 0.115535)
+Train Epoch: 110 [16000/23168 (69%)]	Loss: 0.126148 (Recon: 0.004230, SW: 0.135465)
+Train Epoch: 110 [19200/23168 (83%)]	Loss: 0.120435 (Recon: 0.004668, SW: 0.128630)
+Train Epoch: 110 [22400/23168 (97%)]	Loss: 0.114267 (Recon: 0.005206, SW: 0.121180)
+Validation Epoch: 110	Loss: 0.141904 (Recon: 0.004754, SW: 0.152388)
+Epoch 110 completed in 4.7s
+Train Loss: 0.111613, Val Loss: 0.141904
+  Debug Sample 0:
+    Original range: [0.987587, 0.991417]
+    Reconstructed range: [0.987587, 0.991905]
+    Error range: [-0.000540, -0.000000]
+    Latent range: [-2.315325, 1.138619]
+
+Reconstruction Quality Evaluation (10 samples):
+Average PSNR: 35.25 dB
+Average MSE: 0.000001
+Average Correlation: 0.998486
+Compression Ratio: 21.4:1
+Train Epoch: 111 [0/23168 (0%)]	Loss: 0.117569 (Recon: 0.003943, SW: 0.126251)
+Train Epoch: 111 [3200/23168 (14%)]	Loss: 0.092570 (Recon: 0.005542, SW: 0.096698)
+Train Epoch: 111 [6400/23168 (28%)]	Loss: 0.118609 (Recon: 0.003245, SW: 0.128182)
+Train Epoch: 111 [9600/23168 (41%)]	Loss: 0.087457 (Recon: 0.003693, SW: 0.093071)
+Train Epoch: 111 [12800/23168 (55%)]	Loss: 0.099889 (Recon: 0.007786, SW: 0.102337)
+Train Epoch: 111 [16000/23168 (69%)]	Loss: 0.104924 (Recon: 0.002983, SW: 0.113268)
+Train Epoch: 111 [19200/23168 (83%)]	Loss: 0.110681 (Recon: 0.002997, SW: 0.119649)
+Train Epoch: 111 [22400/23168 (97%)]	Loss: 0.111182 (Recon: 0.003302, SW: 0.119866)
+Validation Epoch: 111	Loss: 0.144588 (Recon: 0.006444, SW: 0.153494)
+Epoch 111 completed in 4.5s
+Train Loss: 0.112253, Val Loss: 0.144588
+Train Epoch: 112 [0/23168 (0%)]	Loss: 0.101581 (Recon: 0.004433, SW: 0.107942)
+Train Epoch: 112 [3200/23168 (14%)]	Loss: 0.117207 (Recon: 0.005157, SW: 0.124499)
+Train Epoch: 112 [6400/23168 (28%)]	Loss: 0.097693 (Recon: 0.002654, SW: 0.105599)
+Train Epoch: 112 [9600/23168 (41%)]	Loss: 0.138633 (Recon: 0.002777, SW: 0.150951)
+Train Epoch: 112 [12800/23168 (55%)]	Loss: 0.097705 (Recon: 0.005111, SW: 0.102883)
+Train Epoch: 112 [16000/23168 (69%)]	Loss: 0.098414 (Recon: 0.004802, SW: 0.104013)
+Train Epoch: 112 [19200/23168 (83%)]	Loss: 0.100919 (Recon: 0.005704, SW: 0.105795)
+Train Epoch: 112 [22400/23168 (97%)]	Loss: 0.111060 (Recon: 0.007367, SW: 0.115215)
+Validation Epoch: 112	Loss: 0.147114 (Recon: 0.006512, SW: 0.156224)
+Epoch 112 completed in 4.4s
+Train Loss: 0.111163, Val Loss: 0.147114
+
+Early stopping triggered! No improvement for 40 epochs.
+Best validation loss: 0.140015
+
+Final evaluation...
+  Debug Sample 0:
+    Original range: [0.987587, 0.991417]
+    Reconstructed range: [0.987587, 0.992456]
+    Error range: [-0.001250, -0.000000]
+    Latent range: [-2.255411, 1.101196]
+
+Reconstruction Quality Evaluation (50 samples):
+Average PSNR: 35.47 dB
+Average MSE: 0.000001
+Average Correlation: 0.998552
+Compression Ratio: 21.4:1
+
+Training completed!
+Best validation loss: 0.140015
+Final PSNR: 35.47 dB
+Final MSE: 0.000001
+Models saved in: ./save/swae_architecture_search_parallel_20250629_144257/config_16_deep_lr1e-4_bs32_reg0.9

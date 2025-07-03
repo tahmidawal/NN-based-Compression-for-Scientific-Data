@@ -1,0 +1,268 @@
+Using device: cuda
+Data folder: /u/tawal/0620-NN-based-compression-thera/tt_q01/
+Encoder channels: [32, 64, 128, 256]
+Theoretical compression ratio: 21.4:1
+Creating U_CHI datasets...
+🔒 Creating datasets with FIXED splits: train=80.0%, val=15.0%, test=5.0%
+🎯 Using FIXED seed=42 to ensure test set is always the same samples
+⚠️  Warning: Test ratio is 5.0%, not the intended 5%
+Found 13 HDF5 files in /u/tawal/0620-NN-based-compression-thera/tt_q01/
+Loading bssn_gr_0_extracted.hdf5...
+Available keys: ['centers', 'dx', 'dy', 'dz', 'levels', 'var_data', 'vars', 'vars_use']
+Available variables: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5', 'C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_1200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2224, 7, 7, 7)
+Loading bssn_gr_1600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_2000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2284, 7, 7, 7)
+Loading bssn_gr_2400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_2800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_3200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2206, 7, 7, 7)
+Loading bssn_gr_3600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Loading bssn_gr_4000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_4400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2176, 7, 7, 7)
+Loading bssn_gr_4800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2218, 7, 7, 7)
+Loading bssn_gr_800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Total U_CHI data shape: (28960, 1, 7, 7, 7)
+🔒 Applied deterministic shuffle with seed=42 for reproducible splits
+🔒 FIXED Data Split: 28960 total → 23168 train (80.0%), 4344 val (15.0%), 1448 test (5.0%)
+🎯 TEST SET: 1448 samples (5%) - NEVER seen during training/validation
+Using training data: (23168, 1, 7, 7, 7)
+Applying per-sample positive-shift log normalization...
+Applied per-sample positive-shift log normalization:
+  epsilon=1e-08
+  Per-sample data_min range: [0.000100, 0.996016]
+  Result should have mean~4.5, std~1.1 properties
+U_CHI Dataset initialized:
+  Split: train
+  Data shape: (23168, 1, 7, 7, 7)
+  Split ratios: train=80.0%, val=15.0%, test=5.0%
+  Data range: [-17.727534, -2.386085]
+  Data mean: -4.503266
+  Data std: 1.542684
+Found 13 HDF5 files in /u/tawal/0620-NN-based-compression-thera/tt_q01/
+Loading bssn_gr_0_extracted.hdf5...
+Available keys: ['centers', 'dx', 'dy', 'dz', 'levels', 'var_data', 'vars', 'vars_use']
+Available variables: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5', 'C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_1200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2224, 7, 7, 7)
+Loading bssn_gr_1600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_2000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2284, 7, 7, 7)
+Loading bssn_gr_2400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_2800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_3200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2206, 7, 7, 7)
+Loading bssn_gr_3600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Loading bssn_gr_4000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_4400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2176, 7, 7, 7)
+Loading bssn_gr_4800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2218, 7, 7, 7)
+Loading bssn_gr_800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Total U_CHI data shape: (28960, 1, 7, 7, 7)
+🔒 Applied deterministic shuffle with seed=42 for reproducible splits
+🔒 FIXED Data Split: 28960 total → 23168 train (80.0%), 4344 val (15.0%), 1448 test (5.0%)
+🎯 TEST SET: 1448 samples (5%) - NEVER seen during training/validation
+Using validation data: (4344, 1, 7, 7, 7)
+Applying per-sample positive-shift log normalization...
+Applied per-sample positive-shift log normalization:
+  epsilon=1e-08
+  Per-sample data_min range: [0.000100, 0.996016]
+  Result should have mean~4.5, std~1.1 properties
+U_CHI Dataset initialized:
+  Split: val
+  Data shape: (4344, 1, 7, 7, 7)
+  Split ratios: train=80.0%, val=15.0%, test=5.0%
+  Data range: [-17.727534, -2.417659]
+  Data mean: -4.501234
+  Data std: 1.534708
+Found 13 HDF5 files in /u/tawal/0620-NN-based-compression-thera/tt_q01/
+Loading bssn_gr_0_extracted.hdf5...
+Available keys: ['centers', 'dx', 'dy', 'dz', 'levels', 'var_data', 'vars', 'vars_use']
+Available variables: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5', 'C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_1200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2224, 7, 7, 7)
+Loading bssn_gr_1600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2248, 7, 7, 7)
+Loading bssn_gr_2000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2284, 7, 7, 7)
+Loading bssn_gr_2400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_2800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_3200_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2206, 7, 7, 7)
+Loading bssn_gr_3600_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Loading bssn_gr_4000_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2212, 7, 7, 7)
+Loading bssn_gr_400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2236, 7, 7, 7)
+Loading bssn_gr_4400_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2176, 7, 7, 7)
+Loading bssn_gr_4800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2218, 7, 7, 7)
+Loading bssn_gr_800_extracted.hdf5...
+Found U_CHI at index 1
+  Loaded U_CHI data shape: (2230, 7, 7, 7)
+Total U_CHI data shape: (28960, 1, 7, 7, 7)
+🔒 Applied deterministic shuffle with seed=42 for reproducible splits
+🔒 FIXED Data Split: 28960 total → 23168 train (80.0%), 4344 val (15.0%), 1448 test (5.0%)
+🎯 TEST SET: 1448 samples (5%) - NEVER seen during training/validation
+Using test data: (1448, 1, 7, 7, 7)
+Applying per-sample positive-shift log normalization...
+Applied per-sample positive-shift log normalization:
+  epsilon=1e-08
+  Per-sample data_min range: [0.000100, 0.996016]
+  Result should have mean~4.5, std~1.1 properties
+U_CHI Dataset initialized:
+  Split: test
+  Data shape: (1448, 1, 7, 7, 7)
+  Split ratios: train=80.0%, val=15.0%, test=5.0%
+  Data range: [-17.727534, -2.398501]
+  Data mean: -4.491794
+  Data std: 1.556796
+🔄 Data splits: Train=23168 (80%), Val=4344 (15%), Test=1448 (5%)
+⚠️  CRITICAL: Test set (5%) is held out for final unbiased evaluation - NEVER seen during training
+🔒 Using deterministic split (seed=42) to ensure consistent test set
+Train batches: 724
+Val batches: 136
+Creating SWAE 3D 7x7x7 model...
+Total parameters: 2,525,929
+Trainable parameters: 2,525,929
+Model settings: latent_dim=8, lambda_reg=0.9, channels=[32, 64, 128, 256]
+Training settings: lr=0.0001, batch_size=32
+Early stopping: enabled (patience=40)
+
+Starting training for 1000 epochs...
+Train Epoch: 1 [0/23168 (0%)]	Loss: 23.404514 (Recon: 23.048208, SW: 0.395895)
+Train Epoch: 1 [3200/23168 (14%)]	Loss: 4.275962 (Recon: 4.094259, SW: 0.201892)
+Train Epoch: 1 [6400/23168 (28%)]	Loss: 0.732250 (Recon: 0.555975, SW: 0.195862)
+Train Epoch: 1 [9600/23168 (41%)]	Loss: 0.389281 (Recon: 0.251555, SW: 0.153029)
+Train Epoch: 1 [12800/23168 (55%)]	Loss: 0.428886 (Recon: 0.239576, SW: 0.210344)
+Train Epoch: 1 [16000/23168 (69%)]	Loss: 0.235590 (Recon: 0.093894, SW: 0.157440)
+Train Epoch: 1 [19200/23168 (83%)]	Loss: 0.316292 (Recon: 0.210275, SW: 0.117796)
+Train Epoch: 1 [22400/23168 (97%)]	Loss: 0.221791 (Recon: 0.107061, SW: 0.127478)
+Validation Epoch: 1	Loss: 0.313944 (Recon: 0.124870, SW: 0.210082)
+Epoch 1 completed in 4.7s
+Train Loss: 1.934573, Val Loss: 0.313944
+New best model saved (val_loss: 0.313944)
+Train Epoch: 2 [0/23168 (0%)]	Loss: 0.266992 (Recon: 0.146543, SW: 0.133832)
+Train Epoch: 2 [3200/23168 (14%)]	Loss: 0.240480 (Recon: 0.111572, SW: 0.143231)
+Train Epoch: 2 [6400/23168 (28%)]	Loss: 0.250831 (Recon: 0.107180, SW: 0.159613)
+Train Epoch: 2 [9600/23168 (41%)]	Loss: 0.254887 (Recon: 0.148462, SW: 0.118250)
+Train Epoch: 2 [12800/23168 (55%)]	Loss: 0.229166 (Recon: 0.104446, SW: 0.138578)
+Train Epoch: 2 [16000/23168 (69%)]	Loss: 0.210737 (Recon: 0.092311, SW: 0.131584)
+Train Epoch: 2 [19200/23168 (83%)]	Loss: 0.208510 (Recon: 0.070926, SW: 0.152871)
+Train Epoch: 2 [22400/23168 (97%)]	Loss: 0.209010 (Recon: 0.091971, SW: 0.130043)
+Validation Epoch: 2	Loss: 0.216153 (Recon: 0.056330, SW: 0.177581)
+Epoch 2 completed in 4.6s
+Train Loss: 0.228793, Val Loss: 0.216153
+New best model saved (val_loss: 0.216153)
+Train Epoch: 3 [0/23168 (0%)]	Loss: 0.218975 (Recon: 0.112581, SW: 0.118216)
+Train Epoch: 3 [3200/23168 (14%)]	Loss: 0.239809 (Recon: 0.086728, SW: 0.170090)
+Train Epoch: 3 [6400/23168 (28%)]	Loss: 0.176629 (Recon: 0.075352, SW: 0.112530)
+Train Epoch: 3 [9600/23168 (41%)]	Loss: 0.256137 (Recon: 0.094486, SW: 0.179612)
+Train Epoch: 3 [12800/23168 (55%)]	Loss: 0.211471 (Recon: 0.074789, SW: 0.151870)
+Train Epoch: 3 [16000/23168 (69%)]	Loss: 0.191141 (Recon: 0.078498, SW: 0.125158)
+Train Epoch: 3 [19200/23168 (83%)]	Loss: 0.219915 (Recon: 0.076018, SW: 0.159885)
+Train Epoch: 3 [22400/23168 (97%)]	Loss: 0.291169 (Recon: 0.118906, SW: 0.191403)
+Validation Epoch: 3	Loss: 0.210577 (Recon: 0.050113, SW: 0.178294)
+Epoch 3 completed in 4.7s
+Train Loss: 0.201002, Val Loss: 0.210577
+New best model saved (val_loss: 0.210577)
+Train Epoch: 4 [0/23168 (0%)]	Loss: 0.237332 (Recon: 0.116344, SW: 0.134432)
+Train Epoch: 4 [3200/23168 (14%)]	Loss: 0.168190 (Recon: 0.083383, SW: 0.094230)
+Train Epoch: 4 [6400/23168 (28%)]	Loss: 0.201237 (Recon: 0.080117, SW: 0.134577)
+Train Epoch: 4 [9600/23168 (41%)]	Loss: 0.163355 (Recon: 0.047027, SW: 0.129254)
+Train Epoch: 4 [12800/23168 (55%)]	Loss: 0.170359 (Recon: 0.072522, SW: 0.108708)
+Train Epoch: 4 [16000/23168 (69%)]	Loss: 0.174440 (Recon: 0.040604, SW: 0.148706)
+Train Epoch: 4 [19200/23168 (83%)]	Loss: 0.196884 (Recon: 0.075487, SW: 0.134885)
+Train Epoch: 4 [22400/23168 (97%)]	Loss: 0.226979 (Recon: 0.124129, SW: 0.114278)
+Validation Epoch: 4	Loss: 0.219578 (Recon: 0.058797, SW: 0.178646)
+Epoch 4 completed in 4.5s
+Train Loss: 0.184855, Val Loss: 0.219578
+Train Epoch: 5 [0/23168 (0%)]	Loss: 0.133595 (Recon: 0.042829, SW: 0.100851)
+Train Epoch: 5 [3200/23168 (14%)]	Loss: 0.202843 (Recon: 0.104587, SW: 0.109174)
+Train Epoch: 5 [6400/23168 (28%)]	Loss: 0.149532 (Recon: 0.052934, SW: 0.107332)
+Train Epoch: 5 [9600/23168 (41%)]	Loss: 0.152637 (Recon: 0.031250, SW: 0.134874)
+Train Epoch: 5 [12800/23168 (55%)]	Loss: 0.129189 (Recon: 0.017966, SW: 0.123582)
+Train Epoch: 5 [16000/23168 (69%)]	Loss: 0.143366 (Recon: 0.072421, SW: 0.078828)
+Train Epoch: 5 [19200/23168 (83%)]	Loss: 0.126804 (Recon: 0.026762, SW: 0.111157)
+Train Epoch: 5 [22400/23168 (97%)]	Loss: 0.241460 (Recon: 0.047681, SW: 0.215309)
+Validation Epoch: 5	Loss: 0.195710 (Recon: 0.038500, SW: 0.174678)
+Epoch 5 completed in 4.5s
+Train Loss: 0.174207, Val Loss: 0.195710
+Traceback (most recent call last):
+  File "/u/tawal/0627-NN-based-compression-AE/train_swae_u_chi.py", line 460, in <module>
+    main() 
+  File "/u/tawal/0627-NN-based-compression-AE/train_swae_u_chi.py", line 395, in main
+    torch.save({
+  File "/u/tawal/.conda/envs/liif_env/lib/python3.10/site-packages/torch/serialization.py", line 964, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+  File "/u/tawal/.conda/envs/liif_env/lib/python3.10/site-packages/torch/serialization.py", line 828, in _open_zipfile_writer
+    return container(name_or_buffer)
+  File "/u/tawal/.conda/envs/liif_env/lib/python3.10/site-packages/torch/serialization.py", line 792, in __init__
+    torch._C.PyTorchFileWriter(
+RuntimeError: File ./save/swae_architecture_search_parallel_20250629_144250/config_8_deep_lr1e-4_bs32_reg0.9/best_model.pth cannot be opened.

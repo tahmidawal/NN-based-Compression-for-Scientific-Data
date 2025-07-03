@@ -1,0 +1,398 @@
+SWAE Architecture Inference Speed Testing
+Started: Tue Jul  1 19:04:15 CDT 2025
+Input CSV: ./save/swae_architecture_search_consolidated_20250701_134956/consolidated_architecture_search_results.csv
+==========================================
+Model 1 (test_4_baseline_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:04:16 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_baseline_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 2 (test_4_baseline_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:04:21 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_baseline_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 3 (test_4_baseline_lr1e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:04:24 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_baseline_lr1e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 4 (test_4_baseline_lr1e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:04:27 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_baseline_lr1e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 5 (test_4_baseline_lr2e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:04:30 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_baseline_lr2e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 6 (test_4_baseline_lr2e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:04:32 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_baseline_lr2e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 7 (test_4_baseline_lr2e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:04:35 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_baseline_lr2e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 8 (test_4_baseline_lr2e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:04:38 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_baseline_lr2e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 9 (test_4_shallow_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:04:40 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_shallow_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 10 (test_4_shallow_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:04:43 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_shallow_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 11 (test_4_shallow_lr1e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:04:46 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_shallow_lr1e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 12 (test_4_shallow_lr1e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:04:48 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_shallow_lr1e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 13 (test_4_shallow_lr2e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:04:51 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_shallow_lr2e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 14 (test_4_shallow_lr2e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:04:54 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_shallow_lr2e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 15 (test_4_shallow_lr2e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:04:57 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_shallow_lr2e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 16 (test_4_shallow_lr2e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:04:59 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_shallow_lr2e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 17 (test_4_deep_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:05:02 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_deep_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 18 (test_4_deep_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:05:05 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_deep_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 19 (test_4_deep_lr1e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:05:08 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_deep_lr1e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 20 (test_4_deep_lr1e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:05:11 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_deep_lr1e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 21 (test_4_deep_lr2e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:05:13 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_deep_lr2e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 22 (test_4_deep_lr2e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:05:16 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_4_deep_lr2e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 23 (test_8_baseline_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:05:19 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_baseline_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 24 (test_8_baseline_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:05:22 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_baseline_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 25 (test_8_baseline_lr1e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:05:24 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_baseline_lr1e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 26 (test_8_baseline_lr1e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:05:27 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_baseline_lr1e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 27 (test_8_baseline_lr2e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:05:30 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_baseline_lr2e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 28 (test_8_baseline_lr2e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:05:33 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_baseline_lr2e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 29 (test_8_baseline_lr2e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:05:35 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_baseline_lr2e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 30 (test_8_baseline_lr2e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:05:40 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_baseline_lr2e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 31 (test_8_shallow_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:05:46 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_shallow_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 32 (test_8_shallow_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:05:49 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_shallow_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 33 (test_8_shallow_lr1e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:05:51 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_shallow_lr1e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 34 (test_8_shallow_lr1e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:05:54 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_shallow_lr1e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 35 (test_8_shallow_lr2e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:05:57 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_shallow_lr2e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 36 (test_8_shallow_lr2e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:06:00 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_shallow_lr2e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 37 (test_8_shallow_lr2e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:06:03 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_shallow_lr2e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 38 (test_8_shallow_lr2e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:06:05 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_shallow_lr2e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 39 (test_8_deep_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:06:08 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_deep_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 40 (test_8_deep_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:06:11 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144250/config_8_deep_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 43 (test_64_baseline_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:06:14 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_baseline_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 44 (test_64_baseline_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:06:16 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_baseline_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 45 (test_64_baseline_lr1e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:06:19 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_baseline_lr1e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 46 (test_64_baseline_lr1e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:06:22 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_baseline_lr1e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 47 (test_64_baseline_lr2e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:06:25 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_baseline_lr2e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 48 (test_64_baseline_lr2e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:06:27 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_baseline_lr2e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 49 (test_64_baseline_lr2e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:06:30 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_baseline_lr2e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 50 (test_64_baseline_lr2e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:06:33 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_baseline_lr2e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 51 (test_64_shallow_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:06:36 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_shallow_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 52 (test_64_shallow_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:06:38 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_shallow_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 53 (test_64_shallow_lr1e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:06:41 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_shallow_lr1e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 54 (test_64_shallow_lr1e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:06:44 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_shallow_lr1e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 55 (test_64_shallow_lr2e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:06:47 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_shallow_lr2e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 56 (test_64_shallow_lr2e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:06:49 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_shallow_lr2e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 57 (test_64_shallow_lr2e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:06:52 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_shallow_lr2e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 58 (test_64_shallow_lr2e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:06:55 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144251/config_64_shallow_lr2e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 59 (test_16_baseline_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:06:57 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_baseline_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 60 (test_16_baseline_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:07:02 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_baseline_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 61 (test_16_baseline_lr1e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:07:07 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_baseline_lr1e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 62 (test_16_baseline_lr1e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:07:09 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_baseline_lr1e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 63 (test_16_baseline_lr2e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:07:12 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_baseline_lr2e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 64 (test_16_baseline_lr2e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:07:15 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_baseline_lr2e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 65 (test_16_baseline_lr2e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:07:17 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_baseline_lr2e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 66 (test_16_baseline_lr2e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:07:20 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_baseline_lr2e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 67 (test_16_shallow_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:07:23 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_shallow_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 68 (test_16_shallow_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:07:26 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_shallow_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 69 (test_16_shallow_lr1e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:07:29 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_shallow_lr1e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 70 (test_16_shallow_lr1e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:07:31 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_shallow_lr1e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 71 (test_16_shallow_lr2e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:07:34 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_shallow_lr2e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 72 (test_16_shallow_lr2e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:07:37 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_shallow_lr2e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 73 (test_16_shallow_lr2e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:07:39 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_shallow_lr2e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 74 (test_16_shallow_lr2e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:07:42 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_shallow_lr2e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 75 (test_16_deep_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:07:45 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_deep_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 76 (test_16_deep_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:07:48 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_deep_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 77 (test_16_deep_lr1e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:07:50 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_deep_lr1e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 78 (test_16_deep_lr1e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:07:53 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_deep_lr1e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 79 (test_16_deep_lr2e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:07:56 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144257/config_16_deep_lr2e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 80 (test_32_baseline_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:07:59 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_baseline_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 81 (test_32_baseline_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:08:01 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_baseline_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 82 (test_32_baseline_lr1e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:08:04 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_baseline_lr1e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 83 (test_32_baseline_lr1e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:08:07 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_baseline_lr1e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 84 (test_32_baseline_lr2e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:08:10 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_baseline_lr2e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 85 (test_32_baseline_lr2e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:08:12 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_baseline_lr2e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 86 (test_32_baseline_lr2e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:08:15 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_baseline_lr2e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 87 (test_32_baseline_lr2e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:08:18 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_baseline_lr2e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 88 (test_32_shallow_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:08:20 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_shallow_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 89 (test_32_shallow_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:08:27 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_shallow_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 90 (test_32_shallow_lr1e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:08:31 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_shallow_lr1e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 91 (test_32_shallow_lr1e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:08:34 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_shallow_lr1e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 92 (test_32_shallow_lr2e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:08:37 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_shallow_lr2e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 93 (test_32_shallow_lr2e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:08:40 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_shallow_lr2e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 94 (test_32_shallow_lr2e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:08:42 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_shallow_lr2e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 95 (test_32_shallow_lr2e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:08:45 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_shallow_lr2e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 96 (test_32_deep_lr1e-4_bs32_reg0.9):
+  Started: Tue Jul  1 19:08:48 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_deep_lr1e-4_bs32_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 97 (test_32_deep_lr1e-4_bs32_reg1.5):
+  Started: Tue Jul  1 19:08:50 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_deep_lr1e-4_bs32_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+Model 98 (test_32_deep_lr1e-4_bs64_reg0.9):
+  Started: Tue Jul  1 19:08:53 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_deep_lr1e-4_bs64_reg0.9/best_model.pth
+  Status: FAILED, Time: s
+Model 99 (test_32_deep_lr1e-4_bs64_reg1.5):
+  Started: Tue Jul  1 19:08:56 CDT 2025
+  Model: ./save/swae_architecture_search_parallel_20250629_144258/config_32_deep_lr1e-4_bs64_reg1.5/best_model.pth
+  Status: FAILED, Time: s
+
+Inference speed testing completed: Tue Jul  1 19:08:59 CDT 2025
+Total models: 0
+Successful tests: 0
+Failed tests: 0
+Success rate: N/A

@@ -1,0 +1,39 @@
+SWAE Parallel Architecture Search - Detailed Summary
+=======================================================
+
+Total configurations tested: 99
+Successful configurations: 99
+Success rate: 100.0%
+
+Best Configurations per Latent Dimension:
+---------------------------------------------
+
+Latent Dim 4 (85.8:1):
+  Best PSNR: 34.09 dB
+  Architecture: deep
+  Channels: 32,64,128,256
+  Training time: 636s
+
+Latent Dim 8 (42.9:1):
+  Best PSNR: 33.87 dB
+  Architecture: baseline
+  Channels: 32,64,128
+  Training time: 870s
+
+Latent Dim 16 (21.4:1):
+  Best PSNR: 36.43 dB
+  Architecture: deep
+  Channels: 32,64,128,256
+  Training time: 401s
+
+Latent Dim 32 (10.7:1):
+  Best PSNR: 36.74 dB
+  Architecture: deep
+  Channels: 32,64,128,256
+  Training time: 801s
+
+Latent Dim 64 (5.4:1):
+  Best PSNR: 35.51 dB
+  Architecture: baseline
+  Channels: 32,64,128
+  Training time: 823s
