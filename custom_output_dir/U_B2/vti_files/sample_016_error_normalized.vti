@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<VTKFile type="ImageData" version="0.1" byte_order="LittleEndian" header_type="UInt32" compressor="vtkZLibDataCompressor">
+  <ImageData WholeExtent="0 4 0 4 0 4" Origin="0 0 0" Spacing="1 1 1" Direction="1 0 0 0 1 0 0 0 1">
+    <Piece Extent="0 4 0 4 0 4"                                                       >
+      <PointData Scalars="Variable_Normalized_LogPos">
+        <DataArray type="Float32" Name="Variable_Normalized_LogPos" format="appended" RangeMin="-0.020485877991"      RangeMax="0.4084482193"         offset="0"                   />
+      </PointData>
+      <CellData>
+      </CellData>
+    </Piece>
+  </ImageData>
+  <AppendedData encoding="base64">
+   _AQAAAACAAAD0AQAAzgEAAA==eJwNkE1IVGEYhV8r07BNLSQ16NKmnRXIFHW/py/pRylK0IVg2iUljX7MYopo4ZfZOAmlhUFi4YRFFuUiLGQSe1GTiqAUMcGKwUVBRFEUFf3QXR84zzmPnDmAfO40bmElru6jSR3pJrFhCO3pIGjuIlV1H/fqMlLyAumdNro3jgy+NnrrJPo+Hf1XiO3PRCeiyPfjSHqukUif75JfjcjQOul96XsnxrCdGdiuUjSnAl3djo0Mh51rsV9KCWaGcdlFSNYcguRZNK2axJ44bv5p5GIMLW9CxiNIfzE60EHKH0M/ZGN/78JFs5ErxQQ5V5HR9UhlG87m4Z43ERRdR00zNlqPq2kkMdKB/gpwDVnYt4twtZeQ3HD/34Po4h1o9zbsvVak+hq6IuROleGa3xh3rsfo4ZV4ky242Siu/obRT/l4sy3I0XLkWcibm4vdH+atm3E/7hgt3oTXdgqZfOpL+2OjyQXYkq24NVNG7+7EVhQi3zKRgS6T+DOKPbYcjW1BZvLQqvzQRQOuIHQ6PeJLYvtDaZyHLahFNtYZe6gNcXFfZDf23XlEwHv0BP3ZEn7IwPPGkdgFtGwZ7nafkYmbg7IkDX2wCl26j/9xvcSu
+  </AppendedData>
+</VTKFile>

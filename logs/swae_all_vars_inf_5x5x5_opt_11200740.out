@@ -1,0 +1,1839 @@
+Wed Jul 23 18:36:53 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.163.01             Driver Version: 550.163.01     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:46:00.0 Off |                    0 |
+| N/A   29C    P0             52W /  400W |       1MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Starting SWAE 3D All Variables inference (5x5x5 OPTIMIZED version)
+Job ID: 11200740
+Node: gpua[078,080]
+Model path: ./save/swae_all_vars_5x5x5_opt_mlp/best_model.pth
+Architecture: mlp
+Output directory: test_all_vars_5x5x5_opt_results_scaleitup
+Use Float8 quantization: true
+Scale it up: true
+Using device: cuda
+Loading All Variables 5x5x5 datasets for UNBIASED testing...
+🔒 Using FIXED test set (5% of data) - NEVER seen during training
+🔒 Creating 5x5x5 datasets with FIXED splits: train=80.0%, val=15.0%, test=5.0%
+🎯 Using FIXED seed=42 to ensure test set is always the same samples
+⚠️  Warning: Test ratio is 5.0%, not the intended 5%
+Found 38 HDF5 files in /u/tawal/BSSN-Extracted-Data/tt_q01/
+Loading bssn_gr_0_extracted.hdf5...
+Available keys: ['centers', 'dx', 'dy', 'dz', 'levels', 'var_data', 'vars', 'vars_use']
+Available variables: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5', 'C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+Variables to load (U_ prefix only): ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5']
+Excluded variables: ['C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+  Loaded 24 variables, total samples in file: 53952
+Loading bssn_gr_10000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53952
+Loading bssn_gr_10400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 54240
+Loading bssn_gr_10800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_11200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53232
+Loading bssn_gr_11600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53952
+Loading bssn_gr_12000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_1200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_12400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_12800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_13200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53520
+Loading bssn_gr_13600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_14000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_14400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53808
+Loading bssn_gr_14800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53232
+Loading bssn_gr_15200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52368
+Loading bssn_gr_15600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53232
+Loading bssn_gr_16000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 54240
+Loading bssn_gr_1600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53952
+Loading bssn_gr_16400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_16800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_17200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52800
+Loading bssn_gr_17600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53088
+Loading bssn_gr_18000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53808
+Loading bssn_gr_18400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_18800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53520
+Loading bssn_gr_19200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52368
+Loading bssn_gr_19600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 54096
+Loading bssn_gr_2000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 54816
+Loading bssn_gr_2400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_2800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53088
+Loading bssn_gr_3200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52944
+Loading bssn_gr_3600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53520
+Loading bssn_gr_4000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53088
+Loading bssn_gr_400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_4400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52224
+Loading bssn_gr_4800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53232
+Loading bssn_gr_5200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53520
+Extracting 5x5x5 center crop from 7x7x7 data...
+Original data shape: (2032032, 7, 7, 7)
+Cropped data shape: (2032032, 5, 5, 5)
+Crop indices: [:, 1:6, 1:6, 1:6]
+Final data shape: (2032032, 1, 5, 5, 5)
+Created sample_var_mapping with 2032032 entries
+Sample variable distribution: {'U_ALPHA': 84668, 'U_B0': 84668, 'U_B1': 84668, 'U_B2': 84668, 'U_BETA0': 84668, 'U_BETA1': 84668, 'U_BETA2': 84668, 'U_CHI': 84668, 'U_GT0': 84668, 'U_GT1': 84668, 'U_GT2': 84668, 'U_K': 84668, 'U_SYMAT0': 84668, 'U_SYMAT1': 84668, 'U_SYMAT2': 84668, 'U_SYMAT3': 84668, 'U_SYMAT4': 84668, 'U_SYMAT5': 84668, 'U_SYMGT0': 84668, 'U_SYMGT1': 84668, 'U_SYMGT2': 84668, 'U_SYMGT3': 84668, 'U_SYMGT4': 84668, 'U_SYMGT5': 84668}
+🔒 Applied deterministic shuffle with seed=42 for reproducible splits
+🔒 FIXED Data Split: 2032032 total → 1625625 train (80.0%), 304804 val (15.0%), 101603 test (5.0%)
+🎯 TEST SET: 101603 samples (5%) - NEVER seen during training/validation
+Using training data: (1625625, 1, 5, 5, 5)
+Applying per-sample positive-shift log normalization...
+Applied per-sample positive-shift log normalization:
+  epsilon=1e-06
+  Per-sample data_min range: [-1.717225, 1.410157]
+  Result should have mean~4.5, std~1.1 properties
+All Variables Dataset (5x5x5) initialized:
+  Split: train
+  Data shape: (1625625, 1, 5, 5, 5)
+  Variables included: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5']
+  Number of variables: 24
+  Split ratios: train=80.0%, val=15.0%, test=5.0%
+  Data range: [-13.122363, 0.967318]
+  Data mean: -6.954347
+  Data std: 3.116470
+Found 38 HDF5 files in /u/tawal/BSSN-Extracted-Data/tt_q01/
+Loading bssn_gr_0_extracted.hdf5...
+Available keys: ['centers', 'dx', 'dy', 'dz', 'levels', 'var_data', 'vars', 'vars_use']
+Available variables: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5', 'C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+Variables to load (U_ prefix only): ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5']
+Excluded variables: ['C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+  Loaded 24 variables, total samples in file: 53952
+Loading bssn_gr_10000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53952
+Loading bssn_gr_10400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 54240
+Loading bssn_gr_10800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_11200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53232
+Loading bssn_gr_11600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53952
+Loading bssn_gr_12000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_1200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_12400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_12800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_13200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53520
+Loading bssn_gr_13600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_14000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_14400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53808
+Loading bssn_gr_14800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53232
+Loading bssn_gr_15200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52368
+Loading bssn_gr_15600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53232
+Loading bssn_gr_16000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 54240
+Loading bssn_gr_1600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53952
+Loading bssn_gr_16400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_16800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_17200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52800
+Loading bssn_gr_17600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53088
+Loading bssn_gr_18000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53808
+Loading bssn_gr_18400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_18800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53520
+Loading bssn_gr_19200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52368
+Loading bssn_gr_19600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 54096
+Loading bssn_gr_2000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 54816
+Loading bssn_gr_2400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_2800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53088
+Loading bssn_gr_3200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52944
+Loading bssn_gr_3600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53520
+Loading bssn_gr_4000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53088
+Loading bssn_gr_400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_4400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52224
+Loading bssn_gr_4800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53232
+Loading bssn_gr_5200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53520
+Extracting 5x5x5 center crop from 7x7x7 data...
+Original data shape: (2032032, 7, 7, 7)
+Cropped data shape: (2032032, 5, 5, 5)
+Crop indices: [:, 1:6, 1:6, 1:6]
+Final data shape: (2032032, 1, 5, 5, 5)
+Created sample_var_mapping with 2032032 entries
+Sample variable distribution: {'U_ALPHA': 84668, 'U_B0': 84668, 'U_B1': 84668, 'U_B2': 84668, 'U_BETA0': 84668, 'U_BETA1': 84668, 'U_BETA2': 84668, 'U_CHI': 84668, 'U_GT0': 84668, 'U_GT1': 84668, 'U_GT2': 84668, 'U_K': 84668, 'U_SYMAT0': 84668, 'U_SYMAT1': 84668, 'U_SYMAT2': 84668, 'U_SYMAT3': 84668, 'U_SYMAT4': 84668, 'U_SYMAT5': 84668, 'U_SYMGT0': 84668, 'U_SYMGT1': 84668, 'U_SYMGT2': 84668, 'U_SYMGT3': 84668, 'U_SYMGT4': 84668, 'U_SYMGT5': 84668}
+🔒 Applied deterministic shuffle with seed=42 for reproducible splits
+🔒 FIXED Data Split: 2032032 total → 1625625 train (80.0%), 304804 val (15.0%), 101603 test (5.0%)
+🎯 TEST SET: 101603 samples (5%) - NEVER seen during training/validation
+Using validation data: (304804, 1, 5, 5, 5)
+Applying per-sample positive-shift log normalization...
+Applied per-sample positive-shift log normalization:
+  epsilon=1e-06
+  Per-sample data_min range: [-1.717225, 1.390746]
+  Result should have mean~4.5, std~1.1 properties
+All Variables Dataset (5x5x5) initialized:
+  Split: val
+  Data shape: (304804, 1, 5, 5, 5)
+  Variables included: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5']
+  Number of variables: 24
+  Split ratios: train=80.0%, val=15.0%, test=5.0%
+  Data range: [-13.122363, 0.965167]
+  Data mean: -6.951138
+  Data std: 3.113283
+Found 38 HDF5 files in /u/tawal/BSSN-Extracted-Data/tt_q01/
+Loading bssn_gr_0_extracted.hdf5...
+Available keys: ['centers', 'dx', 'dy', 'dz', 'levels', 'var_data', 'vars', 'vars_use']
+Available variables: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5', 'C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+Variables to load (U_ prefix only): ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5']
+Excluded variables: ['C_HAM', 'C_MOM0', 'C_MOM1', 'C_MOM2', 'C_PSI4_REAL', 'C_PSI4_IMG']
+  Loaded 24 variables, total samples in file: 53952
+Loading bssn_gr_10000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53952
+Loading bssn_gr_10400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 54240
+Loading bssn_gr_10800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_11200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53232
+Loading bssn_gr_11600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53952
+Loading bssn_gr_12000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_1200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_12400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_12800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_13200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53520
+Loading bssn_gr_13600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_14000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_14400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53808
+Loading bssn_gr_14800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53232
+Loading bssn_gr_15200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52368
+Loading bssn_gr_15600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53232
+Loading bssn_gr_16000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 54240
+Loading bssn_gr_1600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53952
+Loading bssn_gr_16400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_16800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53376
+Loading bssn_gr_17200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52800
+Loading bssn_gr_17600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53088
+Loading bssn_gr_18000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53808
+Loading bssn_gr_18400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_18800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53520
+Loading bssn_gr_19200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52368
+Loading bssn_gr_19600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 54096
+Loading bssn_gr_2000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 54816
+Loading bssn_gr_2400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_2800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53088
+Loading bssn_gr_3200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52944
+Loading bssn_gr_3600_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53520
+Loading bssn_gr_4000_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53088
+Loading bssn_gr_400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53664
+Loading bssn_gr_4400_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 52224
+Loading bssn_gr_4800_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53232
+Loading bssn_gr_5200_extracted.hdf5...
+  Loaded 24 variables, total samples in file: 53520
+Extracting 5x5x5 center crop from 7x7x7 data...
+Original data shape: (2032032, 7, 7, 7)
+Cropped data shape: (2032032, 5, 5, 5)
+Crop indices: [:, 1:6, 1:6, 1:6]
+Final data shape: (2032032, 1, 5, 5, 5)
+Created sample_var_mapping with 2032032 entries
+Sample variable distribution: {'U_ALPHA': 84668, 'U_B0': 84668, 'U_B1': 84668, 'U_B2': 84668, 'U_BETA0': 84668, 'U_BETA1': 84668, 'U_BETA2': 84668, 'U_CHI': 84668, 'U_GT0': 84668, 'U_GT1': 84668, 'U_GT2': 84668, 'U_K': 84668, 'U_SYMAT0': 84668, 'U_SYMAT1': 84668, 'U_SYMAT2': 84668, 'U_SYMAT3': 84668, 'U_SYMAT4': 84668, 'U_SYMAT5': 84668, 'U_SYMGT0': 84668, 'U_SYMGT1': 84668, 'U_SYMGT2': 84668, 'U_SYMGT3': 84668, 'U_SYMGT4': 84668, 'U_SYMGT5': 84668}
+🔒 Applied deterministic shuffle with seed=42 for reproducible splits
+🔒 FIXED Data Split: 2032032 total → 1625625 train (80.0%), 304804 val (15.0%), 101603 test (5.0%)
+🎯 TEST SET: 101603 samples (5%) - NEVER seen during training/validation
+Using test data: (101603, 1, 5, 5, 5)
+Applying per-sample positive-shift log normalization...
+Applied per-sample positive-shift log normalization:
+  epsilon=1e-06
+  Per-sample data_min range: [-1.651963, 1.401762]
+  Result should have mean~4.5, std~1.1 properties
+All Variables Dataset (5x5x5) initialized:
+  Split: test
+  Data shape: (101603, 1, 5, 5, 5)
+  Variables included: ['U_ALPHA', 'U_CHI', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5']
+  Number of variables: 24
+  Split ratios: train=80.0%, val=15.0%, test=5.0%
+  Data range: [-13.122363, 0.942625]
+  Data mean: -6.958734
+  Data std: 3.123329
+🎯 Using FIXED TEST dataset (5% of data): 101603 samples
+📊 Data splits: Train=1625625 (80%), Val=304804 (15%), Test=101603 (5%)
+⚠️  CRITICAL: Testing on held-out test set - NEVER seen during training or validation
+🔒 Test set is deterministic (seed=42) - same samples across all runs
+Loading model from ./save/swae_all_vars_5x5x5_opt_mlp/best_model.pth
+Applying Float8 quantization using dynamic quantization...
+✓ Float8 quantization applied using dynamic quantization (CPU)
+Model loaded successfully (epoch 185)
+Model parameters: latent_dim=8, lambda_reg=1.0, arch=mlp
+Using Float8 quantization: True
+
+🚀 SPEED BENCHMARKING
+Benchmarking compression/decompression speeds...
+Samples: 100, Batch size: 32
+Created 3 test batches for benchmarking
+  Benchmarking batch 1/3...
+  Benchmarking batch 2/3...
+  Benchmarking batch 3/3...
+VTI files will be saved for the first 2 samples of each variable
+
+Running validation inference...
+Processing 5 samples per variable type...
+Note: Two comparison plots will be generated for each sample:
+      1. Normalized (log pos) scale - as model sees the data
+      2. Denormalized (original) scale - in physical units
+      VTI files will be saved in normalized (log pos) scale
+      Metrics are calculated on denormalized (original physical units) data
+
+Collecting samples by variable type...
+Found 24 unique variables in test set
+  U_CHI: 4307 samples available
+  U_SYMGT0: 4193 samples available
+  U_GT1: 4233 samples available
+  U_BETA1: 4283 samples available
+  U_SYMAT0: 4139 samples available
+  U_SYMGT1: 4223 samples available
+  U_ALPHA: 4198 samples available
+  U_BETA0: 4190 samples available
+  U_B1: 4123 samples available
+  U_SYMGT2: 4232 samples available
+  U_SYMAT4: 4211 samples available
+  U_B0: 4298 samples available
+  U_SYMAT1: 4247 samples available
+  U_GT0: 4220 samples available
+  U_SYMGT5: 4239 samples available
+  U_SYMAT3: 4310 samples available
+  U_SYMAT5: 4269 samples available
+  U_SYMGT3: 4173 samples available
+  U_K: 4299 samples available
+  U_BETA2: 4305 samples available
+  U_B2: 4276 samples available
+  U_SYMAT2: 4212 samples available
+  U_GT2: 4216 samples available
+  U_SYMGT4: 4207 samples available
+
+Processing variable: U_ALPHA
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/sample_000_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/sample_000_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/vti_files/sample_000_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/vti_files/sample_000_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/vti_files/sample_000_error_normalized.vti
+  Sample 1/5 for U_ALPHA:
+    Normalized (log pos) range: [-13.122363, -3.076946]
+    Denormalized (original) range: [0.302745, 0.348843]
+    MSE (on denormalized): 0.038271
+    PSNR (on denormalized): 34.21 dB
+    MAE (on denormalized): 0.181942
+    Mean Relative Error: 4.64%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/sample_001_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/sample_001_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/vti_files/sample_001_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/vti_files/sample_001_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/vti_files/sample_001_error_normalized.vti
+  Sample 2/5 for U_ALPHA:
+    Normalized (log pos) range: [-13.122363, -2.984382]
+    Denormalized (original) range: [0.232378, 0.282947]
+    MSE (on denormalized): 0.013080
+    PSNR (on denormalized): 38.95 dB
+    MAE (on denormalized): 0.098733
+    Mean Relative Error: 2.57%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/sample_002_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/sample_002_comparison_slices_denormalized.png
+  Sample 3/5 for U_ALPHA:
+    Normalized (log pos) range: [-13.122363, -8.535714]
+    Denormalized (original) range: [0.997914, 0.998108]
+    MSE (on denormalized): 0.021797
+    PSNR (on denormalized): 29.85 dB
+    MAE (on denormalized): 0.122629
+    Mean Relative Error: 1.30%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/sample_003_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/sample_003_comparison_slices_denormalized.png
+  Sample 4/5 for U_ALPHA:
+    Normalized (log pos) range: [-13.122363, -7.891142]
+    Denormalized (original) range: [0.996860, 0.997232]
+    MSE (on denormalized): 0.567811
+    PSNR (on denormalized): 16.83 dB
+    MAE (on denormalized): 0.744779
+    Mean Relative Error: 8.58%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/sample_004_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_ALPHA/sample_004_comparison_slices_denormalized.png
+  Sample 5/5 for U_ALPHA:
+    Normalized (log pos) range: [-13.122363, -3.843993]
+    Denormalized (original) range: [0.641128, 0.662534]
+    MSE (on denormalized): 0.051790
+    PSNR (on denormalized): 32.21 dB
+    MAE (on denormalized): 0.203402
+    Mean Relative Error: 4.56%
+
+Processing variable: U_B0
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/sample_005_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/sample_005_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/vti_files/sample_005_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/vti_files/sample_005_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/vti_files/sample_005_error_normalized.vti
+  Sample 1/5 for U_B0:
+    Normalized (log pos) range: [-13.122363, -6.504211]
+    Denormalized (original) range: [0.004206, 0.005701]
+    MSE (on denormalized): 0.022230
+    PSNR (on denormalized): 32.95 dB
+    MAE (on denormalized): 0.134511
+    Mean Relative Error: 1.84%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/sample_006_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/sample_006_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/vti_files/sample_006_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/vti_files/sample_006_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/vti_files/sample_006_error_normalized.vti
+  Sample 2/5 for U_B0:
+    Normalized (log pos) range: [-13.122363, -3.641252]
+    Denormalized (original) range: [0.031410, 0.057627]
+    MSE (on denormalized): 0.052371
+    PSNR (on denormalized): 32.35 dB
+    MAE (on denormalized): 0.209289
+    Mean Relative Error: 4.68%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/sample_007_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/sample_007_comparison_slices_denormalized.png
+  Sample 3/5 for U_B0:
+    Normalized (log pos) range: [-13.122363, -13.121919]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.028373
+    PSNR (on denormalized): -51.57 dB
+    MAE (on denormalized): 0.156571
+    Mean Relative Error: 1.19%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/sample_008_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/sample_008_comparison_slices_denormalized.png
+  Sample 4/5 for U_B0:
+    Normalized (log pos) range: [-13.122363, -8.445728]
+    Denormalized (original) range: [0.000364, 0.000576]
+    MSE (on denormalized): 0.069009
+    PSNR (on denormalized): 25.01 dB
+    MAE (on denormalized): 0.241431
+    Mean Relative Error: 2.62%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/sample_009_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B0/sample_009_comparison_slices_denormalized.png
+  Sample 5/5 for U_B0:
+    Normalized (log pos) range: [-13.122363, -6.447258]
+    Denormalized (original) range: [0.002858, 0.004441]
+    MSE (on denormalized): 0.019829
+    PSNR (on denormalized): 33.52 dB
+    MAE (on denormalized): 0.126333
+    Mean Relative Error: 1.70%
+
+Processing variable: U_B1
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/sample_010_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/sample_010_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/vti_files/sample_010_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/vti_files/sample_010_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/vti_files/sample_010_error_normalized.vti
+  Sample 1/5 for U_B1:
+    Normalized (log pos) range: [-13.122363, -12.964892]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.023863
+    PSNR (on denormalized): 0.17 dB
+    MAE (on denormalized): 0.138386
+    Mean Relative Error: 1.06%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/sample_011_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/sample_011_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/vti_files/sample_011_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/vti_files/sample_011_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/vti_files/sample_011_error_normalized.vti
+  Sample 2/5 for U_B1:
+    Normalized (log pos) range: [-13.122363, -6.073365]
+    Denormalized (original) range: [0.004342, 0.006643]
+    MSE (on denormalized): 0.330438
+    PSNR (on denormalized): 21.77 dB
+    MAE (on denormalized): 0.566486
+    Mean Relative Error: 8.32%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/sample_012_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/sample_012_comparison_slices_denormalized.png
+  Sample 3/5 for U_B1:
+    Normalized (log pos) range: [-13.122363, -6.529210]
+    Denormalized (original) range: [-0.004015, -0.002557]
+    MSE (on denormalized): 0.238807
+    PSNR (on denormalized): 22.60 dB
+    MAE (on denormalized): 0.479207
+    Mean Relative Error: 6.56%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/sample_013_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/sample_013_comparison_slices_denormalized.png
+  Sample 4/5 for U_B1:
+    Normalized (log pos) range: [-13.122363, -7.174311]
+    Denormalized (original) range: [-0.002172, -0.001408]
+    MSE (on denormalized): 0.911757
+    PSNR (on denormalized): 15.89 dB
+    MAE (on denormalized): 0.949266
+    Mean Relative Error: 12.14%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/sample_014_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B1/sample_014_comparison_slices_denormalized.png
+  Sample 5/5 for U_B1:
+    Normalized (log pos) range: [-13.122363, -8.096131]
+    Denormalized (original) range: [-0.000817, -0.000515]
+    MSE (on denormalized): 0.168794
+    PSNR (on denormalized): 21.75 dB
+    MAE (on denormalized): 0.384111
+    Mean Relative Error: 4.25%
+
+Processing variable: U_B2
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/sample_015_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/sample_015_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/vti_files/sample_015_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/vti_files/sample_015_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/vti_files/sample_015_error_normalized.vti
+  Sample 1/5 for U_B2:
+    Normalized (log pos) range: [-13.122363, -6.539420]
+    Denormalized (original) range: [0.000314, 0.001757]
+    MSE (on denormalized): 0.081866
+    PSNR (on denormalized): 27.24 dB
+    MAE (on denormalized): 0.268335
+    Mean Relative Error: 3.49%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/sample_016_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/sample_016_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/vti_files/sample_016_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/vti_files/sample_016_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/vti_files/sample_016_error_normalized.vti
+  Sample 2/5 for U_B2:
+    Normalized (log pos) range: [-13.122363, -8.231806]
+    Denormalized (original) range: [0.000030, 0.000294]
+    MSE (on denormalized): 0.049665
+    PSNR (on denormalized): 26.83 dB
+    MAE (on denormalized): 0.202259
+    Mean Relative Error: 2.14%
+    ✓ Saved VTI files in normalized (log pos) scale
+    Sample 3 scaled up: max_magnitude=1.00e-06, scale_factor=1e+04
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/sample_017_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/sample_017_comparison_slices_denormalized.png
+  Sample 3/5 for U_B2:
+    ⚠️  SCALED by 1e+04 due to small values
+    Normalized (log pos) range: [-4.605283, -4.605180]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.507528
+    PSNR (on denormalized): -76.80 dB
+    MAE (on denormalized): 0.679613
+    Mean Relative Error: 14.76%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/sample_018_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/sample_018_comparison_slices_denormalized.png
+  Sample 4/5 for U_B2:
+    Normalized (log pos) range: [-13.122363, -10.096712]
+    Denormalized (original) range: [-0.000038, 0.000001]
+    MSE (on denormalized): 0.096963
+    PSNR (on denormalized): 19.75 dB
+    MAE (on denormalized): 0.291555
+    Mean Relative Error: 2.78%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/sample_019_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_B2/sample_019_comparison_slices_denormalized.png
+  Sample 5/5 for U_B2:
+    Normalized (log pos) range: [-13.122363, -13.122363]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.028300
+    PSNR (on denormalized): inf dB
+    MAE (on denormalized): 0.156315
+    Mean Relative Error: 1.19%
+
+Processing variable: U_BETA0
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/sample_020_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/sample_020_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/vti_files/sample_020_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/vti_files/sample_020_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/vti_files/sample_020_error_normalized.vti
+  Sample 1/5 for U_BETA0:
+    Normalized (log pos) range: [-13.122363, -5.368554]
+    Denormalized (original) range: [0.037205, 0.041864]
+    MSE (on denormalized): 0.294375
+    PSNR (on denormalized): 23.10 dB
+    MAE (on denormalized): 0.534687
+    Mean Relative Error: 8.76%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/sample_021_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/sample_021_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/vti_files/sample_021_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/vti_files/sample_021_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/vti_files/sample_021_error_normalized.vti
+  Sample 2/5 for U_BETA0:
+    Normalized (log pos) range: [-13.122363, -8.492546]
+    Denormalized (original) range: [0.000172, 0.000375]
+    MSE (on denormalized): 0.014709
+    PSNR (on denormalized): 31.64 dB
+    MAE (on denormalized): 0.093901
+    Mean Relative Error: 0.97%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/sample_022_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/sample_022_comparison_slices_denormalized.png
+  Sample 3/5 for U_BETA0:
+    Normalized (log pos) range: [-13.122363, -13.115796]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.029441
+    PSNR (on denormalized): -28.34 dB
+    MAE (on denormalized): 0.159665
+    Mean Relative Error: 1.22%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/sample_023_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/sample_023_comparison_slices_denormalized.png
+  Sample 4/5 for U_BETA0:
+    Normalized (log pos) range: [-13.122363, -3.666396]
+    Denormalized (original) range: [-0.218277, -0.192710]
+    MSE (on denormalized): 0.026694
+    PSNR (on denormalized): 35.25 dB
+    MAE (on denormalized): 0.142890
+    Mean Relative Error: 3.25%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/sample_024_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA0/sample_024_comparison_slices_denormalized.png
+  Sample 5/5 for U_BETA0:
+    Normalized (log pos) range: [-13.122363, -4.198929]
+    Denormalized (original) range: [-0.122735, -0.107725]
+    MSE (on denormalized): 0.020662
+    PSNR (on denormalized): 35.86 dB
+    MAE (on denormalized): 0.131202
+    Mean Relative Error: 2.63%
+
+Processing variable: U_BETA1
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/sample_025_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/sample_025_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/vti_files/sample_025_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/vti_files/sample_025_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/vti_files/sample_025_error_normalized.vti
+  Sample 1/5 for U_BETA1:
+    Normalized (log pos) range: [-13.122363, -4.760220]
+    Denormalized (original) range: [0.031305, 0.039866]
+    MSE (on denormalized): 0.282157
+    PSNR (on denormalized): 23.94 dB
+    MAE (on denormalized): 0.519379
+    Mean Relative Error: 9.37%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/sample_026_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/sample_026_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/vti_files/sample_026_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/vti_files/sample_026_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/vti_files/sample_026_error_normalized.vti
+  Sample 2/5 for U_BETA1:
+    Normalized (log pos) range: [-13.122363, -12.226840]
+    Denormalized (original) range: [-0.000004, -0.000001]
+    MSE (on denormalized): 0.047851
+    PSNR (on denormalized): 12.24 dB
+    MAE (on denormalized): 0.205346
+    Mean Relative Error: 1.64%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/sample_027_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/sample_027_comparison_slices_denormalized.png
+  Sample 3/5 for U_BETA1:
+    Normalized (log pos) range: [-13.122363, -4.177094]
+    Denormalized (original) range: [0.071138, 0.086479]
+    MSE (on denormalized): 0.181475
+    PSNR (on denormalized): 26.44 dB
+    MAE (on denormalized): 0.412287
+    Mean Relative Error: 8.37%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/sample_028_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/sample_028_comparison_slices_denormalized.png
+  Sample 4/5 for U_BETA1:
+    Normalized (log pos) range: [-13.122363, -4.025687]
+    Denormalized (original) range: [-0.127305, -0.109455]
+    MSE (on denormalized): 0.100866
+    PSNR (on denormalized): 29.14 dB
+    MAE (on denormalized): 0.308824
+    Mean Relative Error: 6.35%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/sample_029_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA1/sample_029_comparison_slices_denormalized.png
+  Sample 5/5 for U_BETA1:
+    Normalized (log pos) range: [-13.122363, -4.846169]
+    Denormalized (original) range: [0.017860, 0.025717]
+    MSE (on denormalized): 0.284060
+    PSNR (on denormalized): 23.82 dB
+    MAE (on denormalized): 0.526567
+    Mean Relative Error: 9.20%
+
+Processing variable: U_BETA2
+    Sample 1 scaled up: max_magnitude=1.00e-06, scale_factor=1e+04
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/sample_030_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/sample_030_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/vti_files/sample_030_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/vti_files/sample_030_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/vti_files/sample_030_error_normalized.vti
+  Sample 1/5 for U_BETA2:
+    ⚠️  SCALED by 1e+04 due to small values
+    Normalized (log pos) range: [-4.606031, -4.605258]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.507618
+    PSNR (on denormalized): -59.29 dB
+    MAE (on denormalized): 0.679669
+    Mean Relative Error: 14.76%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/sample_031_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/sample_031_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/vti_files/sample_031_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/vti_files/sample_031_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/vti_files/sample_031_error_normalized.vti
+  Sample 2/5 for U_BETA2:
+    Normalized (log pos) range: [-13.122363, -5.083699]
+    Denormalized (original) range: [0.001318, 0.007513]
+    MSE (on denormalized): 0.158570
+    PSNR (on denormalized): 26.10 dB
+    MAE (on denormalized): 0.385608
+    Mean Relative Error: 6.29%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/sample_032_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/sample_032_comparison_slices_denormalized.png
+  Sample 3/5 for U_BETA2:
+    Normalized (log pos) range: [-13.122363, -3.952024]
+    Denormalized (original) range: [0.003952, 0.023166]
+    MSE (on denormalized): 0.069723
+    PSNR (on denormalized): 30.81 dB
+    MAE (on denormalized): 0.248521
+    Mean Relative Error: 4.87%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/sample_033_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/sample_033_comparison_slices_denormalized.png
+  Sample 4/5 for U_BETA2:
+    Normalized (log pos) range: [-13.122363, -4.446470]
+    Denormalized (original) range: [0.002506, 0.014224]
+    MSE (on denormalized): 0.216846
+    PSNR (on denormalized): 25.40 dB
+    MAE (on denormalized): 0.452281
+    Mean Relative Error: 8.16%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/sample_034_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_BETA2/sample_034_comparison_slices_denormalized.png
+  Sample 5/5 for U_BETA2:
+    Normalized (log pos) range: [-13.122363, -6.938970]
+    Denormalized (original) range: [0.000152, 0.001119]
+    MSE (on denormalized): 0.066947
+    PSNR (on denormalized): 27.57 dB
+    MAE (on denormalized): 0.244817
+    Mean Relative Error: 3.06%
+
+Processing variable: U_CHI
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/sample_035_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/sample_035_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/vti_files/sample_035_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/vti_files/sample_035_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/vti_files/sample_035_error_normalized.vti
+  Sample 1/5 for U_CHI:
+    Normalized (log pos) range: [-13.122363, -3.710282]
+    Denormalized (original) range: [0.443223, 0.467692]
+    MSE (on denormalized): 0.017642
+    PSNR (on denormalized): 37.01 dB
+    MAE (on denormalized): 0.096802
+    Mean Relative Error: 2.10%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/sample_036_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/sample_036_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/vti_files/sample_036_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/vti_files/sample_036_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/vti_files/sample_036_error_normalized.vti
+  Sample 2/5 for U_CHI:
+    Normalized (log pos) range: [-13.122363, -3.245679]
+    Denormalized (original) range: [0.280601, 0.319541]
+    MSE (on denormalized): 0.063547
+    PSNR (on denormalized): 31.86 dB
+    MAE (on denormalized): 0.242862
+    Mean Relative Error: 6.02%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/sample_037_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/sample_037_comparison_slices_denormalized.png
+  Sample 3/5 for U_CHI:
+    Normalized (log pos) range: [-13.122363, -2.857675]
+    Denormalized (original) range: [0.045282, 0.102682]
+    MSE (on denormalized): 0.125798
+    PSNR (on denormalized): 29.23 dB
+    MAE (on denormalized): 0.349123
+    Mean Relative Error: 9.53%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/sample_038_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/sample_038_comparison_slices_denormalized.png
+  Sample 4/5 for U_CHI:
+    Normalized (log pos) range: [-13.122363, -5.976215]
+    Denormalized (original) range: [0.988387, 0.990923]
+    MSE (on denormalized): 0.254425
+    PSNR (on denormalized): 23.03 dB
+    MAE (on denormalized): 0.494840
+    Mean Relative Error: 7.44%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/sample_039_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_CHI/sample_039_comparison_slices_denormalized.png
+  Sample 5/5 for U_CHI:
+    Normalized (log pos) range: [-13.122363, -5.068377]
+    Denormalized (original) range: [0.974610, 0.980901]
+    MSE (on denormalized): 0.163993
+    PSNR (on denormalized): 25.97 dB
+    MAE (on denormalized): 0.400142
+    Mean Relative Error: 7.03%
+
+Processing variable: U_GT0
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/sample_040_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/sample_040_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/vti_files/sample_040_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/vti_files/sample_040_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/vti_files/sample_040_error_normalized.vti
+  Sample 1/5 for U_GT0:
+    Normalized (log pos) range: [-13.122363, -4.281810]
+    Denormalized (original) range: [-0.003146, 0.010670]
+    MSE (on denormalized): 0.125468
+    PSNR (on denormalized): 27.94 dB
+    MAE (on denormalized): 0.335292
+    Mean Relative Error: 6.68%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/sample_041_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/sample_041_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/vti_files/sample_041_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/vti_files/sample_041_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/vti_files/sample_041_error_normalized.vti
+  Sample 2/5 for U_GT0:
+    Normalized (log pos) range: [-13.122363, -3.310967]
+    Denormalized (original) range: [0.626676, 0.663155]
+    MSE (on denormalized): 0.031946
+    PSNR (on denormalized): 34.79 dB
+    MAE (on denormalized): 0.153723
+    Mean Relative Error: 3.89%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/sample_042_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/sample_042_comparison_slices_denormalized.png
+  Sample 3/5 for U_GT0:
+    Normalized (log pos) range: [-13.122363, -3.384008]
+    Denormalized (original) range: [-0.469197, -0.435288]
+    MSE (on denormalized): 0.022189
+    PSNR (on denormalized): 36.31 dB
+    MAE (on denormalized): 0.140410
+    Mean Relative Error: 3.39%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/sample_043_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/sample_043_comparison_slices_denormalized.png
+  Sample 4/5 for U_GT0:
+    Normalized (log pos) range: [-13.122363, -3.756153]
+    Denormalized (original) range: [0.194549, 0.217920]
+    MSE (on denormalized): 0.197149
+    PSNR (on denormalized): 26.48 dB
+    MAE (on denormalized): 0.408181
+    Mean Relative Error: 9.15%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/sample_044_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT0/sample_044_comparison_slices_denormalized.png
+  Sample 5/5 for U_GT0:
+    Normalized (log pos) range: [-13.122363, -3.253760]
+    Denormalized (original) range: [0.158068, 0.196694]
+    MSE (on denormalized): 0.060404
+    PSNR (on denormalized): 32.07 dB
+    MAE (on denormalized): 0.227076
+    Mean Relative Error: 5.87%
+
+Processing variable: U_GT1
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/sample_045_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/sample_045_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/vti_files/sample_045_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/vti_files/sample_045_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/vti_files/sample_045_error_normalized.vti
+  Sample 1/5 for U_GT1:
+    Normalized (log pos) range: [-13.122363, -13.122363]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.028300
+    PSNR (on denormalized): inf dB
+    MAE (on denormalized): 0.156315
+    Mean Relative Error: 1.19%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/sample_046_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/sample_046_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/vti_files/sample_046_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/vti_files/sample_046_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/vti_files/sample_046_error_normalized.vti
+  Sample 2/5 for U_GT1:
+    Normalized (log pos) range: [-13.122363, -3.236636]
+    Denormalized (original) range: [0.073913, 0.113207]
+    MSE (on denormalized): 0.025295
+    PSNR (on denormalized): 35.87 dB
+    MAE (on denormalized): 0.135860
+    Mean Relative Error: 3.28%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/sample_047_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/sample_047_comparison_slices_denormalized.png
+  Sample 3/5 for U_GT1:
+    Normalized (log pos) range: [-13.122363, -5.056663]
+    Denormalized (original) range: [0.001597, 0.007962]
+    MSE (on denormalized): 0.432209
+    PSNR (on denormalized): 21.78 dB
+    MAE (on denormalized): 0.647980
+    Mean Relative Error: 10.67%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/sample_048_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/sample_048_comparison_slices_denormalized.png
+  Sample 4/5 for U_GT1:
+    Normalized (log pos) range: [-13.122363, -13.122004]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.028350
+    PSNR (on denormalized): -53.41 dB
+    MAE (on denormalized): 0.156460
+    Mean Relative Error: 1.19%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/sample_049_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT1/sample_049_comparison_slices_denormalized.png
+  Sample 5/5 for U_GT1:
+    Normalized (log pos) range: [-13.122363, -13.122363]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.028300
+    PSNR (on denormalized): inf dB
+    MAE (on denormalized): 0.156315
+    Mean Relative Error: 1.19%
+
+Processing variable: U_GT2
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/sample_050_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/sample_050_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/vti_files/sample_050_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/vti_files/sample_050_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/vti_files/sample_050_error_normalized.vti
+  Sample 1/5 for U_GT2:
+    Normalized (log pos) range: [-13.122363, -4.241390]
+    Denormalized (original) range: [0.002710, 0.017096]
+    MSE (on denormalized): 0.149985
+    PSNR (on denormalized): 27.21 dB
+    MAE (on denormalized): 0.376615
+    Mean Relative Error: 7.03%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/sample_051_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/sample_051_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/vti_files/sample_051_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/vti_files/sample_051_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/vti_files/sample_051_error_normalized.vti
+  Sample 2/5 for U_GT2:
+    Normalized (log pos) range: [-13.122363, -12.542348]
+    Denormalized (original) range: [0.000000, 0.000002]
+    MSE (on denormalized): 0.017464
+    PSNR (on denormalized): 12.85 dB
+    MAE (on denormalized): 0.116752
+    Mean Relative Error: 0.92%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/sample_052_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/sample_052_comparison_slices_denormalized.png
+  Sample 3/5 for U_GT2:
+    Normalized (log pos) range: [-13.122363, -3.563071]
+    Denormalized (original) range: [0.005825, 0.034174]
+    MSE (on denormalized): 0.319068
+    PSNR (on denormalized): 24.57 dB
+    MAE (on denormalized): 0.555343
+    Mean Relative Error: 12.42%
+    Sample 4 scaled up: max_magnitude=9.94e-07, scale_factor=1e+04
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/sample_053_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/sample_053_comparison_slices_denormalized.png
+  Sample 4/5 for U_GT2:
+    ⚠️  SCALED by 1e+04 due to small values
+    Normalized (log pos) range: [-4.764895, -4.610754]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.543617
+    PSNR (on denormalized): -13.59 dB
+    MAE (on denormalized): 0.708572
+    Mean Relative Error: 15.23%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/sample_054_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_GT2/sample_054_comparison_slices_denormalized.png
+  Sample 5/5 for U_GT2:
+    Normalized (log pos) range: [-13.122363, -5.696805]
+    Denormalized (original) range: [0.000549, 0.003904]
+    MSE (on denormalized): 0.131822
+    PSNR (on denormalized): 26.21 dB
+    MAE (on denormalized): 0.351787
+    Mean Relative Error: 5.19%
+
+Processing variable: U_K
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_K/sample_055_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_K/sample_055_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_K/vti_files/sample_055_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_K/vti_files/sample_055_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_K/vti_files/sample_055_error_normalized.vti
+  Sample 1/5 for U_K:
+    Normalized (log pos) range: [-13.122363, -5.591556]
+    Denormalized (original) range: [0.009543, 0.013270]
+    MSE (on denormalized): 0.073997
+    PSNR (on denormalized): 28.84 dB
+    MAE (on denormalized): 0.256020
+    Mean Relative Error: 3.98%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_K/sample_056_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_K/sample_056_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_K/vti_files/sample_056_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_K/vti_files/sample_056_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_K/vti_files/sample_056_error_normalized.vti
+  Sample 2/5 for U_K:
+    Normalized (log pos) range: [-13.122363, -7.124995]
+    Denormalized (original) range: [0.001856, 0.002659]
+    MSE (on denormalized): 0.497814
+    PSNR (on denormalized): 18.59 dB
+    MAE (on denormalized): 0.699597
+    Mean Relative Error: 8.76%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_K/sample_057_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_K/sample_057_comparison_slices_denormalized.png
+  Sample 3/5 for U_K:
+    Normalized (log pos) range: [-13.122363, -4.989719]
+    Denormalized (original) range: [0.033486, 0.040291]
+    MSE (on denormalized): 0.247361
+    PSNR (on denormalized): 24.27 dB
+    MAE (on denormalized): 0.481451
+    Mean Relative Error: 8.37%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_K/sample_058_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_K/sample_058_comparison_slices_denormalized.png
+  Sample 4/5 for U_K:
+    Normalized (log pos) range: [-13.122363, -4.615181]
+    Denormalized (original) range: [0.044473, 0.054371]
+    MSE (on denormalized): 0.254226
+    PSNR (on denormalized): 24.54 dB
+    MAE (on denormalized): 0.494580
+    Mean Relative Error: 9.16%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_K/sample_059_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_K/sample_059_comparison_slices_denormalized.png
+  Sample 5/5 for U_K:
+    Normalized (log pos) range: [-13.122363, -13.121300]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.028499
+    PSNR (on denormalized): -44.01 dB
+    MAE (on denormalized): 0.157001
+    Mean Relative Error: 1.20%
+
+Processing variable: U_SYMAT0
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/sample_060_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/sample_060_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/vti_files/sample_060_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/vti_files/sample_060_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/vti_files/sample_060_error_normalized.vti
+  Sample 1/5 for U_SYMAT0:
+    Normalized (log pos) range: [-13.122363, -5.487442]
+    Denormalized (original) range: [0.010710, 0.014847]
+    MSE (on denormalized): 0.091698
+    PSNR (on denormalized): 28.03 dB
+    MAE (on denormalized): 0.270056
+    Mean Relative Error: 4.20%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/sample_061_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/sample_061_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/vti_files/sample_061_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/vti_files/sample_061_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/vti_files/sample_061_error_normalized.vti
+  Sample 2/5 for U_SYMAT0:
+    Normalized (log pos) range: [-13.122363, -5.019538]
+    Denormalized (original) range: [0.035509, 0.042115]
+    MSE (on denormalized): 0.090932
+    PSNR (on denormalized): 28.59 dB
+    MAE (on denormalized): 0.282825
+    Mean Relative Error: 4.84%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/sample_062_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/sample_062_comparison_slices_denormalized.png
+  Sample 3/5 for U_SYMAT0:
+    Normalized (log pos) range: [-13.122363, -3.930476]
+    Denormalized (original) range: [0.060011, 0.079644]
+    MSE (on denormalized): 0.412223
+    PSNR (on denormalized): 23.12 dB
+    MAE (on denormalized): 0.635637
+    Mean Relative Error: 13.41%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/sample_063_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/sample_063_comparison_slices_denormalized.png
+  Sample 4/5 for U_SYMAT0:
+    Normalized (log pos) range: [-13.122363, -5.207672]
+    Denormalized (original) range: [0.010643, 0.016115]
+    MSE (on denormalized): 0.329758
+    PSNR (on denormalized): 22.79 dB
+    MAE (on denormalized): 0.559187
+    Mean Relative Error: 9.21%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/sample_064_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT0/sample_064_comparison_slices_denormalized.png
+  Sample 5/5 for U_SYMAT0:
+    Normalized (log pos) range: [-13.122363, -3.061684]
+    Denormalized (original) range: [-0.073639, -0.026832]
+    MSE (on denormalized): 0.006670
+    PSNR (on denormalized): 41.81 dB
+    MAE (on denormalized): 0.058495
+    Mean Relative Error: 1.48%
+
+Processing variable: U_SYMAT1
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/sample_065_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/sample_065_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/vti_files/sample_065_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/vti_files/sample_065_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/vti_files/sample_065_error_normalized.vti
+  Sample 1/5 for U_SYMAT1:
+    Normalized (log pos) range: [-13.122363, -2.528782]
+    Denormalized (original) range: [-0.386812, -0.307058]
+    MSE (on denormalized): 0.021833
+    PSNR (on denormalized): 37.11 dB
+    MAE (on denormalized): 0.117033
+    Mean Relative Error: 3.69%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/sample_066_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/sample_066_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/vti_files/sample_066_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/vti_files/sample_066_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/vti_files/sample_066_error_normalized.vti
+  Sample 2/5 for U_SYMAT1:
+    Normalized (log pos) range: [-13.122363, -4.652116]
+    Denormalized (original) range: [-0.031662, -0.022123]
+    MSE (on denormalized): 0.148335
+    PSNR (on denormalized): 26.85 dB
+    MAE (on denormalized): 0.369971
+    Mean Relative Error: 6.90%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/sample_067_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/sample_067_comparison_slices_denormalized.png
+  Sample 3/5 for U_SYMAT1:
+    Normalized (log pos) range: [-13.122363, -5.743274]
+    Denormalized (original) range: [-0.007395, -0.004192]
+    MSE (on denormalized): 0.353947
+    PSNR (on denormalized): 21.87 dB
+    MAE (on denormalized): 0.589131
+    Mean Relative Error: 9.27%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/sample_068_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/sample_068_comparison_slices_denormalized.png
+  Sample 4/5 for U_SYMAT1:
+    Normalized (log pos) range: [-13.122363, -13.099179]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.031554
+    PSNR (on denormalized): -17.69 dB
+    MAE (on denormalized): 0.166320
+    Mean Relative Error: 1.27%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/sample_069_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT1/sample_069_comparison_slices_denormalized.png
+  Sample 5/5 for U_SYMAT1:
+    Normalized (log pos) range: [-13.122363, -5.738460]
+    Denormalized (original) range: [0.001260, 0.004478]
+    MSE (on denormalized): 0.036178
+    PSNR (on denormalized): 31.78 dB
+    MAE (on denormalized): 0.168247
+    Mean Relative Error: 2.51%
+
+Processing variable: U_SYMAT2
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/sample_070_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/sample_070_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/vti_files/sample_070_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/vti_files/sample_070_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/vti_files/sample_070_error_normalized.vti
+  Sample 1/5 for U_SYMAT2:
+    Normalized (log pos) range: [-13.122363, -9.983589]
+    Denormalized (original) range: [-0.000047, -0.000003]
+    MSE (on denormalized): 0.101199
+    PSNR (on denormalized): 19.88 dB
+    MAE (on denormalized): 0.302507
+    Mean Relative Error: 2.89%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/sample_071_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/sample_071_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/vti_files/sample_071_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/vti_files/sample_071_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/vti_files/sample_071_error_normalized.vti
+  Sample 2/5 for U_SYMAT2:
+    Normalized (log pos) range: [-13.122363, -5.853154]
+    Denormalized (original) range: [-0.003241, -0.000373]
+    MSE (on denormalized): 0.359611
+    PSNR (on denormalized): 21.67 dB
+    MAE (on denormalized): 0.595339
+    Mean Relative Error: 9.24%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/sample_072_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/sample_072_comparison_slices_denormalized.png
+  Sample 3/5 for U_SYMAT2:
+    Normalized (log pos) range: [-13.122363, -7.457129]
+    Denormalized (original) range: [-0.000464, 0.000111]
+    MSE (on denormalized): 0.129620
+    PSNR (on denormalized): 23.94 dB
+    MAE (on denormalized): 0.343959
+    Mean Relative Error: 4.31%
+    Sample 4 scaled up: max_magnitude=9.98e-07, scale_factor=1e+04
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/sample_073_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/sample_073_comparison_slices_denormalized.png
+  Sample 4/5 for U_SYMAT2:
+    ⚠️  SCALED by 1e+04 due to small values
+    Normalized (log pos) range: [-4.617212, -4.606904]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.565628
+    PSNR (on denormalized): -37.26 dB
+    MAE (on denormalized): 0.723625
+    Mean Relative Error: 15.69%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/sample_074_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT2/sample_074_comparison_slices_denormalized.png
+  Sample 5/5 for U_SYMAT2:
+    Normalized (log pos) range: [-13.122363, -8.271529]
+    Denormalized (original) range: [-0.000262, -0.000008]
+    MSE (on denormalized): 0.218426
+    PSNR (on denormalized): 20.32 dB
+    MAE (on denormalized): 0.459165
+    Mean Relative Error: 5.29%
+
+Processing variable: U_SYMAT3
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/sample_075_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/sample_075_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/vti_files/sample_075_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/vti_files/sample_075_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/vti_files/sample_075_error_normalized.vti
+  Sample 1/5 for U_SYMAT3:
+    Normalized (log pos) range: [-13.122363, -3.033404]
+    Denormalized (original) range: [-0.080707, -0.032558]
+    MSE (on denormalized): 0.006508
+    PSNR (on denormalized): 41.94 dB
+    MAE (on denormalized): 0.060409
+    Mean Relative Error: 1.55%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/sample_076_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/sample_076_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/vti_files/sample_076_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/vti_files/sample_076_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/vti_files/sample_076_error_normalized.vti
+  Sample 2/5 for U_SYMAT3:
+    Normalized (log pos) range: [-13.122363, -0.173755]
+    Denormalized (original) range: [-0.796051, 0.044449]
+    MSE (on denormalized): 0.117412
+    PSNR (on denormalized): 31.55 dB
+    MAE (on denormalized): 0.308850
+    Mean Relative Error: 44.29%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/sample_077_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/sample_077_comparison_slices_denormalized.png
+  Sample 3/5 for U_SYMAT3:
+    Normalized (log pos) range: [-13.122363, -7.870038]
+    Denormalized (original) range: [-0.003361, -0.002981]
+    MSE (on denormalized): 0.140543
+    PSNR (on denormalized): 22.93 dB
+    MAE (on denormalized): 0.353684
+    Mean Relative Error: 4.14%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/sample_078_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/sample_078_comparison_slices_denormalized.png
+  Sample 4/5 for U_SYMAT3:
+    Normalized (log pos) range: [-13.122363, -6.416537]
+    Denormalized (original) range: [0.000363, 0.001995]
+    MSE (on denormalized): 0.143017
+    PSNR (on denormalized): 24.98 dB
+    MAE (on denormalized): 0.372337
+    Mean Relative Error: 5.32%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/sample_079_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT3/sample_079_comparison_slices_denormalized.png
+  Sample 5/5 for U_SYMAT3:
+    Normalized (log pos) range: [-13.122363, -4.880949]
+    Denormalized (original) range: [-0.016673, -0.009085]
+    MSE (on denormalized): 0.113653
+    PSNR (on denormalized): 27.76 dB
+    MAE (on denormalized): 0.317113
+    Mean Relative Error: 5.79%
+
+Processing variable: U_SYMAT4
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/sample_080_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/sample_080_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/vti_files/sample_080_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/vti_files/sample_080_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/vti_files/sample_080_error_normalized.vti
+  Sample 1/5 for U_SYMAT4:
+    Normalized (log pos) range: [-13.122363, -4.499060]
+    Denormalized (original) range: [0.001618, 0.012736]
+    MSE (on denormalized): 0.334318
+    PSNR (on denormalized): 23.47 dB
+    MAE (on denormalized): 0.570104
+    Mean Relative Error: 10.24%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/sample_081_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/sample_081_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/vti_files/sample_081_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/vti_files/sample_081_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/vti_files/sample_081_error_normalized.vti
+  Sample 2/5 for U_SYMAT4:
+    Normalized (log pos) range: [-13.122363, -12.988063]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.018314
+    PSNR (on denormalized): -0.07 dB
+    MAE (on denormalized): 0.122768
+    Mean Relative Error: 0.94%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/sample_082_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/sample_082_comparison_slices_denormalized.png
+  Sample 3/5 for U_SYMAT4:
+    Normalized (log pos) range: [-13.122363, -3.123787]
+    Denormalized (original) range: [-0.051348, -0.007360]
+    MSE (on denormalized): 0.353785
+    PSNR (on denormalized): 24.51 dB
+    MAE (on denormalized): 0.580965
+    Mean Relative Error: 15.36%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/sample_083_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/sample_083_comparison_slices_denormalized.png
+  Sample 4/5 for U_SYMAT4:
+    Normalized (log pos) range: [-13.122363, -11.621199]
+    Denormalized (original) range: [-0.000003, 0.000004]
+    MSE (on denormalized): 0.047944
+    PSNR (on denormalized): 16.72 dB
+    MAE (on denormalized): 0.166109
+    Mean Relative Error: 1.36%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/sample_084_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT4/sample_084_comparison_slices_denormalized.png
+  Sample 5/5 for U_SYMAT4:
+    Normalized (log pos) range: [-13.122363, -6.224968]
+    Denormalized (original) range: [0.000350, 0.002328]
+    MSE (on denormalized): 0.130997
+    PSNR (on denormalized): 25.60 dB
+    MAE (on denormalized): 0.352766
+    Mean Relative Error: 4.83%
+
+Processing variable: U_SYMAT5
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/sample_085_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/sample_085_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/vti_files/sample_085_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/vti_files/sample_085_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/vti_files/sample_085_error_normalized.vti
+  Sample 1/5 for U_SYMAT5:
+    Normalized (log pos) range: [-13.122363, -3.914414]
+    Denormalized (original) range: [0.064382, 0.084332]
+    MSE (on denormalized): 0.107862
+    PSNR (on denormalized): 28.95 dB
+    MAE (on denormalized): 0.312978
+    Mean Relative Error: 6.66%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/sample_086_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/sample_086_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/vti_files/sample_086_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/vti_files/sample_086_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/vti_files/sample_086_error_normalized.vti
+  Sample 2/5 for U_SYMAT5:
+    Normalized (log pos) range: [-13.122363, -7.195488]
+    Denormalized (original) range: [0.000834, 0.001582]
+    MSE (on denormalized): 0.343001
+    PSNR (on denormalized): 20.10 dB
+    MAE (on denormalized): 0.573216
+    Mean Relative Error: 7.07%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/sample_087_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/sample_087_comparison_slices_denormalized.png
+  Sample 3/5 for U_SYMAT5:
+    Normalized (log pos) range: [-13.122363, -3.813958]
+    Denormalized (original) range: [0.101780, 0.123839]
+    MSE (on denormalized): 0.098812
+    PSNR (on denormalized): 29.43 dB
+    MAE (on denormalized): 0.308007
+    Mean Relative Error: 6.67%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/sample_088_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/sample_088_comparison_slices_denormalized.png
+  Sample 4/5 for U_SYMAT5:
+    Normalized (log pos) range: [-13.122363, -2.234956]
+    Denormalized (original) range: [0.335293, 0.442288]
+    MSE (on denormalized): 0.065837
+    PSNR (on denormalized): 32.55 dB
+    MAE (on denormalized): 0.225473
+    Mean Relative Error: 7.78%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/sample_089_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMAT5/sample_089_comparison_slices_denormalized.png
+  Sample 5/5 for U_SYMAT5:
+    Normalized (log pos) range: [-13.122363, -13.113887]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.029701
+    PSNR (on denormalized): -26.16 dB
+    MAE (on denormalized): 0.160968
+    Mean Relative Error: 1.23%
+
+Processing variable: U_SYMGT0
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/sample_090_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/sample_090_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/vti_files/sample_090_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/vti_files/sample_090_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/vti_files/sample_090_error_normalized.vti
+  Sample 1/5 for U_SYMGT0:
+    Normalized (log pos) range: [-13.122363, -12.110350]
+    Denormalized (original) range: [0.999995, 0.999999]
+    MSE (on denormalized): 0.047825
+    PSNR (on denormalized): 13.31 dB
+    MAE (on denormalized): 0.185190
+    Mean Relative Error: 1.47%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/sample_091_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/sample_091_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/vti_files/sample_091_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/vti_files/sample_091_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/vti_files/sample_091_error_normalized.vti
+  Sample 2/5 for U_SYMGT0:
+    Normalized (log pos) range: [-13.122363, -3.932805]
+    Denormalized (original) range: [1.108160, 1.127746]
+    MSE (on denormalized): 0.182627
+    PSNR (on denormalized): 26.65 dB
+    MAE (on denormalized): 0.418933
+    Mean Relative Error: 8.96%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/sample_092_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/sample_092_comparison_slices_denormalized.png
+  Sample 3/5 for U_SYMGT0:
+    Normalized (log pos) range: [-13.122363, -6.625716]
+    Denormalized (original) range: [0.817967, 0.819291]
+    MSE (on denormalized): 0.127060
+    PSNR (on denormalized): 25.21 dB
+    MAE (on denormalized): 0.267544
+    Mean Relative Error: 3.19%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/sample_093_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/sample_093_comparison_slices_denormalized.png
+  Sample 4/5 for U_SYMGT0:
+    Normalized (log pos) range: [-13.122363, -4.316963]
+    Denormalized (original) range: [1.102507, 1.115845]
+    MSE (on denormalized): 0.127175
+    PSNR (on denormalized): 27.85 dB
+    MAE (on denormalized): 0.329469
+    Mean Relative Error: 6.48%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/sample_094_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT0/sample_094_comparison_slices_denormalized.png
+  Sample 5/5 for U_SYMGT0:
+    Normalized (log pos) range: [-13.122363, -4.383738]
+    Denormalized (original) range: [0.834301, 0.846777]
+    MSE (on denormalized): 0.123735
+    PSNR (on denormalized): 27.90 dB
+    MAE (on denormalized): 0.320699
+    Mean Relative Error: 6.24%
+
+Processing variable: U_SYMGT1
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/sample_095_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/sample_095_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/vti_files/sample_095_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/vti_files/sample_095_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/vti_files/sample_095_error_normalized.vti
+  Sample 1/5 for U_SYMGT1:
+    Normalized (log pos) range: [-13.122363, -3.152647]
+    Denormalized (original) range: [-0.029572, 0.013165]
+    MSE (on denormalized): 0.012333
+    PSNR (on denormalized): 39.06 dB
+    MAE (on denormalized): 0.094112
+    Mean Relative Error: 2.49%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/sample_096_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/sample_096_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/vti_files/sample_096_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/vti_files/sample_096_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/vti_files/sample_096_error_normalized.vti
+  Sample 2/5 for U_SYMGT1:
+    Normalized (log pos) range: [-13.122363, -4.586061]
+    Denormalized (original) range: [0.151786, 0.161977]
+    MSE (on denormalized): 0.157334
+    PSNR (on denormalized): 26.66 dB
+    MAE (on denormalized): 0.381517
+    Mean Relative Error: 7.29%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/sample_097_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/sample_097_comparison_slices_denormalized.png
+  Sample 3/5 for U_SYMGT1:
+    Normalized (log pos) range: [-13.122363, -3.022789]
+    Denormalized (original) range: [0.060125, 0.108788]
+    MSE (on denormalized): 0.044033
+    PSNR (on denormalized): 33.65 dB
+    MAE (on denormalized): 0.192005
+    Mean Relative Error: 4.85%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/sample_098_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/sample_098_comparison_slices_denormalized.png
+  Sample 4/5 for U_SYMGT1:
+    Normalized (log pos) range: [-13.122363, -3.703331]
+    Denormalized (original) range: [-0.112480, -0.087840]
+    MSE (on denormalized): 0.088748
+    PSNR (on denormalized): 30.00 dB
+    MAE (on denormalized): 0.290109
+    Mean Relative Error: 6.41%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/sample_099_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT1/sample_099_comparison_slices_denormalized.png
+  Sample 5/5 for U_SYMGT1:
+    Normalized (log pos) range: [-13.122363, -4.205888]
+    Denormalized (original) range: [-0.154132, -0.139226]
+    MSE (on denormalized): 0.026113
+    PSNR (on denormalized): 34.84 dB
+    MAE (on denormalized): 0.150655
+    Mean Relative Error: 3.05%
+
+Processing variable: U_SYMGT2
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/sample_100_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/sample_100_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/vti_files/sample_100_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/vti_files/sample_100_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/vti_files/sample_100_error_normalized.vti
+  Sample 1/5 for U_SYMGT2:
+    Normalized (log pos) range: [-13.122363, -3.685930]
+    Denormalized (original) range: [0.005320, 0.030392]
+    MSE (on denormalized): 0.267118
+    PSNR (on denormalized): 25.23 dB
+    MAE (on denormalized): 0.503771
+    Mean Relative Error: 10.89%
+    ✓ Saved VTI files in normalized (log pos) scale
+    Sample 2 scaled up: max_magnitude=9.85e-07, scale_factor=1e+04
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/sample_101_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/sample_101_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/vti_files/sample_101_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/vti_files/sample_101_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/vti_files/sample_101_error_normalized.vti
+  Sample 2/5 for U_SYMGT2:
+    ⚠️  SCALED by 1e+04 due to small values
+    Normalized (log pos) range: [-4.799880, -4.620722]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.562193
+    PSNR (on denormalized): -12.43 dB
+    MAE (on denormalized): 0.719267
+    Mean Relative Error: 15.36%
+    ✓ Saved VTI files in normalized (log pos) scale
+    Sample 3 scaled up: max_magnitude=9.95e-07, scale_factor=1e+04
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/sample_102_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/sample_102_comparison_slices_denormalized.png
+  Sample 3/5 for U_SYMGT2:
+    ⚠️  SCALED by 1e+04 due to small values
+    Normalized (log pos) range: [-4.659576, -4.610662]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.652699
+    PSNR (on denormalized): -24.36 dB
+    MAE (on denormalized): 0.780463
+    Mean Relative Error: 16.86%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/sample_103_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/sample_103_comparison_slices_denormalized.png
+  Sample 4/5 for U_SYMGT2:
+    Normalized (log pos) range: [-13.122363, -13.015517]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.023100
+    PSNR (on denormalized): -3.06 dB
+    MAE (on denormalized): 0.138967
+    Mean Relative Error: 1.06%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/sample_104_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT2/sample_104_comparison_slices_denormalized.png
+  Sample 5/5 for U_SYMGT2:
+    Normalized (log pos) range: [-13.122363, -4.239130]
+    Denormalized (original) range: [0.002589, 0.017007]
+    MSE (on denormalized): 0.238787
+    PSNR (on denormalized): 25.19 dB
+    MAE (on denormalized): 0.473931
+    Mean Relative Error: 9.17%
+
+Processing variable: U_SYMGT3
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/sample_105_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/sample_105_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/vti_files/sample_105_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/vti_files/sample_105_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/vti_files/sample_105_error_normalized.vti
+  Sample 1/5 for U_SYMGT3:
+    Normalized (log pos) range: [-13.122363, -13.122363]
+    Denormalized (original) range: [1.000001, 1.000001]
+    MSE (on denormalized): 0.028300
+    PSNR (on denormalized): inf dB
+    MAE (on denormalized): 0.156315
+    Mean Relative Error: 1.19%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/sample_106_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/sample_106_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/vti_files/sample_106_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/vti_files/sample_106_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/vti_files/sample_106_error_normalized.vti
+  Sample 2/5 for U_SYMGT3:
+    Normalized (log pos) range: [-13.122363, -4.000232]
+    Denormalized (original) range: [1.072562, 1.090872]
+    MSE (on denormalized): 0.131598
+    PSNR (on denormalized): 28.01 dB
+    MAE (on denormalized): 0.345591
+    Mean Relative Error: 7.38%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/sample_107_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/sample_107_comparison_slices_denormalized.png
+  Sample 3/5 for U_SYMGT3:
+    Normalized (log pos) range: [-13.122363, -5.865020]
+    Denormalized (original) range: [0.989214, 0.992049]
+    MSE (on denormalized): 0.548164
+    PSNR (on denormalized): 19.83 dB
+    MAE (on denormalized): 0.727449
+    Mean Relative Error: 11.12%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/sample_108_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/sample_108_comparison_slices_denormalized.png
+  Sample 4/5 for U_SYMGT3:
+    Normalized (log pos) range: [-13.122363, -3.266320]
+    Denormalized (original) range: [1.119756, 1.157900]
+    MSE (on denormalized): 0.119667
+    PSNR (on denormalized): 29.09 dB
+    MAE (on denormalized): 0.338954
+    Mean Relative Error: 8.25%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/sample_109_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT3/sample_109_comparison_slices_denormalized.png
+  Sample 5/5 for U_SYMGT3:
+    Normalized (log pos) range: [-13.122363, -2.636348]
+    Denormalized (original) range: [1.157331, 1.228952]
+    MSE (on denormalized): 0.092515
+    PSNR (on denormalized): 30.75 dB
+    MAE (on denormalized): 0.291674
+    Mean Relative Error: 8.86%
+
+Processing variable: U_SYMGT4
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/sample_110_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/sample_110_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/vti_files/sample_110_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/vti_files/sample_110_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/vti_files/sample_110_error_normalized.vti
+  Sample 1/5 for U_SYMGT4:
+    Normalized (log pos) range: [-13.122363, -9.513163]
+    Denormalized (original) range: [0.000009, 0.000081]
+    MSE (on denormalized): 0.009999
+    PSNR (on denormalized): 31.15 dB
+    MAE (on denormalized): 0.077161
+    Mean Relative Error: 0.71%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/sample_111_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/sample_111_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/vti_files/sample_111_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/vti_files/sample_111_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/vti_files/sample_111_error_normalized.vti
+  Sample 2/5 for U_SYMGT4:
+    Normalized (log pos) range: [-13.122363, -4.481215]
+    Denormalized (original) range: [0.002104, 0.013422]
+    MSE (on denormalized): 0.199436
+    PSNR (on denormalized): 25.73 dB
+    MAE (on denormalized): 0.436486
+    Mean Relative Error: 7.98%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/sample_112_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/sample_112_comparison_slices_denormalized.png
+  Sample 3/5 for U_SYMGT4:
+    Normalized (log pos) range: [-13.122363, -4.324492]
+    Denormalized (original) range: [-0.016403, -0.003165]
+    MSE (on denormalized): 0.983318
+    PSNR (on denormalized): 18.96 dB
+    MAE (on denormalized): 0.979391
+    Mean Relative Error: 18.83%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/sample_113_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/sample_113_comparison_slices_denormalized.png
+  Sample 4/5 for U_SYMGT4:
+    Normalized (log pos) range: [-13.122363, -4.451111]
+    Denormalized (original) range: [0.002286, 0.013950]
+    MSE (on denormalized): 0.392516
+    PSNR (on denormalized): 22.82 dB
+    MAE (on denormalized): 0.610753
+    Mean Relative Error: 11.17%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/sample_114_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT4/sample_114_comparison_slices_denormalized.png
+  Sample 5/5 for U_SYMGT4:
+    Normalized (log pos) range: [-13.122363, -13.122363]
+    Denormalized (original) range: [0.000001, 0.000001]
+    MSE (on denormalized): 0.028300
+    PSNR (on denormalized): inf dB
+    MAE (on denormalized): 0.156315
+    Mean Relative Error: 1.19%
+
+Processing variable: U_SYMGT5
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/sample_115_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/sample_115_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/vti_files/sample_115_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/vti_files/sample_115_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/vti_files/sample_115_error_normalized.vti
+  Sample 1/5 for U_SYMGT5:
+    Normalized (log pos) range: [-13.122363, -3.959841]
+    Denormalized (original) range: [0.897520, 0.916584]
+    MSE (on denormalized): 0.113963
+    PSNR (on denormalized): 28.67 dB
+    MAE (on denormalized): 0.331562
+    Mean Relative Error: 7.07%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/sample_116_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/sample_116_comparison_slices_denormalized.png
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/vti_files/sample_116_original_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/vti_files/sample_116_reconstructed_normalized.vti
+Saved VTI file: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/vti_files/sample_116_error_normalized.vti
+  Sample 2/5 for U_SYMGT5:
+    Normalized (log pos) range: [-13.122363, -4.968134]
+    Denormalized (original) range: [0.953090, 0.960044]
+    MSE (on denormalized): 0.260454
+    PSNR (on denormalized): 24.07 dB
+    MAE (on denormalized): 0.505564
+    Mean Relative Error: 8.79%
+    ✓ Saved VTI files in normalized (log pos) scale
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/sample_117_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/sample_117_comparison_slices_denormalized.png
+  Sample 3/5 for U_SYMGT5:
+    Normalized (log pos) range: [-13.122363, -4.486438]
+    Denormalized (original) range: [0.909898, 0.921157]
+    MSE (on denormalized): 0.072378
+    PSNR (on denormalized): 30.13 dB
+    MAE (on denormalized): 0.248167
+    Mean Relative Error: 4.70%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/sample_118_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/sample_118_comparison_slices_denormalized.png
+  Sample 4/5 for U_SYMGT5:
+    Normalized (log pos) range: [-13.122363, -5.116691]
+    Denormalized (original) range: [0.970733, 0.976727]
+    MSE (on denormalized): 0.197134
+    PSNR (on denormalized): 25.12 dB
+    MAE (on denormalized): 0.430063
+    Mean Relative Error: 7.36%
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/sample_119_comparison_slices_normalized.png
+Saved comparison plot: test_all_vars_5x5x5_opt_results_scaleitup/U_SYMGT5/sample_119_comparison_slices_denormalized.png
+  Sample 5/5 for U_SYMGT5:
+    Normalized (log pos) range: [-13.122363, -5.285614]
+    Denormalized (original) range: [1.000368, 1.005430]
+    MSE (on denormalized): 0.022571
+    PSNR (on denormalized): 34.35 dB
+    MAE (on denormalized): 0.105160
+    Mean Relative Error: 1.67%
+
+==================================================
+🎯 FINAL VALIDATION METRICS (5x5x5 MODEL):
+==================================================
+📊 Metrics on NORMALIZED data (what model optimizes):
+Average MSE: 0.169366
+Average PSNR: inf dB
+Average MAE: 0.342453
+Average Correlation: nan
+Average Error Range: [-0.056107, 0.642366]
+
+📊 RELATIVE ERROR ANALYSIS:
+Mean Relative Error: 6.31%
+Max Relative Error: 14.29%
+Median Relative Error: 6.17%
+95th Percentile Relative Error: 10.18%
+99th Percentile Relative Error: 12.46%
+Global Relative Error (norm-based): 6.08%
+RMS Relative Error: 6.81%
+
+==================================================
+📊 PER-VARIABLE METRICS:
+==================================================
+
+Metrics by variable (sorted by MSE, best to worst):
+Variable        MSE          PSNR (dB)    MAE          Mean Rel Err    Samples   
+-------------------------------------------------------------------------------------
+U_B0            0.038362     14.45        0.173627     2.41           % 5         
+U_SYMGT1        0.065712     32.84        0.221680     4.82           % 5         
+U_BETA0         0.077176     19.50        0.212469     3.37           % 5         
+U_GT0           0.087431     31.52        0.252936     5.79           % 5         
+U_SYMAT3        0.104227     29.83        0.282479     12.22          % 5         
+U_GT1           0.108491     inf          0.250586     3.50           % 5         
+U_SYMAT1        0.118369     19.98        0.282140     4.73           % 5         
+U_SYMGT0        0.121684     24.19        0.304367     5.27           % 5         
+U_CHI           0.125081     29.42        0.316754     6.42           % 5         
+U_SYMAT5        0.129043     16.98        0.316128     5.88           % 5         
+U_SYMGT5        0.133300     28.47        0.324103     5.92           % 5         
+U_ALPHA         0.138550     30.41        0.270297     4.33           % 5         
+U_B2            0.152864     inf          0.319615     4.87           % 5         
+U_SYMAT4        0.177072     18.05        0.358542     6.55           % 5         
+U_BETA1         0.179282     23.12        0.394481     6.98           % 5         
+U_SYMGT3        0.184049     inf          0.371997     7.36           % 5         
+U_SYMAT0        0.186256     28.87        0.361240     6.63           % 5         
+U_BETA2         0.203941     10.12        0.402179     7.43           % 5         
+U_K             0.220379     10.45        0.417730     6.29           % 5         
+U_GT2           0.232391     15.45        0.421814     8.16           % 5         
+U_SYMAT2        0.274897     9.71         0.484919     7.49           % 5         
+U_SYMGT4        0.322714     inf          0.452021     7.97           % 5         
+U_B1            0.334732     16.44        0.503491     6.47           % 5         
+U_SYMGT2        0.348779     2.11         0.523280     10.67          % 5         
+
+✅ Best performing variable: U_B0 (MSE: 0.038362)
+❌ Worst performing variable: U_SYMGT2 (MSE: 0.348779)
+
+🚀 COMPRESSION/DECOMPRESSION SPEED ANALYSIS:
+Device: CPU
+Batch Size: 32
+Total Batches Tested: 3
+
+💾 Data Sizes:
+  Original sample: 500 bytes (0.5 KB)
+  Compressed (latent): 64 bytes
+  Compression ratio: 7.8:1
+
+⚡ COMPRESSION (Encoding) Speed:
+  Average: 0.000 ± 0.000 GBps
+  Range: 0.000 - 0.000 GBps
+  Average time: 36.97 ± 0.04 ms
+
+🔓 DECOMPRESSION (Decoding) Speed:
+  Average: 0.000 ± 0.000 GBps
+  Range: 0.000 - 0.000 GBps
+  Average time: 37.10 ± 0.17 ms
+
+🎯 COMPRESSION COMPARISON:
+7x7x7 Model: 21.4:1 compression ratio
+5x5x5 Model: 7.8:1 compression ratio
+Trade-off: Lower compression but potentially better reconstruction quality
+Compression Ratio: 15.6:1
+
+🎯 TEST RESULTS (5% held-out set) saved in: test_all_vars_5x5x5_opt_results_scaleitup
+✅ Unbiased evaluation completed on 120 test samples NEVER seen during training
+📊 Generated dual comparison plots (normalized + denormalized) for all 120 test samples
+🗂️ VTI files saved for first 2 samples of each variable
+🌍 Tested 5 samples for each of 24 variables
+🚀 Speed benchmarking completed on 3 batches:
+   Compression: 0.000 GBps
+   Decompression: 0.000 GBps
+🔒 Test set is deterministic (seed=42) - same samples across all evaluation runs
+Inference completed!
+Results saved in: test_all_vars_5x5x5_opt_results_scaleitup
+
+📊 To run inference on different architectures:
+   MLP: sbatch --export=MODEL_PATH=./save/swae_all_vars_5x5x5_opt_mlp/best_model.pth,ARCH=mlp,OUTPUT_DIR=results_mlp inference_swae_all_variables_validation_5x5x5_opt.sbatch
+   gMLP: sbatch --export=MODEL_PATH=./save/swae_all_vars_5x5x5_opt_gmlp/best_model.pth,ARCH=gmlp,OUTPUT_DIR=results_gmlp inference_swae_all_variables_validation_5x5x5_opt.sbatch
+   Conv: sbatch --export=MODEL_PATH=./save/swae_all_vars_5x5x5/best_model.pth,ARCH=conv,OUTPUT_DIR=results_conv inference_swae_all_variables_validation_5x5x5_opt.sbatch
+
+🔢 To run with Float8 quantization (MLP/gMLP only):
+   Add --use-float8 flag to python command, or set USE_FLOAT8=true in sbatch export
+   Example: sbatch --export=MODEL_PATH=./save/swae_all_vars_5x5x5_opt_mlp/best_model.pth,ARCH=mlp,OUTPUT_DIR=results_mlp_float8,USE_FLOAT8=true inference_swae_all_variables_validation_5x5x5_opt.sbatch

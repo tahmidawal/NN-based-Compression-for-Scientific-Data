@@ -1,0 +1,16 @@
+AttributeError: 'float' object has no attribute 'log'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/tawal/0723-NN-based-compression-AE/train_swae_u_chi_5x5x5_opt_all_variables.py", line 528, in <module>
+    main() 
+  File "/u/tawal/0723-NN-based-compression-AE/train_swae_u_chi_5x5x5_opt_all_variables.py", line 316, in main
+    train_dataset, val_dataset, test_dataset = create_all_variables_5x5x5_datasets(
+  File "/u/tawal/0723-NN-based-compression-AE/datasets/all_variables_dataset_5x5x5_opt.py", line 425, in create_all_variables_5x5x5_datasets
+    train_dataset = AllVariablesDataset5x5x5(
+  File "/u/tawal/0723-NN-based-compression-AE/datasets/all_variables_dataset_5x5x5_opt.py", line 71, in __init__
+    self._normalize_data()
+  File "/u/tawal/0723-NN-based-compression-AE/datasets/all_variables_dataset_5x5x5_opt.py", line 266, in _normalize_data
+    log_sample = np.log(data_shifted + self.epsilon)  # Double epsilon like reference
+TypeError: loop of ufunc does not support argument 0 of type float which has no callable log method

@@ -1,0 +1,84 @@
+Starting magnitude distribution analysis
+Job ID: 11200562
+Node: gpub073
+Loading data from: /u/tawal/BSSN-Extracted-Data/tt_q01/
+Found 38 HDF5 files
+
+U_ variables to analyze: ['U_ALPHA', 'U_K', 'U_GT0', 'U_GT1', 'U_GT2', 'U_BETA0', 'U_BETA1', 'U_BETA2', 'U_B0', 'U_B1', 'U_B2', 'U_SYMGT0', 'U_SYMGT1', 'U_SYMGT2', 'U_SYMGT3', 'U_SYMGT4', 'U_SYMGT5', 'U_SYMAT0', 'U_SYMAT1', 'U_SYMAT2', 'U_SYMAT3', 'U_SYMAT4', 'U_SYMAT5']
+U_ALPHA: loaded 22366 blocks
+U_K: loaded 22366 blocks
+U_GT0: loaded 22366 blocks
+U_GT1: loaded 22366 blocks
+U_GT2: loaded 22366 blocks
+U_BETA0: loaded 22366 blocks
+U_BETA1: loaded 22366 blocks
+U_BETA2: loaded 22366 blocks
+U_B0: loaded 22366 blocks
+U_B1: loaded 22366 blocks
+U_B2: loaded 22366 blocks
+U_SYMGT0: loaded 22366 blocks
+U_SYMGT1: loaded 22366 blocks
+U_SYMGT2: loaded 22366 blocks
+U_SYMGT3: loaded 22366 blocks
+U_SYMGT4: loaded 22366 blocks
+U_SYMGT5: loaded 22366 blocks
+U_SYMAT0: loaded 22366 blocks
+U_SYMAT1: loaded 22366 blocks
+U_SYMAT2: loaded 22366 blocks
+U_SYMAT3: loaded 22366 blocks
+U_SYMAT4: loaded 22366 blocks
+U_SYMAT5: loaded 22366 blocks
+
+Analyzing U_ALPHA...
+
+Analyzing U_K...
+
+Analyzing U_GT0...
+
+Analyzing U_GT1...
+
+Analyzing U_GT2...
+
+Analyzing U_BETA0...
+
+Analyzing U_BETA1...
+
+Analyzing U_BETA2...
+
+Analyzing U_B0...
+
+Analyzing U_B1...
+
+Analyzing U_B2...
+
+Analyzing U_SYMGT0...
+
+Analyzing U_SYMGT1...
+
+Analyzing U_SYMGT2...
+
+Analyzing U_SYMGT3...
+
+Analyzing U_SYMGT4...
+
+Analyzing U_SYMGT5...
+
+Analyzing U_SYMAT0...
+
+Analyzing U_SYMAT1...
+
+Analyzing U_SYMAT2...
+
+Analyzing U_SYMAT3...
+
+Analyzing U_SYMAT4...
+
+Analyzing U_SYMAT5...
+
+Analyzing all variables combined...
+
+Plots and summary saved to magnitude_distributions/
+
+Analysis complete!
+Analysis completed!
+Results saved in: magnitude_distributions/

@@ -245,21 +245,43 @@ def benchmark_model_speed(model, eval_dataset, device, num_samples=50, batch_siz
     return speed_results
 
 
-def check_and_scale_sample(data, threshold=1e-7, scale_factor=1e4):
+def check_and_scale_sample(data, use_scaleitup=False, scale_target=1e-3):
     """
     Check if sample needs scaling and apply scaling if necessary.
     Returns: scaled_data, needs_scaling (bool), actual_scale_factor
     """
-    data_range = np.max(data) - np.min(data)
-    data_max_abs = np.max(np.abs(data))
-    
-    # Check if data needs scaling
-    if data_range < threshold and data_max_abs < threshold:
-        # Scale up by scale_factor
-        return data * scale_factor, True, scale_factor
+    if not use_scaleitup:
+        # Original scaling logic (disabled by default)
+        data_range = np.max(data) - np.min(data)
+        data_max_abs = np.max(np.abs(data))
+        threshold = 1e-7
+        scale_factor = 1e4
+        
+        # Check if data needs scaling
+        if data_range < threshold and data_max_abs < threshold:
+            # Scale up by scale_factor
+            return data * scale_factor, True, scale_factor
+        else:
+            # No scaling needed
+            return data, False, 1.0
     else:
-        # No scaling needed
-        return data, False, 1.0
+        # New scaleitup logic based on magnitude ranges
+        data_abs = np.abs(data)
+        mean_magnitude = np.mean(data_abs)  # Use mean instead of max
+        
+        # Calculate scale factor to bring mean magnitude to scale_target
+        if mean_magnitude < scale_target:
+            # Need to scale up
+            scale_factor = scale_target / mean_magnitude
+            
+            # Round to nearest power of 10 for cleaner folder names
+            scale_factor_log = np.log10(scale_factor)
+            scale_factor = 10 ** round(scale_factor_log)
+            
+            return data * scale_factor, True, scale_factor
+        else:
+            # Normal values: no scaling needed
+            return data, False, 1.0
 
 
 def calculate_metrics(original, reconstructed):
@@ -452,15 +474,38 @@ def plot_comparison_slices(original, reconstructed, error, output_dir, sample_id
 
 
 def save_validation_results(original_norm, reconstructed_norm, original_denorm, reconstructed_denorm, 
-                           output_dir, sample_idx, save_vti=False, var_name=None):
+                           output_dir, sample_idx, save_vti=False, var_name=None, scale_factor=1.0):
     """Save validation results as VTI files and comparison plots (no HDF5)"""
-    # Create variable-specific subdirectory
-    if var_name:
-        var_output_dir = os.path.join(output_dir, var_name)
-        os.makedirs(var_output_dir, exist_ok=True)
+    # Determine subdirectory based on scaling factor
+    if scale_factor == 1.0:
+        scale_subdir = "no_scaling"
+    elif scale_factor == 1e1:
+        scale_subdir = "scaled_1e1"
+    elif scale_factor == 1e2:
+        scale_subdir = "scaled_1e2"
+    elif scale_factor == 1e3:
+        scale_subdir = "scaled_1e3"
+    elif scale_factor == 1e4:
+        scale_subdir = "scaled_1e4"
+    elif scale_factor == 1e5:
+        scale_subdir = "scaled_1e5"
+    elif scale_factor == 1e6:
+        scale_subdir = "scaled_1e6"
+    elif scale_factor == 1e7:
+        scale_subdir = "scaled_1e7"
+    elif scale_factor == 1e8:
+        scale_subdir = "scaled_1e8"
+    elif scale_factor == 1e9:
+        scale_subdir = "scaled_1e9"
     else:
-        var_output_dir = output_dir
-        os.makedirs(output_dir, exist_ok=True)
+        scale_subdir = f"scaled_{scale_factor:.0e}"
+    
+    # Create directory structure: output_dir/scale_subdir/var_name
+    if var_name:
+        var_output_dir = os.path.join(output_dir, scale_subdir, var_name)
+    else:
+        var_output_dir = os.path.join(output_dir, scale_subdir)
+    os.makedirs(var_output_dir, exist_ok=True)
     
     # Calculate errors for both scales
     error_norm = original_norm - reconstructed_norm
@@ -513,6 +558,10 @@ def main():
                         help='Use Float8 quantized model for inference')
     parser.add_argument('--exclude-vars', type=str, nargs='*', default=[],
                         help='List of variables to exclude from testing')
+    parser.add_argument('--scaleitup', action='store_true',
+                        help='Scale up samples with tiny magnitudes before processing')
+    parser.add_argument('--scale-target', type=float, default=1e-3,
+                        help='Target magnitude for scaling (default: 1e-3)')
     
     args = parser.parse_args()
     
@@ -654,6 +703,17 @@ def main():
     print("      Metrics are calculated on denormalized (original physical units) data")
     all_metrics = []
     per_variable_metrics = {}
+    metrics_by_scaling = {
+        'no_scaling': [],
+        'scaled_1e2': [],
+        'scaled_1e3': [],
+        'scaled_1e4': [],
+        'scaled_1e5': [],
+        'scaled_1e6': [],
+        'scaled_1e7': [],
+        'scaled_1e8': [],
+        'scaled_1e9': []
+    }
     
     # First, collect indices for each variable type
     variable_indices = {}
@@ -695,16 +755,20 @@ def main():
                     original_denorm_prescale = sample_numpy
                 
                 # Check if sample needs scaling
-                scaled_denorm, needs_scaling, scale_factor = check_and_scale_sample(original_denorm_prescale)
+                scaled_denorm, needs_scaling, scale_factor = check_and_scale_sample(original_denorm_prescale, use_scaleitup=args.scaleitup, scale_target=args.scale_target)
                 
                 if needs_scaling:
-                    print(f"    Sample {i+1} needs scaling: range={np.max(original_denorm_prescale)-np.min(original_denorm_prescale):.2e}, "
-                          f"max_abs={np.max(np.abs(original_denorm_prescale)):.2e}, scale_factor={scale_factor}")
+                    if args.scaleitup:
+                        print(f"    Sample {i+1} scaled up: mean_magnitude={np.mean(np.abs(original_denorm_prescale)):.2e}, "
+                              f"scale_factor={scale_factor:.0e}")
+                    else:
+                        print(f"    Sample {i+1} needs scaling: range={np.max(original_denorm_prescale)-np.min(original_denorm_prescale):.2e}, "
+                              f"max_abs={np.max(np.abs(original_denorm_prescale)):.2e}, scale_factor={scale_factor}")
                     
                     # Re-normalize the scaled data
                     if hasattr(eval_dataset, 'normalize_method') and eval_dataset.normalize_method == 'pos_log':
                         # Apply pos_log normalization to scaled data
-                        epsilon = 1e-8
+                        epsilon = 1e-6  # Match the dataset's epsilon
                         data_min = scaled_denorm.min()
                         if data_min <= 0:
                             data_shifted = scaled_denorm - data_min + epsilon
@@ -761,8 +825,8 @@ def main():
                         original_denorm = original_normalized
                         reconstructed_denorm = reconstructed_normalized
                 
-                # Calculate metrics on denormalized data (original physical units)
-                metrics = calculate_metrics(original_denorm, reconstructed_denorm)
+                # Calculate metrics on normalized data (what the model actually optimizes)
+                metrics = calculate_metrics(original_normalized, reconstructed_normalized)
             
                 # For VTI files and plots, use normalized data (log pos scale)
                 original = original_normalized
@@ -775,6 +839,11 @@ def main():
                 if var_name not in per_variable_metrics:
                     per_variable_metrics[var_name] = []
                 per_variable_metrics[var_name].append(metrics)
+                
+                # Track metrics by scaling factor
+                scale_key = f'scaled_{scale_factor:.0e}' if scale_factor > 1 else 'no_scaling'
+                if scale_key in metrics_by_scaling:
+                    metrics_by_scaling[scale_key].append(metrics)
             
                 # Determine if this sample should get VTI output (only save a few per variable)
                 save_vti = (i < 2)  # Save first 2 samples per variable as VTI
@@ -788,7 +857,8 @@ def main():
                     output_dir=args.output_dir,
                     sample_idx=total_processed,
                     save_vti=save_vti,
-                    var_name=var_name
+                    var_name=var_name,
+                    scale_factor=scale_factor
                 )
             
                 # Print progress
@@ -812,9 +882,27 @@ def main():
         for key in all_metrics[0].keys()
     }
     
+    # Print metrics by scaling factor
+    print("\n" + "="*50)
+    print("📊 METRICS BY SCALING FACTOR:")
+    print("="*50)
+    
+    for scale_key, scale_metrics in metrics_by_scaling.items():
+        if scale_metrics:
+            scale_avg = {
+                key: np.mean([m[key] for m in scale_metrics])
+                for key in scale_metrics[0].keys()
+            }
+            print(f"\n{scale_key.upper()} ({len(scale_metrics)} samples):")
+            print(f"  MSE: {scale_avg['mse']:.6f}")
+            print(f"  PSNR: {scale_avg['psnr']:.2f} dB")
+            print(f"  MAE: {scale_avg['mae']:.6f}")
+            print(f"  Correlation: {scale_avg['correlation']:.6f}")
+    
     print("\n" + "="*50)
     print("🎯 FINAL VALIDATION METRICS (5x5x5 MODEL):")
     print("="*50)
+    print("📊 Metrics on NORMALIZED data (what model optimizes):")
     print(f"Average MSE: {avg_metrics['mse']:.6f}")
     print(f"Average PSNR: {avg_metrics['psnr']:.2f} dB")
     print(f"Average MAE: {avg_metrics['mae']:.6f}")
@@ -902,6 +990,22 @@ def main():
         f.write("="*40 + "\n")
         f.write("Model: SWAE 3D 5x5x5 with FIXED per-sample pos_log normalization\n")
         f.write(f"Timestamp: {args.output_dir.split('_')[-2:]}\n\n")
+        
+        # Write metrics by scaling factor
+        f.write("📊 METRICS BY SCALING FACTOR:\n")
+        f.write("="*40 + "\n")
+        for scale_key, scale_metrics in metrics_by_scaling.items():
+            if scale_metrics:
+                scale_avg = {
+                    key: np.mean([m[key] for m in scale_metrics])
+                    for key in scale_metrics[0].keys()
+                }
+                f.write(f"\n{scale_key.upper()} ({len(scale_metrics)} samples):\n")
+                f.write(f"  MSE: {scale_avg['mse']:.6f}\n")
+                f.write(f"  PSNR: {scale_avg['psnr']:.2f} dB\n")
+                f.write(f"  MAE: {scale_avg['mae']:.6f}\n")
+                f.write(f"  Correlation: {scale_avg['correlation']:.6f}\n")
+        f.write("\n")
         
         f.write("Core Quality Metrics:\n")
         f.write("-"*20 + "\n")

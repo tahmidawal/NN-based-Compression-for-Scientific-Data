@@ -1,0 +1,126 @@
+🎯 5x5x5 MODEL Validation Metrics:
+========================================
+Model: SWAE 3D 5x5x5 with FIXED per-sample pos_log normalization
+Timestamp: ['to', '1.1e-2']
+
+📊 METRICS BY SCALING FACTOR:
+========================================
+
+NO_SCALING (77 samples):
+  MSE: 0.025254
+  PSNR: inf dB
+  MAE: 0.071451
+  Correlation: nan
+
+Core Quality Metrics:
+--------------------
+mse: 0.06287210434675217
+psnr: inf
+mae: 0.13741937279701233
+correlation: nan
+
+Relative Error Analysis:
+-------------------------
+mean_relative_error_percent: 2.98%
+max_relative_error_percent: 17.28%
+median_relative_error: 2.64%
+p95_relative_error: 6.35%
+p99_relative_error: 11.19%
+global_relative_error_percent: 3.75%
+rms_relative_error_percent: 3.76%
+
+All Metrics (Complete):
+-------------------------
+mse: 0.06287210434675217
+psnr: inf
+mae: 0.13741937279701233
+correlation: nan
+min_error: -0.21110893785953522
+max_error: 0.78948575258255
+mean_error: 0.10719170421361923
+std_error: 0.1192951574921608
+mean_relative_error: 0.029799723997712135
+mean_relative_error_percent: 2.9799724832507004
+max_relative_error: 0.1728135496377945
+max_relative_error_percent: 17.281353847744565
+std_relative_error: 0.02243104949593544
+median_relative_error: 0.02639712406041023
+p95_relative_error: 0.063507984795433
+p99_relative_error: 0.11187838020555993
+global_relative_error: 0.03745621664626209
+global_relative_error_percent: 3.7456216646262095
+rms_relative_error: 0.037642136216163635
+rms_relative_error_percent: 3.7642139113449957
+
+Model Configuration:
+--------------------
+Compression Ratio: 15.6:1
+Latent Dimension: 8
+Lambda Regularization: 1.0
+
+Speed Performance Analysis:
+------------------------------
+Device: CUDA
+Batch Size: 32
+Total Batches Tested: 3
+
+Data Sizes:
+Original sample: 500 bytes (0.5 KB)
+Compressed (latent): 64 bytes
+Compression ratio: 7.8:1
+
+Compression (Encoding) Speed:
+Average: 0.166 ± 0.001 GBps
+Range: 0.165 - 0.167 GBps
+Average time: 0.10 ± 0.00 ms
+
+Decompression (Decoding) Speed:
+Average: 0.172 ± 0.000 GBps
+Range: 0.171 - 0.172 GBps
+Average time: 0.09 ± 0.00 ms
+
+Comparison Analysis:
+--------------------
+All Variables 5x5x5 Model: 15.6:1 compression ratio
+Training on all 30 variables provides diverse compression patterns
+
+Speed Performance Summary:
+-------------------------
+Compression Speed: 0.166 GBps
+Decompression Speed: 0.172 GBps
+Total throughput for round-trip: 0.166 GBps
+Samples/second (compression): 332,881
+Samples/second (decompression): 343,044
+
+
+PER-VARIABLE METRICS:
+==================================================
+Variable        MSE          PSNR (dB)    MAE          Mean Rel Err    Samples   
+-------------------------------------------------------------------------------------
+U_CHI           0.000350     53.69        0.013408     0.29           % 5         
+U_ALPHA         0.000877     48.69        0.020978     0.39           % 5         
+U_SYMGT3        0.001087     inf          0.020405     0.40           % 5         
+U_SYMGT1        0.001863     48.39        0.028323     0.62           % 5         
+U_GT0           0.002515     49.72        0.030130     0.62           % 5         
+U_BETA1         0.002802     50.39        0.026138     0.56           % 5         
+U_SYMAT0        0.002828     45.50        0.032904     0.57           % 5         
+U_SYMGT5        0.002964     46.97        0.034979     0.61           % 5         
+U_SYMGT0        0.024242     39.46        0.075358     0.99           % 5         
+U_SYMAT2        0.038006     26.86        0.120870     2.87           % 5         
+U_SYMAT3        0.046284     37.62        0.097203     3.37           % 5         
+U_K             0.049678     23.80        0.115069     2.67           % 5         
+U_BETA0         0.052209     26.41        0.115842     2.68           % 5         
+U_SYMAT1        0.060270     26.41        0.120921     2.77           % 5         
+U_B1            0.060834     25.23        0.144474     2.92           % 5         
+U_SYMAT5        0.063222     24.05        0.148432     3.44           % 5         
+U_B0            0.087895     -1.37        0.214472     4.21           % 5         
+U_GT1           0.115793     inf          0.255096     5.34           % 5         
+U_GT2           0.119144     20.12        0.258819     5.84           % 5         
+U_SYMGT2        0.126920     7.20         0.269054     5.79           % 5         
+U_BETA2         0.130310     7.92         0.278469     5.58           % 5         
+U_SYMGT4        0.137113     inf          0.283085     5.68           % 5         
+U_B2            0.141494     inf          0.295611     6.57           % 5         
+U_SYMAT4        0.240231     17.83        0.298025     6.74           % 5         
+
+✅ Best performing variable: U_CHI (MSE: 0.000350)
+❌ Worst performing variable: U_SYMAT4 (MSE: 0.240231)

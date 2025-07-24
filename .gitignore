@@ -1,62 +1,62 @@
-# Directories to exclude
-load/
-save/
-logs/
-results/
-outputs/
-__pycache__/
-venv/
+# # Directories to exclude
+# load/
+# save/
+# logs/
+# results/
+# outputs/
+# __pycache__/
+# venv/
 
-# Python cache files
-*.pyc
-*.pyo
-*.pyd
-__pycache__/
-*.so
+# # Python cache files
+# *.pyc
+# *.pyo
+# *.pyd
+# __pycache__/
+# *.so
 
-# Virtual environment
-venv/
-env/
-ENV/
+# # Virtual environment
+# venv/
+# env/
+# ENV/
 
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
+# # IDE files
+# .vscode/
+# .idea/
+# *.swp
+# *.swo
 
-# OS files
-.DS_Store
-Thumbs.db
+# # OS files
+# .DS_Store
+# Thumbs.db
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
+# # Jupyter Notebook checkpoints
+# .ipynb_checkpoints/
 
-# Model checkpoints and large files
-*.pth
-*.ckpt
-*.h5
-*.pkl
-*.joblib
+# # Model checkpoints and large files
+# *.pth
+# *.ckpt
+# *.h5
+# *.pkl
+# *.joblib
 
-# Data files
-*.csv
-*.json
-*.hdf5
-*.npy
-*.npz
+# # Data files
+# *.csv
+# *.json
+# *.hdf5
+# *.npy
+# *.npz
 
-# Log files
-*.log
-*.out
-*.err
+# # Log files
+# *.log
+# *.out
+# *.err
 
-# Image files (keeping sample images but excluding generated ones)
-results/
-outputs/
-math_function_sample_*.png
+# # Image files (keeping sample images but excluding generated ones)
+# results/
+# outputs/
+# math_function_sample_*.png
 
-# Temporary files
-*.tmp
-*.temp
-.cache/ 
+# # Temporary files
+# *.tmp
+# *.temp
+# .cache/ 

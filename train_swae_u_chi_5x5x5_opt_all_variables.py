@@ -86,7 +86,7 @@ def train_epoch(model, train_loader, optimizer, device, epoch, writer=None):
         loss.backward()
         
         # Gradient clipping for stability (increased for new data distribution)
-        torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=2.0)
+        torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)  # Reduced from 2.0 for better stability with small values
         
         optimizer.step()
         
@@ -236,6 +236,10 @@ def main():
                         help='Normalization method')
     parser.add_argument('--exclude-vars', type=str, nargs='*', default=[],
                         help='List of variables to exclude from training')
+    parser.add_argument('--scaleitup', action='store_true',
+                        help='Scale up samples with tiny magnitudes before poslog')
+    parser.add_argument('--scale-target', type=float, default=2.5e-3,
+                        help='Target magnitude for scaling (default: 2.5e-3 for poslog ~-6)')
     
     # Model parameters (following Table VI for 3D data)
     parser.add_argument('--latent-dim', type=int, default=16,
@@ -315,7 +319,9 @@ def main():
         val_ratio=0.15,  # 15% for validation during training
         normalize=args.normalize,
         normalize_method=args.normalize_method,
-        exclude_vars=args.exclude_vars
+        exclude_vars=args.exclude_vars,
+        scaleitup=args.scaleitup,
+        scale_target=args.scale_target
     )
     
     print(f"🔄 Data splits: Train={len(train_dataset)} (80%), Val={len(val_dataset)} (15%), Test={len(test_dataset)} (5%)")

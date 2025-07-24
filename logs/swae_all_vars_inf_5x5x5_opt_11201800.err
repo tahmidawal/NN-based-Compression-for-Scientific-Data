@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/u/tawal/0723-NN-based-compression-AE/inference_swae_all_variables_validation_5x5x5_opt_scaled.py", line 1110, in <module>
+    main() 
+  File "/u/tawal/0723-NN-based-compression-AE/inference_swae_all_variables_validation_5x5x5_opt_scaled.py", line 612, in main
+    checkpoint = torch.load(args.model_path, map_location=device)
+  File "/u/tawal/.pyenv/versions/miniconda3-3.10-25.1.1-2/lib/python3.10/site-packages/torch/serialization.py", line 699, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/u/tawal/.pyenv/versions/miniconda3-3.10-25.1.1-2/lib/python3.10/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/u/tawal/.pyenv/versions/miniconda3-3.10-25.1.1-2/lib/python3.10/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './save/swae_all_vars_5x5x5_opt_mlp_scaleitup/best_model.pth'

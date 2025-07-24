@@ -29,7 +29,8 @@ class AllVariablesDataset5x5x5(Dataset):
     """
     
     def __init__(self, data_folder, split='train', train_ratio=0.8, val_ratio=0.15,
-                 normalize=True, normalize_method='minmax', shuffle=True, seed=42, exclude_vars=None):
+                 normalize=True, normalize_method='minmax', shuffle=True, seed=42, exclude_vars=None,
+                 scaleitup=False, scale_target=2.5e-3):
         self.data_folder = data_folder
         self.split = split
         self.train_ratio = train_ratio
@@ -40,6 +41,8 @@ class AllVariablesDataset5x5x5(Dataset):
         self.shuffle = shuffle
         self.seed = seed
         self.exclude_vars = exclude_vars if exclude_vars is not None else []
+        self.scaleitup = scaleitup
+        self.scale_target = scale_target
         
         # Validate ratios
         if self.test_ratio < 0:
@@ -214,24 +217,63 @@ class AllVariablesDataset5x5x5(Dataset):
         elif self.normalize_method == 'pos_log':
             # FIXED: Positive shift then log transformation (PER-SAMPLE, not global)
             # This ensures we get the expected statistical properties (mean~4.5, std~1.1)
-            self.epsilon = 1e-8
+            self.epsilon = np.float64(1e-6)  # Increased from 1e-8 for better numerical stability
             
             # Store transformation parameters for each sample
             self.sample_data_mins = []
+            self.sample_scale_factors = []
             normalized_data = []
             
             print(f"Applying per-sample positive-shift log normalization...")
+            if self.scaleitup:
+                print(f"  With scaleitup preprocessing (target: {self.scale_target})")
             
             for i in range(self.data.shape[0]):
-                sample = self.data[i]  # Shape: (1, 5, 5, 5)
+                sample = self.data[i].copy()  # Shape: (1, 5, 5, 5) - make a copy to avoid modifying original
+                
+                # Apply scaleitup if enabled
+                scale_factor = 1.0
+                if self.scaleitup:
+                    # Calculate mean magnitude
+                    sample_abs = np.abs(sample)
+                    mean_magnitude = np.mean(sample_abs)
+                    
+                    # Scale up if needed (skip if sample is all zeros)
+                    if mean_magnitude > 0 and mean_magnitude < self.scale_target:
+                        scale_factor = self.scale_target / mean_magnitude
+                        # Round to nearest power of 10
+                        scale_factor_log = np.log10(scale_factor)
+                        # Clamp to reasonable range to avoid overflow
+                        scale_factor_log = np.clip(scale_factor_log, -20, 20)
+                        scale_factor = 10 ** round(scale_factor_log)
+                        sample = np.asarray(sample * scale_factor, dtype=np.float64)
                 
                 # Apply per-sample transformation
-                sample_min = sample.min()
-                data_shifted = sample - sample_min + self.epsilon
-                log_sample = np.log(data_shifted + self.epsilon)  # Double epsilon like reference
+                # Ensure sample is a numpy array with proper shape
+                if not isinstance(sample, np.ndarray):
+                    sample = np.asarray(sample, dtype=np.float64)
+                
+                # Ensure sample has the right shape (1, 5, 5, 5)
+                if sample.ndim != 4:
+                    print(f"Warning: sample {i} has unexpected shape {sample.shape}")
+                    
+                sample_min = float(sample.min())  # Convert to Python float
+                
+                # Shift data - ensure result is numpy array
+                data_shifted = np.asarray(sample - sample_min, dtype=np.float64)
+                
+                # Add epsilon separately to ensure numpy array result
+                log_input = np.asarray(data_shifted + self.epsilon, dtype=np.float64)
+                
+                # Final safety check and log
+                if not isinstance(log_input, np.ndarray):
+                    log_input = np.asarray(log_input, dtype=np.float64)
+                
+                log_sample = np.log(log_input)
                 
                 # Store parameters for denormalization
                 self.sample_data_mins.append(sample_min)
+                self.sample_scale_factors.append(scale_factor)
                 normalized_data.append(log_sample)
             
             # Replace data with normalized version
@@ -240,6 +282,11 @@ class AllVariablesDataset5x5x5(Dataset):
             print(f"Applied per-sample positive-shift log normalization:")
             print(f"  epsilon={self.epsilon}")
             print(f"  Per-sample data_min range: [{min(self.sample_data_mins):.6f}, {max(self.sample_data_mins):.6f}]")
+            if self.scaleitup:
+                unique_scales = np.unique(self.sample_scale_factors)
+                scale_counts = {scale: np.sum(np.array(self.sample_scale_factors) == scale) 
+                               for scale in unique_scales}
+                print(f"  Scale factors applied: {scale_counts}")
             print(f"  Result should have mean~4.5, std~1.1 properties")
             
         elif self.normalize_method == 'none':
@@ -292,7 +339,15 @@ class AllVariablesDataset5x5x5(Dataset):
                 if sample_idx is not None and 0 <= sample_idx < len(self.sample_data_mins):
                     # Use the correct sample's parameters
                     sample_min = self.sample_data_mins[sample_idx]
-                    return np.exp(data) - self.epsilon + sample_min
+                    result = np.exp(data) - self.epsilon + sample_min
+                    
+                    # Apply inverse scaling if scaleitup was used
+                    if hasattr(self, 'sample_scale_factors') and len(self.sample_scale_factors) > sample_idx:
+                        scale_factor = self.sample_scale_factors[sample_idx]
+                        if scale_factor > 1.0:
+                            result = result / scale_factor
+                    
+                    return result
                 else:
                     # Fallback: return in log scale with warning
                     print(f"Warning: No valid sample_idx provided for denormalization. Returning log-scale data.")
@@ -318,6 +373,13 @@ class AllVariablesDataset5x5x5(Dataset):
             if sample_idx < len(self.sample_data_mins):
                 sample_min = self.sample_data_mins[sample_idx]
                 denormalized = np.exp(data) - self.epsilon + sample_min
+                
+                # Apply inverse scaling if scaleitup was used
+                if hasattr(self, 'sample_scale_factors') and sample_idx < len(self.sample_scale_factors):
+                    scale_factor = self.sample_scale_factors[sample_idx]
+                    if scale_factor > 1.0:
+                        denormalized = denormalized / scale_factor
+                
                 denormalized_batch.append(denormalized)
             else:
                 print(f"Warning: Sample index {sample_idx} out of range, returning log-scale data")
@@ -326,7 +388,7 @@ class AllVariablesDataset5x5x5(Dataset):
         return np.array(denormalized_batch)
 
 
-def create_all_variables_5x5x5_datasets(data_folder, train_ratio=0.8, val_ratio=0.15, normalize=True, normalize_method='minmax', shuffle=True, seed=42, exclude_vars=None):
+def create_all_variables_5x5x5_datasets(data_folder, train_ratio=0.8, val_ratio=0.15, normalize=True, normalize_method='minmax', shuffle=True, seed=42, exclude_vars=None, scaleitup=False, scale_target=2.5e-3):
     """
     Create train, validation, and test datasets for U_CHI 5x5x5 data
     
@@ -375,7 +437,9 @@ def create_all_variables_5x5x5_datasets(data_folder, train_ratio=0.8, val_ratio=
         normalize_method=normalize_method,
         shuffle=shuffle,
         seed=seed,
-        exclude_vars=exclude_vars
+        exclude_vars=exclude_vars,
+        scaleitup=scaleitup,
+        scale_target=scale_target
     )
     
     val_dataset = AllVariablesDataset5x5x5(
@@ -387,7 +451,9 @@ def create_all_variables_5x5x5_datasets(data_folder, train_ratio=0.8, val_ratio=
         normalize_method=normalize_method,
         shuffle=shuffle,
         seed=seed,
-        exclude_vars=exclude_vars
+        exclude_vars=exclude_vars,
+        scaleitup=scaleitup,
+        scale_target=scale_target
     )
     
     test_dataset = AllVariablesDataset5x5x5(
@@ -399,7 +465,9 @@ def create_all_variables_5x5x5_datasets(data_folder, train_ratio=0.8, val_ratio=
         normalize_method=normalize_method,
         shuffle=shuffle,
         seed=seed,
-        exclude_vars=exclude_vars
+        exclude_vars=exclude_vars,
+        scaleitup=scaleitup,
+        scale_target=scale_target
     )
     
     return train_dataset, val_dataset, test_dataset

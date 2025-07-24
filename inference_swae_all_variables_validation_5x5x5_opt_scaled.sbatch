@@ -2,7 +2,7 @@
 #SBATCH --job-name=swae_all_vars_inf_5x5x5_opt
 #SBATCH --output=logs/swae_all_vars_inf_5x5x5_opt_%j.out
 #SBATCH --error=logs/swae_all_vars_inf_5x5x5_opt_%j.err
-#SBATCH --partition=gpuA100x4
+#SBATCH --partition=gpuA40x4
 #SBATCH --account=bcqs-delta-gpu
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=1
@@ -27,17 +27,27 @@ MODEL_PATH=${MODEL_PATH:-"./save/swae_all_vars_5x5x5_opt_mlp/best_model.pth"}
 ARCH=${ARCH:-"mlp"}
 OUTPUT_DIR=${OUTPUT_DIR:-"test_all_vars_5x5x5_opt_results"}
 USE_FLOAT8=${USE_FLOAT8:-"false"}
+SCALEITUP=${SCALEITUP:-"true"}
+SCALE_TARGET=${SCALE_TARGET:-"1e-3"}
 
 echo "Model path: $MODEL_PATH"
 echo "Architecture: $ARCH"
 echo "Output directory: $OUTPUT_DIR"
 echo "Use Float8 quantization: $USE_FLOAT8"
+echo "Scale it up: $SCALEITUP"
+echo "Scale target: $SCALE_TARGET"
 
 # Run inference with speed benchmarking
 if [ "$USE_FLOAT8" = "true" ]; then
     FLOAT8_FLAG="--use-float8"
 else
     FLOAT8_FLAG=""
+fi
+
+if [ "$SCALEITUP" = "true" ]; then
+    SCALEITUP_FLAG="--scaleitup"
+else
+    SCALEITUP_FLAG=""
 fi
 
 python inference_swae_all_variables_validation_5x5x5_opt_scaled.py \
@@ -51,7 +61,9 @@ python inference_swae_all_variables_validation_5x5x5_opt_scaled.py \
     --normalize-method pos_log \
     --device auto \
     --exclude-vars \
-    $FLOAT8_FLAG
+    --scale-target $SCALE_TARGET \
+    $FLOAT8_FLAG \
+    $SCALEITUP_FLAG
 
 echo "Inference completed!"
 echo "Results saved in: $OUTPUT_DIR"

@@ -1,0 +1,4 @@
+/u/tawal/.pyenv/versions/miniconda3-3.10-25.1.1-2/lib/python3.10/site-packages/numpy/lib/function_base.py:2854: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/u/tawal/.pyenv/versions/miniconda3-3.10-25.1.1-2/lib/python3.10/site-packages/numpy/lib/function_base.py:2855: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]

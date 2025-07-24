@@ -1,0 +1,15 @@
+/u/tawal/.pyenv/versions/miniconda3-3.10-25.1.1-2/lib/python3.10/site-packages/numpy/lib/function_base.py:2854: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/u/tawal/.pyenv/versions/miniconda3-3.10-25.1.1-2/lib/python3.10/site-packages/numpy/lib/function_base.py:2855: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+Traceback (most recent call last):
+  File "/u/tawal/0723-NN-based-compression-AE/inference_swae_all_variables_validation_5x5x5_opt_scaled.py", line 1110, in <module>
+    main() 
+  File "/u/tawal/0723-NN-based-compression-AE/inference_swae_all_variables_validation_5x5x5_opt_scaled.py", line 852, in main
+    save_validation_results(
+  File "/u/tawal/0723-NN-based-compression-AE/inference_swae_all_variables_validation_5x5x5_opt_scaled.py", line 508, in save_validation_results
+    os.makedirs(var_output_dir, exist_ok=True)
+  File "/u/tawal/.pyenv/versions/miniconda3-3.10-25.1.1-2/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+OSError: [Errno 122] Disk quota exceeded: 'test_all_vars_5x5x5_opt_results_scaleitup_to_1e-2/no_scaling/U_SYMAT3'
+/var/spool/slurmd/job11201176/slurm_script: line 68: echo: write error: Disk quota exceeded
